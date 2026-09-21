@@ -37,19 +37,19 @@ export default function ConsultationModal({ isOpen, onClose, t, initialService, 
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-slate-900 text-white p-6 border-b border-slate-800 flex justify-between items-center">
+        <div className="bg-white text-slate-900 p-6 border-b border-slate-200 flex justify-between items-center">
           <div>
-            <span className="text-[10px] font-bold text-gold-400 uppercase tracking-widest block">
+            <span className="text-[10px] font-bold text-gold-700 uppercase tracking-widest block">
               LivingKu Advisory
             </span>
-            <h3 className="font-serif text-xl font-bold text-white">
+            <h3 className="font-serif text-xl font-bold text-slate-900">
               {lang === 'id' ? 'Ajukan Konsultasi Proyek' : 'Request Project Consultation'}
             </h3>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="p-1.5 rounded-full text-slate-400 hover:text-slate-800 hover:bg-slate-100 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -143,9 +143,9 @@ export default function ConsultationModal({ isOpen, onClose, t, initialService, 
               <div className="pt-2 flex flex-col gap-2.5">
                 <button
                   type="submit"
-                  className="w-full py-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-gold-300 font-bold text-xs sm:text-sm shadow transition-colors flex items-center justify-center gap-2"
+                  className="w-full py-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-xs sm:text-sm shadow transition-colors flex items-center justify-center gap-2"
                 >
-                  <Send className="w-4 h-4 text-gold-400" />
+                  <Send className="w-4 h-4 text-slate-950" />
                   <span>{t.contact.form.submit}</span>
                 </button>
 

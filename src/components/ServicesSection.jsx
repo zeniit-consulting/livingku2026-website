@@ -92,8 +92,11 @@ export default function ServicesSection({ t, onSelectService }) {
                     <img 
                       src={service.image} 
                       alt={`Layanan ${service.title} - ${service.category} LivingKu Indonesia`}
-                      className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
+                      width="800"
+                      height="600"
+                      decoding="async"
                       loading="lazy"
+                      className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent lg:hidden" />
                     <div className="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded-md text-gold-400 text-xs font-semibold border border-slate-700 flex items-center gap-1.5">

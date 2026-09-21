@@ -38,22 +38,22 @@ export default function PartnersPage({ t, lang, onOpenConsultation }) {
       <Breadcrumb items={breadcrumbs} homeLabel={t.nav.home} />
 
       {/* Header */}
-      <section className="py-14 bg-slate-900 text-white relative overflow-hidden">
+      <section className="py-14 bg-white border-b border-slate-200 relative overflow-hidden">
         <div 
-          className="absolute inset-0 opacity-10 pointer-events-none"
+          className="absolute inset-0 opacity-5 pointer-events-none"
           style={{
             backgroundImage: `radial-gradient(#d7b366 1px, transparent 1px)`,
             backgroundSize: '24px 24px'
           }}
         />
         <div className="wp-container relative z-10 text-center max-w-3xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-widest text-gold-400 bg-gold-500/20 px-3 py-1 rounded-full inline-block mb-3 border border-gold-500/30">
+          <span className="text-xs font-bold uppercase tracking-widest text-gold-700 bg-gold-100/80 px-3 py-1 rounded-full inline-block mb-3 border border-gold-300">
             {t.partners.badge}
           </span>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4">
             {t.partners.title}
           </h1>
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-light">
             {t.partners.subtitle}
           </p>
         </div>
@@ -113,19 +113,19 @@ export default function PartnersPage({ t, lang, onOpenConsultation }) {
           </div>
 
           {/* Supplier Application Box */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-slate-900 text-white border border-slate-800">
-            <h4 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
+          <div className="p-6 sm:p-8 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-slate-900 shadow-sm">
+            <h4 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 mb-2">
               {lang === 'id' ? 'Tertarik Menjadi Mitra Vendor / Suplier LivingKu?' : 'Interested in Becoming a LivingKu Partner / Vendor?'}
             </h4>
-            <p className="text-xs sm:text-sm text-slate-300 mb-6 font-light">
+            <p className="text-xs sm:text-sm text-slate-600 mb-6 font-light">
               {lang === 'id'
                 ? 'Kirimkan profil perusahaan dan katalog material Anda kepada divisi pengadaan LivingKu.'
                 : 'Submit your company deck and product catalog to LivingKu procurement.'}
             </p>
 
             {applied ? (
-              <div className="p-4 rounded-xl bg-emerald-900/50 border border-emerald-500 text-emerald-200 text-xs sm:text-sm flex items-center gap-3">
-                <CheckCircle className="w-5 h-5 text-emerald-400 shrink-0" />
+              <div className="p-4 rounded-xl bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs sm:text-sm flex items-center gap-3">
+                <CheckCircle className="w-5 h-5 text-emerald-600 shrink-0" />
                 <span>
                   {lang === 'id'
                     ? 'Terima kasih! Informasi kemitraan Anda telah diterima divisi pengadaan kami.'
@@ -141,12 +141,12 @@ export default function PartnersPage({ t, lang, onOpenConsultation }) {
                     placeholder={lang === 'id' ? 'Nama Perusahaan / Merk' : 'Company / Brand Name'}
                     value={partnerForm.companyName}
                     onChange={(e) => setPartnerForm({ ...partnerForm, companyName: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-xs sm:text-sm text-white focus:outline-none focus:border-gold-500"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-slate-300 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-gold-500"
                   />
                   <select
                     value={partnerForm.category}
                     onChange={(e) => setPartnerForm({ ...partnerForm, category: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-xs sm:text-sm text-white focus:outline-none focus:border-gold-500"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-slate-300 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-gold-500"
                   >
                     <option value="Material Supplier">Material Supplier</option>
                     <option value="Finishing & Interior Decor">Finishing & Interior Decor</option>
@@ -162,7 +162,7 @@ export default function PartnersPage({ t, lang, onOpenConsultation }) {
                     placeholder={lang === 'id' ? 'Nama Kontak Person' : 'Contact Person'}
                     value={partnerForm.contactPerson}
                     onChange={(e) => setPartnerForm({ ...partnerForm, contactPerson: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-xs sm:text-sm text-white focus:outline-none focus:border-gold-500"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-slate-300 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-gold-500"
                   />
                   <input
                     type="tel"
@@ -170,7 +170,7 @@ export default function PartnersPage({ t, lang, onOpenConsultation }) {
                     placeholder={lang === 'id' ? 'Nomor WhatsApp' : 'WhatsApp Number'}
                     value={partnerForm.phone}
                     onChange={(e) => setPartnerForm({ ...partnerForm, phone: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-slate-800 border border-slate-700 text-xs sm:text-sm text-white focus:outline-none focus:border-gold-500"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-slate-300 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-gold-500"
                   />
                 </div>
 
@@ -178,8 +178,8 @@ export default function PartnersPage({ t, lang, onOpenConsultation }) {
                   type="submit"
                   className="px-6 py-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-xs sm:text-sm shadow transition-colors inline-flex items-center gap-2"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>{lang === 'id' ? 'Kirim Pendaftaran Mitra [Ref: LK-PTR-26]' : 'Submit Partner Inquiry [Ref: LK-PTR-26]'}</span>
+                  <Send className="w-4 h-4 text-slate-950" />
+                  <span>{lang === 'id' ? 'Kirim Pendaftaran Mitra' : 'Submit Partner Inquiry'}</span>
                 </button>
               </form>
             )}

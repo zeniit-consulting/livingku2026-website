@@ -25,22 +25,22 @@ export default function AboutPage({ t, lang, onOpenConsultation }) {
       <Breadcrumb items={breadcrumbs} homeLabel={t.nav.home} />
 
       {/* Header */}
-      <section className="py-14 bg-slate-900 text-white relative overflow-hidden">
+      <section className="py-14 bg-white border-b border-slate-200 relative overflow-hidden">
         <div 
-          className="absolute inset-0 opacity-10 pointer-events-none"
+          className="absolute inset-0 opacity-5 pointer-events-none"
           style={{
             backgroundImage: `radial-gradient(#d7b366 1px, transparent 1px)`,
             backgroundSize: '24px 24px'
           }}
         />
         <div className="wp-container relative z-10 text-center max-w-3xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-widest text-gold-400 bg-gold-500/20 px-3 py-1 rounded-full inline-block mb-3 border border-gold-500/30">
+          <span className="text-xs font-bold uppercase tracking-widest text-gold-700 bg-gold-100/80 px-3 py-1 rounded-full inline-block mb-3 border border-gold-300">
             {about.badge}
           </span>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4">
             {about.title}
           </h1>
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-light">
             {about.subtitle}
           </p>
         </div>
@@ -65,23 +65,23 @@ export default function AboutPage({ t, lang, onOpenConsultation }) {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="p-6 rounded-2xl bg-slate-900 text-white border border-slate-800 space-y-6">
+              <div className="p-6 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-slate-900 space-y-6 shadow-sm">
                 <div>
-                  <div className="flex items-center gap-2 text-gold-400 font-serif font-bold text-lg mb-1">
-                    <Target className="w-5 h-5" />
+                  <div className="flex items-center gap-2 text-gold-800 font-serif font-bold text-lg mb-1">
+                    <Target className="w-5 h-5 text-gold-600" />
                     <span>{lang === 'id' ? 'Visi Kami' : 'Our Vision'}</span>
                   </div>
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {about.vision}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-slate-800">
-                  <div className="flex items-center gap-2 text-gold-400 font-serif font-bold text-lg mb-1">
-                    <Compass className="w-5 h-5" />
+                <div className="pt-4 border-t border-amber-200/80">
+                  <div className="flex items-center gap-2 text-gold-800 font-serif font-bold text-lg mb-1">
+                    <Compass className="w-5 h-5 text-gold-600" />
                     <span>{lang === 'id' ? 'Misi Kami' : 'Our Mission'}</span>
                   </div>
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {about.mission}
                   </p>
                 </div>
@@ -169,18 +169,18 @@ export default function AboutPage({ t, lang, onOpenConsultation }) {
       </section>
 
       {/* Accreditations & Licenses */}
-      <section className="py-14 bg-slate-900 text-white">
+      <section className="py-14 bg-white border-b border-slate-200 text-slate-900">
         <div className="wp-container max-w-4xl mx-auto text-center space-y-6">
-          <span className="text-xs font-bold uppercase tracking-widest text-gold-400 bg-gold-500/20 px-3 py-1 rounded-full inline-block border border-gold-500/30">
+          <span className="text-xs font-bold uppercase tracking-widest text-gold-700 bg-gold-100/80 px-3 py-1 rounded-full inline-block border border-gold-300">
             {lang === 'id' ? 'Legalitas Firma' : 'Corporate Licenses'}
           </span>
-          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
             {lang === 'id' ? 'Sertifikasi Resmi & Keanggotaan Asosiasi' : 'Official Accreditations & Affiliations'}
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left max-w-2xl mx-auto text-xs text-slate-300 pt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left max-w-2xl mx-auto text-xs text-slate-700 pt-2">
             {about.certifications.map((cert, cIdx) => (
-              <div key={cIdx} className="flex items-center gap-2 p-3 rounded-lg bg-slate-800/80 border border-slate-700">
-                <CheckCircle2 className="w-4 h-4 text-gold-400 shrink-0" />
+              <div key={cIdx} className="flex items-center gap-2 p-3 rounded-lg bg-slate-50 border border-slate-200">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>{cert}</span>
               </div>
             ))}
@@ -192,7 +192,7 @@ export default function AboutPage({ t, lang, onOpenConsultation }) {
               onClick={() => onOpenConsultation('Konsultasi Kredensial Firma (Ref: LK-ABT-26)')}
               className="px-6 py-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-xs sm:text-sm shadow transition-colors"
             >
-              {lang === 'id' ? 'Konsultasi dengan Dewan Pakar [Ref: LK-ABT-26]' : 'Consult with Our Principals [Ref: LK-ABT-26]'}
+              {lang === 'id' ? 'Konsultasi dengan Dewan Pakar' : 'Consult with Our Principals'}
             </button>
           </div>
         </div>

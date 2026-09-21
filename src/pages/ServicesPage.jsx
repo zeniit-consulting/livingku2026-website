@@ -101,22 +101,22 @@ export default function ServicesPage({ t, lang, onOpenConsultation }) {
       <Breadcrumb items={breadcrumbs} homeLabel={t.nav.home} />
 
       {/* Page Header */}
-      <section className="py-14 bg-slate-900 text-white relative overflow-hidden">
+      <section className="py-14 bg-white border-b border-slate-200 relative overflow-hidden">
         <div 
-          className="absolute inset-0 opacity-10 pointer-events-none"
+          className="absolute inset-0 opacity-5 pointer-events-none"
           style={{
             backgroundImage: `radial-gradient(#d7b366 1px, transparent 1px)`,
             backgroundSize: '24px 24px'
           }}
         />
         <div className="wp-container relative z-10 text-center max-w-3xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-widest text-gold-400 bg-gold-500/20 px-3 py-1 rounded-full inline-block mb-3 border border-gold-500/30">
+          <span className="text-xs font-bold uppercase tracking-widest text-gold-700 bg-gold-100/80 px-3 py-1 rounded-full inline-block mb-3 border border-gold-300">
             {t.services.badge}
           </span>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4">
             {t.services.title}
           </h1>
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-light">
             {t.services.subtitle}
           </p>
         </div>
@@ -177,6 +177,10 @@ export default function ServicesPage({ t, lang, onOpenConsultation }) {
                       <img
                         src={service.image}
                         alt={`Layanan ${service.title} - Spesifikasi Mutu SNI & Deliverables LivingKu Indonesia`}
+                        width="800"
+                        height="600"
+                        decoding="async"
+                        loading="lazy"
                         className="w-full h-full object-cover object-center"
                       />
                       <div className="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-md text-gold-400 text-xs font-semibold border border-slate-700 flex items-center gap-1.5">
@@ -230,10 +234,10 @@ export default function ServicesPage({ t, lang, onOpenConsultation }) {
                           <button
                             type="button"
                             onClick={() => onOpenConsultation(`${service.title} (Ref: LK-SRV-26)`)}
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-gold-300 font-bold text-xs sm:text-sm shadow-md transition-colors"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-xs sm:text-sm shadow-md transition-colors"
                           >
-                            <CalendarCheck className="w-4 h-4 text-gold-400" />
-                            <span>{lang === 'id' ? 'Pesan Layanan [Ref: LK-SRV-26]' : 'Book Service [Ref: LK-SRV-26]'}</span>
+                            <CalendarCheck className="w-4 h-4 text-slate-950" />
+                            <span>{lang === 'id' ? 'Pesan Layanan' : 'Book Service'}</span>
                           </button>
                         </div>
                       </div>
@@ -283,15 +287,15 @@ export default function ServicesPage({ t, lang, onOpenConsultation }) {
         </section>
 
         {/* Bottom CTA */}
-        <div className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-16 p-8 rounded-2xl bg-amber-50/80 border border-amber-200/90 text-slate-900 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1">
-            <span className="text-[10px] font-mono text-gold-400 bg-slate-800 px-2 py-0.5 rounded border border-slate-700 inline-block mb-1">
-              Ref: LK-SRV-26
+            <span className="text-xs font-bold uppercase tracking-widest text-gold-700 bg-gold-100/70 px-2.5 py-0.5 rounded border border-gold-200 inline-block mb-1">
+              {lang === 'id' ? 'Paket Kustom Terpadu' : 'Custom Bundle'}
             </span>
-            <h4 className="font-serif text-2xl font-bold text-white mb-1">
+            <h4 className="font-serif text-2xl font-bold text-slate-900 mb-1">
               {lang === 'id' ? 'Punya Kebutuhan Khusus atau Paket Kombinasi?' : 'Have Custom Project Requirements?'}
             </h4>
-            <p className="text-xs sm:text-sm text-slate-300">
+            <p className="text-xs sm:text-sm text-slate-600">
               {lang === 'id'
                 ? 'Diskusikan paket lengkap kombinasi Desain + Kontraktor + PMA + Pajak untuk efisiensi biaya maksimal.'
                 : 'Discuss bundled engagements combining architecture, general contracting, PT PMA, and tax advisory.'}
@@ -302,7 +306,7 @@ export default function ServicesPage({ t, lang, onOpenConsultation }) {
             onClick={() => onOpenConsultation('Paket Lengkap Terpadu (Ref: LK-SRV-26)')}
             className="shrink-0 px-6 py-3.5 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-xs sm:text-sm shadow-md transition-colors"
           >
-            {lang === 'id' ? 'Konsultasikan Paket [Ref: LK-SRV-26]' : 'Consult Package [Ref: LK-SRV-26]'}
+            {lang === 'id' ? 'Konsultasikan Paket Terpadu' : 'Consult Integrated Package'}
           </button>
         </div>
       </div>

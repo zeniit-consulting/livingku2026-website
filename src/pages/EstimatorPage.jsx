@@ -74,23 +74,23 @@ export default function EstimatorPage({ t, lang, onOpenConsultation }) {
       <Breadcrumb items={breadcrumbs} homeLabel={t.nav.home} />
 
       {/* Page Header */}
-      <section className="py-14 bg-slate-900 text-white relative overflow-hidden">
+      <section className="py-14 bg-white border-b border-slate-200 relative overflow-hidden">
         <div 
-          className="absolute inset-0 opacity-10 pointer-events-none"
+          className="absolute inset-0 opacity-5 pointer-events-none"
           style={{
             backgroundImage: `radial-gradient(#d7b366 1px, transparent 1px)`,
             backgroundSize: '24px 24px'
           }}
         />
         <div className="wp-container relative z-10 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/20 text-gold-400 text-xs font-semibold mb-3 border border-gold-500/30">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-100/80 text-gold-700 text-xs font-semibold mb-3 border border-gold-300">
             <Calculator className="w-3.5 h-3.5" />
             <span>{lang === 'id' ? 'Kalkulator Investasi Real Time' : 'Real-Time Investment Calculator'}</span>
           </div>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4">
             {lang === 'id' ? 'Simulasi Biaya Konstruksi & Perizinan (RAB)' : 'Interactive Construction & Legal BOQ Simulator'}
           </h1>
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-light">
             {lang === 'id'
               ? 'Dapatkan estimasi akurat berbasis standar AHSP SNI 2026 sebelum menyusun Gambar Kerja Detail (DED).'
               : 'Calculate reliable preliminary budgets benchmarked against official 2026 Indonesian construction standards.'}
@@ -121,11 +121,11 @@ export default function EstimatorPage({ t, lang, onOpenConsultation }) {
           <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
             <table className="w-full text-left border-collapse text-xs sm:text-sm">
               <thead>
-                <tr className="bg-slate-900 text-white">
-                  <th className="p-3 sm:p-4 font-serif font-bold">{lang === 'id' ? 'Komponen Pekerjaan' : 'Element'}</th>
-                  <th className="p-3 sm:p-4 font-serif font-bold text-slate-200">Standar (1.0x)</th>
-                  <th className="p-3 sm:p-4 font-serif font-bold text-gold-400">Premium (1.35x)</th>
-                  <th className="p-3 sm:p-4 font-serif font-bold text-amber-300">Luxury (1.8x)</th>
+                <tr className="bg-slate-100 text-slate-800 border-b border-slate-200">
+                  <th className="p-3 sm:p-4 font-serif font-bold text-slate-900">{lang === 'id' ? 'Komponen Pekerjaan' : 'Element'}</th>
+                  <th className="p-3 sm:p-4 font-serif font-bold text-slate-700">Standar (1.0x)</th>
+                  <th className="p-3 sm:p-4 font-serif font-bold text-gold-700">Premium (1.35x)</th>
+                  <th className="p-3 sm:p-4 font-serif font-bold text-amber-700">Luxury (1.8x)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200">

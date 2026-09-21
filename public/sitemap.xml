@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage / Beranda -->
+  <url>
+    <loc>https://livingku.com/</loc>
+    <lastmod>2026-09-21T12:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://livingku.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://livingku.com/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://livingku.com/" />
+    <image:image>
+      <image:loc>https://livingku.com/images/logo.png</image:loc>
+      <image:title>LivingKu Studio Arsitektur, Kontraktor &amp; Penasihat Legalitas Indonesia</image:title>
+      <image:caption>Official Logo of LivingKu Indonesia</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Halaman Layanan Terpadu -->
+  <url>
+    <loc>https://livingku.com/layanan</loc>
+    <lastmod>2026-09-21T12:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://livingku.com/layanan" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://livingku.com/layanan?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://livingku.com/layanan" />
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1600585154340-be6161a56a0c</image:loc>
+      <image:title>Jasa Desain Interior dan Eksterior LivingKu</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1541888946425-d0fbb186c5f6</image:loc>
+      <image:title>Jasa Konstruksi Kontraktor dan RAB Estimator</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1450133064473-71024230f91b</image:loc>
+      <image:title>Pendirian PT PMA dan Legalitas OSS RBA</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1554224155-8d04cb21cd6c</image:loc>
+      <image:title>Pengurusan Akuntansi dan Pajak PPN 12 Persen</image:title>
+    </image:image>
+  </url>
+
+  <!-- Halaman Simulasi RAB (Estimator Anggaran Proyek) -->
+  <url>
+    <loc>https://livingku.com/simulasi-rab</loc>
+    <lastmod>2026-09-21T12:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://livingku.com/simulasi-rab" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://livingku.com/simulasi-rab?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://livingku.com/simulasi-rab" />
+  </url>
+
+  <!-- Halaman Portofolio Proyek -->
+  <url>
+    <loc>https://livingku.com/portofolio</loc>
+    <lastmod>2026-09-21T12:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://livingku.com/portofolio" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://livingku.com/portofolio?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://livingku.com/portofolio" />
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1613977257363-707ba9348227</image:loc>
+      <image:title>The Coral Horizon Luxury Villa Canggu Bali</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1497366216548-37526070297c</image:loc>
+      <image:title>SCBD Apex Fintech Headquarters Jakarta</image:title>
+    </image:image>
+  </url>
+
+  <!-- Halaman Wawasan & Berita (Blog) -->
+  <url>
+    <loc>https://livingku.com/blog</loc>
+    <lastmod>2026-09-21T12:00:00+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://livingku.com/blog" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://livingku.com/blog?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://livingku.com/blog" />
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1503387762-592deb58ef4e</image:loc>
+      <image:title>Panduan Lengkap Menyusun RAB Bangun Rumah 2026</image:title>
+    </image:image>
+  </url>
+
+  <!-- Halaman Tentang Kami -->
+  <url>
+    <loc>https://livingku.com/tentang-kami</loc>
+    <lastmod>2026-09-21T12:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://livingku.com/tentang-kami" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://livingku.com/tentang-kami?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://livingku.com/tentang-kami" />
+  </url>
+
+  <!-- Halaman Kontak Kami -->
+  <url>
+    <loc>https://livingku.com/kontak</loc>
+    <lastmod>2026-09-21T12:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="id" href="https://livingku.com/kontak" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://livingku.com/kontak?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://livingku.com/kontak" />
+  </url>
+
+</urlset>

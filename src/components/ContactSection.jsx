@@ -65,33 +65,33 @@ export default function ContactSection({ t, preselectedService }) {
           
           {/* Left: Office Information & Direct Channels */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 sm:p-8 rounded-2xl bg-slate-900 text-white border border-slate-800 space-y-6">
+            <div className="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 space-y-6 shadow-sm">
               <div>
-                <span className="text-xs font-bold text-gold-400 uppercase tracking-widest block mb-1">
+                <span className="text-xs font-bold text-gold-700 bg-gold-100/70 px-2.5 py-0.5 rounded border border-gold-200 uppercase tracking-widest inline-block mb-2">
                   Kantor Representatif
                 </span>
-                <h3 className="font-serif text-2xl font-bold text-white">
+                <h3 className="font-serif text-2xl font-bold text-slate-900">
                   LivingKu Advisory Hub
                 </h3>
               </div>
 
-              <div className="space-y-6 text-sm text-slate-300">
+              <div className="space-y-6 text-sm text-slate-600">
                 {t.contact.offices.map((office, idx) => (
-                  <div key={idx} className="space-y-2 pb-5 border-b border-slate-800 last:border-0 last:pb-0">
-                    <div className="flex items-center gap-2 font-bold text-gold-400">
-                      <Building2 className="w-4 h-4" />
+                  <div key={idx} className="space-y-2 pb-5 border-b border-slate-200 last:border-0 last:pb-0">
+                    <div className="flex items-center gap-2 font-bold text-slate-900">
+                      <Building2 className="w-4 h-4 text-gold-600" />
                       <span>{office.city}</span>
                     </div>
-                    <div className="flex items-start gap-2.5 text-xs leading-relaxed text-slate-300">
-                      <MapPin className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                    <div className="flex items-start gap-2.5 text-xs leading-relaxed text-slate-600">
+                      <MapPin className="w-4 h-4 text-gold-600 shrink-0 mt-0.5" />
                       <span>{office.address}</span>
                     </div>
-                    <div className="flex items-center gap-2.5 text-xs text-slate-300">
-                      <Phone className="w-4 h-4 text-gold-500 shrink-0" />
+                    <div className="flex items-center gap-2.5 text-xs text-slate-600">
+                      <Phone className="w-4 h-4 text-gold-600 shrink-0" />
                       <span>{office.phone}</span>
                     </div>
-                    <div className="flex items-center gap-2.5 text-xs text-slate-300">
-                      <Mail className="w-4 h-4 text-gold-500 shrink-0" />
+                    <div className="flex items-center gap-2.5 text-xs text-slate-600">
+                      <Mail className="w-4 h-4 text-gold-600 shrink-0" />
                       <span>{office.email}</span>
                     </div>
                   </div>
@@ -257,9 +257,9 @@ export default function ContactSection({ t, preselectedService }) {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg bg-slate-900 hover:bg-slate-800 text-gold-300 font-bold text-sm shadow-md hover:shadow-lg transition-all"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-sm shadow-md hover:shadow-lg transition-all"
                   >
-                    <Send className="w-4 h-4 text-gold-400" />
+                    <Send className="w-4 h-4 text-slate-950" />
                     <span>{t.contact.form.submit}</span>
                   </button>
                 </div>

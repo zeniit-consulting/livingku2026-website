@@ -1,0 +1,22 @@
+# LivingKu Robots.txt
+# Allow search crawlers full access to public pages and assets
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /dist/
+Disallow: /private/
+
+# Specific search bots allowances
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /
+
+# Canonical XML Sitemap & RSS Feed
+Sitemap: https://livingku.com/sitemap.xml
+Sitemap: https://livingku.com/feed.xml

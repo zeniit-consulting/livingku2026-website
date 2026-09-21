@@ -27,7 +27,7 @@ export default function HomePage({ t, lang, onOpenConsultation }) {
   return (
     <div className="space-y-0">
       {/* Hero Section */}
-      <Hero t={t} onOpenConsultation={onOpenConsultation} />
+      <Hero t={t} lang={lang} onOpenConsultation={onOpenConsultation} />
 
       {/* 4 Core Pillars Value Proposition Strip */}
       <Features t={t} />
@@ -278,16 +278,16 @@ export default function HomePage({ t, lang, onOpenConsultation }) {
         </div>
       </section>
 
-      {/* Fast Consultation Callout with Ref Code LK-HOME-26 */}
-      <section className="py-14 bg-slate-900 text-white">
+      {/* Fast Consultation Callout with Ref Code LK-HOME-26 passed to handler */}
+      <section className="py-14 bg-amber-50/70 border-t border-b border-amber-200/80 text-slate-900">
         <div className="wp-container text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/20 text-gold-400 text-xs font-semibold border border-gold-500/30">
-            <span>Ref: LK-HOME-26</span>
-          </div>
-          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+          <span className="text-xs font-bold uppercase tracking-widest text-gold-700 bg-gold-100/80 px-3 py-1 rounded-full inline-block border border-gold-300">
+            {lang === 'id' ? 'Konsultasi Terpadu' : 'Integrated Advisory'}
+          </span>
+          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
             {lang === 'id' ? 'Siap Memulai Proyek Anda dengan LivingKu?' : 'Ready to Start Your Project with LivingKu?'}
           </h3>
-          <p className="text-sm text-slate-300 font-light leading-relaxed">
+          <p className="text-sm text-slate-600 font-light leading-relaxed">
             {lang === 'id'
               ? 'Konsultasikan rencana arsitektur, RAB konstruksi, perizinan PMA/PMDN, atau pelaporan pajak Anda dengan konsultan berpengalaman kami.'
               : 'Consult with our licensed architects, estimators, legal counsel, and certified tax advisors.'}
@@ -298,11 +298,11 @@ export default function HomePage({ t, lang, onOpenConsultation }) {
               onClick={() => onOpenConsultation('Konsultasi Umum (Ref: LK-HOME-26)')}
               className="px-6 py-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-sm shadow-md transition-colors"
             >
-              {lang === 'id' ? 'Ajukan Konsultasi [Ref: LK-HOME-26]' : 'Request Consultation [Ref: LK-HOME-26]'}
+              {lang === 'id' ? 'Ajukan Konsultasi Sekarang' : 'Request Consultation Now'}
             </button>
             <Link
               to="/kontak"
-              className="px-6 py-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition-colors"
+              className="px-6 py-3 rounded-lg bg-white hover:bg-slate-100 text-slate-800 font-semibold text-sm border border-slate-300 transition-colors shadow-sm"
             >
               {lang === 'id' ? 'Kunjungi Halaman Kontak & Kantor' : 'Visit Contact & Offices Page'}
             </Link>

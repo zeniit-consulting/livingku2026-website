@@ -1,0 +1,22 @@
+{
+  "name": "LivingKu — Architecture, Construction & Legal Advisory",
+  "short_name": "LivingKu",
+  "description": "Studio Arsitektur, Kontraktor Umum & Penasihat Hukum Korporat Terpadu di Indonesia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF9F6",
+  "theme_color": "#0F172A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

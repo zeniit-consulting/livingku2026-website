@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LivingKu — Wawasan Arsitektur, Konstruksi, Legalitas &amp; Pajak</title>
+    <link>https://livingku.com/blog</link>
+    <description>Artikel analisis regulasi OSS-RBA, panduan RAB bangunan SNI, pendirian PT PMA, dan kepatuhan pajak properti terbaru di Indonesia.</description>
+    <language>id-ID</language>
+    <lastBuildDate>Mon, 21 Sep 2026 12:00:00 +0800</lastBuildDate>
+    <atom:link href="https://livingku.com/feed.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>Panduan Lengkap Menyusun RAB Bangun Rumah Tahun 2026 Tanpa Overbudget</title>
+      <link>https://livingku.com/blog</link>
+      <guid>https://livingku.com/blog#panduan-rab-bangun-rumah-2026</guid>
+      <pubDate>Sat, 14 Mar 2026 09:00:00 +0800</pubDate>
+      <description>Cara menghitung volume pekerjaan, memilih Analisa Harga Satuan (AHSP), dan strategi mengantisipasi fluktuasi harga material konstruksi tanpa jebakan overbudget.</description>
+      <category>Konstruksi &amp; RAB</category>
+    </item>
+
+    <item>
+      <title>Aturan Terbaru Pendirian PT PMA di Indonesia: Ketentuan Modal &amp; OSS RBA</title>
+      <link>https://livingku.com/blog</link>
+      <guid>https://livingku.com/blog#syarat-pendirian-pt-pma-2026</guid>
+      <pubDate>Mon, 02 Mar 2026 10:00:00 +0800</pubDate>
+      <description>Panduan bagi investor asing yang ingin memiliki properti komersial atau mendirikan bisnis berstatus PT PMA resmi di Bali dan Jakarta.</description>
+      <category>Legalitas Bisnis</category>
+    </item>
+
+    <item>
+      <title>Dampak Tarif PPN 12% terhadap Pengadaan Bahan Konstruksi dan Jasa Bangun</title>
+      <link>https://livingku.com/blog</link>
+      <guid>https://livingku.com/blog#pajak-properti-ppn-12-persen</guid>
+      <pubDate>Fri, 20 Feb 2026 11:30:00 +0800</pubDate>
+      <description>Analisis komprehensif implementasi tarif PPN terbaru terhadap cash flow proyek dan strategi pengelolaan faktur pajak masukan bagi developer.</description>
+      <category>Pajak &amp; Keuangan</category>
+    </item>
+
+    <item>
+      <title>Tren Desain Interior &amp; Eksterior Tropis Modern 2026: Efisiensi Energi &amp; Pencahayaan Alami</title>
+      <link>https://livingku.com/blog</link>
+      <guid>https://livingku.com/blog#tren-desain-tropis-modern-2026</guid>
+      <pubDate>Tue, 10 Feb 2026 08:00:00 +0800</pubDate>
+      <description>Bagaimana mengombinasikan cross-ventilation, material ramah lingkungan lokal, dan teknologi smart-shading pada bangunan tropis di Indonesia.</description>
+      <category>Arsitektur &amp; Desain</category>
+    </item>
+  </channel>
+</rss>

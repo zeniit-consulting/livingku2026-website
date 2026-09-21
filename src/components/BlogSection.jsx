@@ -94,8 +94,11 @@ export default function BlogSection({ t, lang }) {
                   <img
                     src={post.image}
                     alt={`Foto Sampul Artikel Wawasan LivingKu: ${post.title} (${post.category})`}
-                    className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
+                    width="600"
+                    height="360"
+                    decoding="async"
                     loading="lazy"
+                    className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded-md text-gold-400 text-xs font-semibold">
                     {post.category}
@@ -108,15 +111,15 @@ export default function BlogSection({ t, lang }) {
                     {/* Meta: Author & Date */}
                     <div className="flex items-center gap-4 text-xs text-slate-500 mb-3">
                       <div className="flex items-center gap-1">
-                        <User className="w-3.5 h-3.5 text-gold-600" />
+                        <User className="w-3.5 h-3.5 text-gold-600" aria-hidden="true" />
                         <span>{post.author}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                        <span>{post.date}</span>
+                        <Calendar className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
+                        <time dateTime={post.date}>{post.date}</time>
                       </div>
                       <div className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5 text-slate-400" />
+                        <Clock className="w-3.5 h-3.5 text-slate-400" aria-hidden="true" />
                         <span>{post.readTime}</span>
                       </div>
                     </div>

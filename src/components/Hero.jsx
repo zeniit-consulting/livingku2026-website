@@ -1,186 +1,265 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { 
   ArrowRight, 
   Calculator, 
+  ChevronLeft, 
+  ChevronRight, 
   CheckCircle2, 
-  Building, 
-  Scale, 
-  FileSpreadsheet, 
-  Award, 
+  Sparkles,
   ShieldCheck,
-  Sparkles
+  Building,
+  Award
 } from 'lucide-react';
 
-export default function Hero({ t, onOpenConsultation }) {
+export default function Hero({ t, lang, onOpenConsultation }) {
+  const isId = lang !== 'en';
+
+  const slides = [
+    {
+      id: 1,
+      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85",
+      alt: "Arsitektur Villa Modern Tropis LivingKu Indonesia",
+      category: isId ? "Arsitektur Tropis & Interior" : "Tropical Architecture & Interior",
+      location: "Canggu & Uluwatu, Bali",
+    },
+    {
+      id: 2,
+      image: "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f6?auto=format&fit=crop&w=2000&q=85",
+      alt: "Konstruksi Sipil dan Estimasi RAB SNI LivingKu",
+      category: isId ? "Jasa Konstruksi & RAB SNI" : "Civil Construction & SNI BOQ",
+      location: "Jabodetabek & Badung",
+    },
+    {
+      id: 3,
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=85",
+      alt: "Fit-Out Kantor Korporat & Penasihat Pajak SCBD",
+      category: isId ? "Legalitas PMDN/PMA & Pajak" : "PMDN/PMA Setup & Tax Advisory",
+      location: "SCBD Sudirman, Jakarta",
+    },
+    {
+      id: 4,
+      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=85",
+      alt: "Masterpiece Residensial Mewah LivingKu",
+      category: isId ? "Solusi Terpadu Turnkey" : "Turnkey Integrated Solutions",
+      location: "Nusantara & Bali",
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % slides.length);
+  }, [slides.length]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  }, [slides.length]);
+
+  // Autoplay timer with 6000ms interval
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(nextSlide, 6000);
+    return () => clearInterval(interval);
+  }, [isPaused, nextSlide]);
+
+  // Keyboard accessibility
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === 'ArrowRight') nextSlide();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [prevSlide, nextSlide]);
+
   return (
-    <section className="relative overflow-hidden bg-slate-900 text-white pt-6 pb-20 lg:pt-10 lg:pb-28">
-      {/* Background Architectural Overlay Pattern */}
-      <div 
-        className="absolute inset-0 opacity-15 pointer-events-none bg-repeat"
-        style={{
-          backgroundImage: `radial-gradient(#d7b366 1px, transparent 1px)`,
-          backgroundSize: '32px 32px'
-        }}
-      />
-      
-      {/* Ambient gradient glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gold-600/10 rounded-full blur-3xl pointer-events-none" />
+    <section 
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={isId ? "Proyek Unggulan LivingKu" : "LivingKu Featured Architecture & Construction"}
+      className="relative w-full min-h-[580px] sm:min-h-[640px] lg:min-h-[720px] flex items-center justify-center overflow-hidden bg-slate-950 border-b border-slate-800"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Screen Reader Live Announcement */}
+      <div className="sr-only" aria-live="polite" aria-atomic="true">
+        {`${isId ? "Slide aktif" : "Active slide"} ${currentIndex + 1} ${isId ? "dari" : "of"} ${slides.length}: ${slides[currentIndex].category}`}
+      </div>
 
-      <div className="wp-container relative z-10">
-        {/* WordPress Announcement Bar */}
-        <div className="mb-8">
-          <div className="inline-flex flex-wrap items-center gap-2.5 px-4 py-2 rounded-full bg-slate-800/90 border border-slate-700/80 text-xs text-slate-300 shadow-sm hover:border-gold-500/50 transition-colors">
-            <span className="px-2.5 py-0.5 rounded-full bg-gold-500/20 text-gold-300 font-bold tracking-wide uppercase text-[10px]">
-              {t.announcement.tag}
-            </span>
-            <span className="line-clamp-1">{t.announcement.text}</span>
-            <a 
-              href="#blog" 
-              className="font-semibold text-gold-400 hover:text-gold-300 flex items-center gap-1 ml-1"
+      {/* Fullwidth Carousel Background Slides */}
+      <div id="hero-carousel-track" className="absolute inset-0 z-0">
+        {slides.map((slide, idx) => {
+          const isActive = idx === currentIndex;
+          return (
+            <div
+              key={slide.id}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${idx + 1} ${isId ? "dari" : "of"} ${slides.length}: ${slide.category}`}
+              aria-hidden={!isActive}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                isActive ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+              }`}
             >
-              <span>{t.announcement.action}</span>
-              <ArrowRight className="w-3 h-3" />
-            </a>
-          </div>
+              <img
+                src={slide.image}
+                alt={slide.alt}
+                width="2000"
+                height="1000"
+                decoding="async"
+                className={`w-full h-full object-cover object-center transition-transform duration-[8000ms] ease-out ${
+                  isActive ? 'scale-105' : 'scale-100'
+                }`}
+                fetchPriority={idx === 0 ? "high" : "low"}
+                loading={idx === 0 ? "eager" : "lazy"}
+              />
+            </div>
+          );
+        })}
+
+        {/* Cinematic Dark Overlay for striking contrast against vivid hero imagery */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-slate-950/85 via-slate-900/75 to-slate-950/90 backdrop-blur-[0.5px]" />
+        
+        {/* Subtle luminous gold ambient glow in center */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-gold-500/10 rounded-full blur-3xl pointer-events-none z-10" />
+
+        {/* Subtle grid pattern overlay */}
+        <div 
+          className="absolute inset-0 z-10 opacity-15 pointer-events-none"
+          style={{
+            backgroundImage: `radial-gradient(rgba(215, 179, 102, 0.3) 1px, transparent 1px)`,
+            backgroundSize: '28px 28px'
+          }}
+        />
+      </div>
+
+      {/* Centered Hero Content with High-Contrast Typography */}
+      <div className="wp-container relative z-20 text-center max-w-4xl mx-auto py-16 sm:py-20 px-4 sm:px-6">
+        
+        {/* Centered Dynamic Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/85 border border-gold-500/40 shadow-xl backdrop-blur-md text-xs font-semibold text-slate-200 mb-6">
+          <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse shadow-[0_0_8px_rgba(234,179,8,0.8)]" />
+          <span className="text-gold-300">{slides[currentIndex].category}</span>
+          <span className="text-slate-600">|</span>
+          <span className="text-slate-300 font-medium hidden sm:inline">{slides[currentIndex].location}</span>
         </div>
 
-        {/* Hero Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Headline & Value Proposition */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-gold-950/70 border border-gold-600/30 text-gold-400 text-xs font-semibold tracking-wide">
-              <Sparkles className="w-3.5 h-3.5 text-gold-400" />
-              <span>{t.hero.badge}</span>
-            </div>
-
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15]">
-              {t.hero.titlePre}{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200">
-                {t.hero.titleHighlight}
+        {/* Simple Hero Title in Center - Maximum Contrast White & Gold */}
+        <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.18] mb-5 drop-shadow-md">
+          {isId ? (
+            <>
+              Membangun Properti Impian &amp;{' '}
+              <span className="text-gold-400 underline decoration-gold-400/50 decoration-wavy decoration-1 underline-offset-8">
+                Fondasi Legalitas
               </span>{' '}
-              {t.hero.titlePost}
-            </h1>
+              Bisnis
+            </>
+          ) : (
+            <>
+              Building Visionary Properties &amp;{' '}
+              <span className="text-gold-400 underline decoration-gold-400/50 decoration-wavy decoration-1 underline-offset-8">
+                Statutory Foundations
+              </span>
+            </>
+          )}
+        </h1>
 
-            <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed font-light">
-              {t.hero.description}
-            </p>
+        {/* Simple & Concise Subtitle in Center */}
+        <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto font-normal leading-relaxed mb-8 drop-shadow-sm">
+          {isId 
+            ? 'Solusi terintegrasi arsitektur presisi, kontraktor berstandar SNI, pendirian PT PMDN/PMA, dan tata kelola akuntansi & perpajakan di Indonesia.'
+            : 'Integrated architectural planning, SNI general contracting, corporate PMDN/PMA licensing, and statutory tax governance in Indonesia.'}
+        </p>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <button
-                type="button"
-                onClick={onOpenConsultation}
-                className="inline-flex items-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-sm sm:text-base shadow-lg shadow-gold-500/20 hover:shadow-gold-500/30 transition-all group"
-              >
-                <span>{t.hero.primaryCta}</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+        {/* Centered CTAs */}
+        <div className="flex flex-wrap items-center justify-center gap-3.5 mb-10">
+          <button
+            type="button"
+            onClick={onOpenConsultation}
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-sm shadow-lg hover:shadow-gold-500/25 transition-all group"
+          >
+            <span>{isId ? 'Mulai Konsultasi Proyek' : 'Start Project Consultation'}</span>
+            <ArrowRight className="w-4 h-4 text-slate-950 group-hover:translate-x-1 transition-transform" />
+          </button>
 
-              <a
-                href="#estimator"
-                className="inline-flex items-center gap-2 px-5 sm:px-6 py-3.5 rounded-lg bg-slate-800/90 hover:bg-slate-700/90 text-slate-200 font-semibold text-sm sm:text-base border border-slate-700 hover:border-slate-600 transition-all"
-              >
-                <Calculator className="w-4 h-4 text-gold-400" />
-                <span>{t.hero.secondaryCta}</span>
-              </a>
-            </div>
-
-            {/* Trust Badges */}
-            <div className="pt-4 border-t border-slate-800">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-400">
-                {t.hero.trustBadges.map((badge, idx) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-gold-500 shrink-0" />
-                    <span>{badge}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Hero Visual Card with Verified Status */}
-          <div className="lg:col-span-5">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Outer decorative frame */}
-              <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-tr from-gold-500/40 via-slate-700/50 to-gold-400/20 blur-sm" />
-              
-              <div className="relative rounded-2xl overflow-hidden border border-slate-700 bg-slate-800 shadow-2xl">
-                {/* Hero architectural image */}
-                <div className="relative h-64 sm:h-72 w-full overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
-                    alt="Masterpiece Desain Arsitektur Tropis Modern dan Konstruksi Berstandar SNI LivingKu Indonesia"
-                    className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
-                    fetchPriority="high"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/30 to-transparent" />
-                  
-                  {/* Floating badge */}
-                  <div className="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-md border border-slate-700 flex items-center gap-2 text-xs font-semibold text-gold-400">
-                    <Award className="w-4 h-4 text-gold-400" />
-                    <span>Verified Indonesian Standard 2026</span>
-                  </div>
-                </div>
-
-                {/* Card Content & Quick Service Checklist */}
-                <div className="p-5 sm:p-6 space-y-4">
-                  <div className="flex items-center justify-between pb-3 border-b border-slate-700 text-xs">
-                    <span className="text-slate-400 font-medium">Turnkey Integration</span>
-                    <span className="text-gold-400 font-semibold flex items-center gap-1">
-                      <ShieldCheck className="w-3.5 h-3.5" /> 100% Guaranteed Legal
-                    </span>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3 p-2.5 rounded-lg bg-slate-700/40 border border-slate-700">
-                      <div className="p-2 rounded bg-gold-500/10 text-gold-400 shrink-0">
-                        <Building className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-white">Desain & Kontraktor Lapangan</div>
-                        <div className="text-[11px] text-slate-400">Gambar DED, BQ transparan, dan pengawasan berkala.</div>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3 p-2.5 rounded-lg bg-slate-700/40 border border-slate-700">
-                      <div className="p-2 rounded bg-gold-500/10 text-gold-400 shrink-0">
-                        <Scale className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-white">Legalitas PMDN / PMA & Izin PBG</div>
-                        <div className="text-[11px] text-slate-400">Sertifikasi OSS-RBA, SK Kemenkumham, KITAS resmi.</div>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3 p-2.5 rounded-lg bg-slate-700/40 border border-slate-700">
-                      <div className="p-2 rounded bg-gold-500/10 text-gold-400 shrink-0">
-                        <FileSpreadsheet className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-white">Laporan Keuangan & Pajak PPN 12%</div>
-                        <div className="text-[11px] text-slate-400">SPT Masa, SPT Tahunan, PSAK, dan mitigasi SP2DK.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <a
+            href="/simulasi-rab"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white hover:text-gold-300 font-semibold text-sm border border-white/25 hover:border-gold-400/60 shadow-sm transition-all backdrop-blur-md"
+          >
+            <Calculator className="w-4 h-4 text-gold-400" />
+            <span>{isId ? 'Hitung Estimasi RAB' : 'Cost & BOQ Simulator'}</span>
+          </a>
         </div>
 
-        {/* Stats Grid Bar */}
-        <div className="mt-16 pt-10 border-t border-slate-800 grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
-          {t.hero.stats.map((stat, idx) => (
-            <div key={idx} className="text-center sm:text-left">
-              <div className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-400">
-                {stat.value}
-              </div>
-              <div className="text-xs sm:text-sm text-slate-400 mt-1 font-medium">
-                {stat.label}
-              </div>
-            </div>
-          ))}
+        {/* Centered Trust Indicators */}
+        <div className="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-center gap-y-2.5 gap-x-6 text-xs text-slate-300 font-medium">
+          <div className="flex items-center gap-1.5">
+            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+            <span>Sertifikasi LPJK &amp; GAPENSI</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+            <span>Konsultan Pajak Berizin (BKP)</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+            <span>Izin PBG, SLF &amp; OSS-RBA</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+            <span>Standar Material SNI &amp; ISO 9001</span>
+          </div>
         </div>
+      </div>
+
+      {/* Carousel Navigation: Previous Button */}
+      <button
+        type="button"
+        onClick={prevSlide}
+        aria-controls="hero-carousel-track"
+        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white hover:text-gold-400 border border-slate-700/80 shadow-xl flex items-center justify-center transition-all backdrop-blur-md hover:scale-105 active:scale-95 focus:outline-none"
+        aria-label={isId ? "Slide sebelumnya" : "Previous slide"}
+      >
+        <ChevronLeft className="w-5 h-5" aria-hidden="true" />
+      </button>
+
+      {/* Carousel Navigation: Next Button */}
+      <button
+        type="button"
+        onClick={nextSlide}
+        aria-controls="hero-carousel-track"
+        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white hover:text-gold-400 border border-slate-700/80 shadow-xl flex items-center justify-center transition-all backdrop-blur-md hover:scale-105 active:scale-95 focus:outline-none"
+        aria-label={isId ? "Slide selanjutnya" : "Next slide"}
+      >
+        <ChevronRight className="w-5 h-5" aria-hidden="true" />
+      </button>
+
+      {/* Carousel Slide Indicators at the Bottom Center */}
+      <div 
+        role="tablist" 
+        aria-label={isId ? "Pemilih slide proyek unggulan" : "Slide selector"}
+        className="absolute bottom-5 sm:bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 bg-slate-950/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-800/90 shadow-xl"
+      >
+        {slides.map((s, idx) => {
+          const isSelected = currentIndex === idx;
+          return (
+            <button
+              key={s.id}
+              role="tab"
+              aria-selected={isSelected}
+              aria-controls="hero-carousel-track"
+              type="button"
+              onClick={() => setCurrentIndex(idx)}
+              className={`transition-all duration-300 rounded-full focus:outline-none ${
+                isSelected 
+                  ? 'w-7 h-2.5 bg-gold-400 shadow-sm' 
+                  : 'w-2.5 h-2.5 bg-slate-600 hover:bg-slate-400'
+              }`}
+              aria-label={`${isId ? "Pindah ke slide" : "Switch to slide"} ${idx + 1}: ${s.category}`}
+            />
+          );
+        })}
       </div>
     </section>
   );

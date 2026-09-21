@@ -39,8 +39,16 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
+      {/* Accessible Skip to Content Link for keyboard & screen reader users */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2.5 focus:bg-slate-900 focus:text-gold-300 focus:font-bold focus:text-xs focus:rounded-lg focus:shadow-xl focus:border focus:border-gold-500/50 outline-none"
+      >
+        {lang === 'id' ? 'Lewati ke konten utama' : 'Skip to main content'}
+      </a>
+
       <div className="min-h-screen flex flex-col font-sans bg-[#FAF9F6] text-slate-800 selection:bg-gold-500 selection:text-white">
-        {/* Global WordPress Header */}
+        {/* Global Header */}
         <Header
           lang={lang}
           setLang={setLang}
@@ -48,8 +56,8 @@ export default function App() {
           onOpenConsultation={() => handleOpenConsultation()}
         />
 
-        {/* Dynamic Route Pages */}
-        <main className="flex-1">
+        {/* Dynamic Route Pages with semantic main landmark */}
+        <main id="main-content" tabIndex="-1" className="flex-1 focus:outline-none">
           <Routes>
             {/* Clean & Balanced Home Landing Page */}
             <Route 

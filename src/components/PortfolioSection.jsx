@@ -54,8 +54,11 @@ export default function PortfolioSection({ t, onOpenConsultation }) {
                 <img 
                   src={item.image} 
                   alt={`Dokumentasi Realisasi Proyek ${item.title} di ${item.location} - Lingkup: ${item.scope}`} 
-                  className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
+                  width="800"
+                  height="500"
+                  decoding="async"
                   loading="lazy"
+                  className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded text-gold-400 text-xs font-semibold">
                   {item.category}
@@ -98,14 +101,13 @@ export default function PortfolioSection({ t, onOpenConsultation }) {
         </div>
 
         {/* Bottom prompt */}
-        <div className="text-center mt-12 space-y-2">
-          <div className="text-xs text-slate-500 font-mono">Ref: LK-PORT-26</div>
+        <div className="text-center mt-12">
           <button
             type="button"
             onClick={() => onOpenConsultation('Konsultasi Portofolio Serupa (Ref: LK-PORT-26)')}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-gold-300 font-semibold text-sm shadow-md transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-sm shadow-md transition-all"
           >
-            <span>Konsultasikan Proyek Serupa [Ref: LK-PORT-26]</span>
+            <span>Konsultasikan Proyek Serupa</span>
             <ArrowUpRight className="w-4 h-4" />
           </button>
         </div>

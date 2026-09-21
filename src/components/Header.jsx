@@ -19,18 +19,9 @@ import {
 } from 'lucide-react';
 
 export default function Header({ lang, setLang, t }) {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Close mobile menu & dropdown on route change
   useEffect(() => {
@@ -45,11 +36,11 @@ export default function Header({ lang, setLang, t }) {
   };
 
   return (
-    <header className="w-full">
-      {/* WordPress-style Top Bar (Scrolls away naturally, NOT sticky) */}
-      <div className="bg-slate-900 text-slate-300 text-xs py-2 border-b border-slate-800">
-        <div className="wp-container flex flex-wrap justify-between items-center gap-y-2">
-          {/* Left contact info */}
+    <header className="sticky top-0 z-50 w-full shadow-md bg-white/95 backdrop-blur-md transition-all duration-200">
+      {/* Top Bar (Sticky with header) */}
+      <div className="bg-slate-900 text-slate-300 text-xs py-1.5 border-b border-slate-800">
+        <div className="wp-container flex flex-wrap justify-between items-center gap-y-1">
+          {/* Contact info */}
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <a 
               href={`tel:${t.topBar.hotline.replace(/[^0-9+]/g, '')}`} 
@@ -65,43 +56,36 @@ export default function Header({ lang, setLang, t }) {
               <Mail className="w-3.5 h-3.5 text-gold-500" />
               <span>{t.topBar.email}</span>
             </a>
-            <div className="hidden lg:flex items-center gap-1.5 text-slate-400">
-              <Clock className="w-3.5 h-3.5 text-gold-500" />
-              <span>{t.topBar.officeHours}</span>
-            </div>
             <div className="hidden sm:flex items-center gap-1.5 text-slate-400">
               <MapPin className="w-3.5 h-3.5 text-gold-500" />
               <span>{t.topBar.locations}</span>
             </div>
           </div>
 
-          {/* Right: Language switch & client desk */}
-          <div className="flex items-center gap-4 ml-auto">
-            {/* Bilingual Switcher */}
-            <div className="flex items-center bg-slate-800/80 rounded-full p-0.5 border border-slate-700">
-              <Globe className="w-3.5 h-3.5 text-gold-400 ml-2 mr-1" />
+          {/* Language switch */}
+          <div className="flex items-center gap-3 ml-auto">
+            <div className="flex items-center bg-slate-800 rounded-full p-0.5 border border-slate-700">
+              <Globe className="w-3 h-3 text-gold-400 ml-1.5 mr-1" />
               <button
                 type="button"
                 onClick={() => setLang('id')}
-                className={`px-2.5 py-0.5 text-xs font-semibold rounded-full transition-all ${
+                className={`px-2 py-0.5 text-[11px] font-semibold rounded-full transition-all ${
                   lang === 'id' 
-                    ? 'bg-gold-500 text-slate-950 shadow-sm font-bold' 
+                    ? 'bg-gold-500 text-slate-950 font-bold' 
                     : 'text-slate-300 hover:text-white'
                 }`}
-                title="Beralih ke Bahasa Indonesia"
               >
                 ID
               </button>
-              <span className="text-slate-600 text-xs">|</span>
+              <span className="text-slate-600 text-[10px]">|</span>
               <button
                 type="button"
                 onClick={() => setLang('en')}
-                className={`px-2.5 py-0.5 text-xs font-semibold rounded-full transition-all ${
+                className={`px-2 py-0.5 text-[11px] font-semibold rounded-full transition-all ${
                   lang === 'en' 
-                    ? 'bg-gold-500 text-slate-950 shadow-sm font-bold' 
+                    ? 'bg-gold-500 text-slate-950 font-bold' 
                     : 'text-slate-300 hover:text-white'
                 }`}
-                title="Switch to English"
               >
                 EN
               </button>
@@ -109,31 +93,30 @@ export default function Header({ lang, setLang, t }) {
 
             <Link 
               to="/kontak" 
-              className="hidden sm:inline-flex items-center gap-1 text-gold-400 hover:text-gold-300 font-medium transition-colors text-xs"
+              className="hidden sm:inline-flex items-center gap-1 text-gold-400 hover:text-gold-300 font-medium text-xs transition-colors"
             >
-              <MessageSquare className="w-3.5 h-3.5" />
+              <MessageSquare className="w-3 h-3" />
               <span>{lang === 'id' ? 'Layanan Klien' : 'Client Desk'}</span>
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Main Navigation Bar — STICKY ONLY (stays at top on scroll without top bar) */}
-      <nav 
-        className={`sticky top-0 z-50 bg-white/95 backdrop-blur-md transition-all duration-200 border-b ${
-          isScrolled 
-            ? 'shadow-md border-slate-200/90 py-3' 
-            : 'shadow-sm border-slate-100 py-4 sm:py-5'
-        }`}
-      >
+      {/* Main Navigation Bar */}
+      <nav aria-label={lang === 'id' ? 'Navigasi Utama' : 'Main Navigation'} className="border-b border-slate-100 py-3 sm:py-3.5">
         <div className="wp-container flex justify-between items-center">
-          {/* Brand Logo with Actual Image */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <img 
-              src="/images/logo.png" 
-              alt="LivingKu Logo - Studio Arsitektur, Kontraktor & Legalitas" 
-              className="h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
-            />
+          {/* Logo in Header: Swapped to use logo_white.png with sleek badge */}
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <div className="h-10 px-2 py-1 rounded-lg bg-slate-900 border border-gold-500/40 shadow-sm flex items-center justify-center group-hover:border-gold-400 transition-colors">
+              <img 
+                src="/images/logo-white.png" 
+                alt="LivingKu - Architecture, Build & Legal Advisory" 
+                width="120"
+                height="36"
+                decoding="async"
+                className="h-7 w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
+              />
+            </div>
             <div>
               <span className="font-serif font-bold text-xl sm:text-2xl text-slate-900 tracking-tight block leading-none">
                 Living<span className="text-gold-600">Ku</span>
@@ -148,7 +131,7 @@ export default function Header({ lang, setLang, t }) {
           <div className="hidden xl:flex items-center gap-8 text-sm font-medium text-slate-700">
             <Link 
               to="/" 
-              className={`hover:text-gold-600 transition-colors py-2 border-b-2 ${
+              className={`hover:text-gold-600 transition-colors py-1.5 border-b-2 ${
                 isActive('/') ? 'text-gold-700 border-gold-600 font-bold' : 'border-transparent'
               }`}
             >
@@ -157,7 +140,7 @@ export default function Header({ lang, setLang, t }) {
 
             <Link 
               to="/tentang-kami" 
-              className={`hover:text-gold-600 transition-colors py-2 border-b-2 ${
+              className={`hover:text-gold-600 transition-colors py-1.5 border-b-2 ${
                 isActive('/tentang-kami') ? 'text-gold-700 border-gold-600 font-bold' : 'border-transparent'
               }`}
             >
@@ -172,7 +155,7 @@ export default function Header({ lang, setLang, t }) {
             >
               <Link 
                 to="/layanan"
-                className={`flex items-center gap-1 hover:text-gold-600 transition-colors py-2 border-b-2 ${
+                className={`flex items-center gap-1 hover:text-gold-600 transition-colors py-1.5 border-b-2 ${
                   isActive('/layanan') || isActive('/simulasi-rab') ? 'text-gold-700 border-gold-600 font-bold' : 'border-transparent'
                 }`}
               >
@@ -184,7 +167,7 @@ export default function Header({ lang, setLang, t }) {
                 <div className="absolute top-full left-0 w-88 bg-white rounded-xl shadow-xl border border-slate-100 py-2.5 mt-1 transition-all animate-fadeIn z-50">
                   <div className="px-4 py-1.5 border-b border-slate-100 flex items-center justify-between">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                      {lang === 'id' ? 'Layanan & Estimasi Proyek' : 'Services & Budgeting'}
+                      {lang === 'id' ? 'Layanan & RAB' : 'Services & BOQ'}
                     </span>
                     <Link to="/layanan" className="text-[11px] font-bold text-gold-700 hover:underline">
                       {lang === 'id' ? 'Halaman Layanan →' : 'Services Page →'}
@@ -280,7 +263,7 @@ export default function Header({ lang, setLang, t }) {
 
             <Link 
               to="/portofolio" 
-              className={`hover:text-gold-600 transition-colors py-2 border-b-2 ${
+              className={`hover:text-gold-600 transition-colors py-1.5 border-b-2 ${
                 isActive('/portofolio') ? 'text-gold-700 border-gold-600 font-bold' : 'border-transparent'
               }`}
             >
@@ -289,7 +272,7 @@ export default function Header({ lang, setLang, t }) {
 
             <Link 
               to="/blog" 
-              className={`hover:text-gold-600 transition-colors py-2 border-b-2 ${
+              className={`hover:text-gold-600 transition-colors py-1.5 border-b-2 ${
                 isActive('/blog') ? 'text-gold-700 border-gold-600 font-bold' : 'border-transparent'
               }`}
             >
@@ -297,11 +280,11 @@ export default function Header({ lang, setLang, t }) {
             </Link>
           </div>
 
-          {/* Desktop Right Action: CTA directs straight to /kontak */}
+          {/* Desktop Right Action: Direct to /kontak */}
           <div className="hidden sm:flex items-center gap-3">
             <Link
               to="/kontak"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-gold-300 hover:text-gold-200 font-semibold text-sm shadow-md hover:shadow-lg transition-all border border-gold-500/30 group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-gold-300 hover:text-gold-200 font-semibold text-sm shadow-md transition-all border border-gold-500/30 group"
             >
               <span>{lang === 'id' ? 'Hubungi Kami' : 'Contact Us'}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform text-gold-400" />
@@ -314,16 +297,23 @@ export default function Header({ lang, setLang, t }) {
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors"
-              aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
+              aria-label={mobileMenuOpen ? (lang === 'id' ? 'Tutup navigasi' : 'Close navigation') : (lang === 'id' ? 'Buka navigasi' : 'Open navigation')}
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="xl:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 animate-fadeIn">
+          <div 
+            id="mobile-navigation"
+            role="region"
+            aria-label={lang === 'id' ? 'Navigasi Seluler' : 'Mobile Navigation'}
+            className="xl:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 animate-fadeIn"
+          >
             {/* Mobile language switch */}
             <div className="flex items-center justify-between py-2 border-b border-slate-100">
               <span className="text-xs font-semibold text-slate-500">Bahasa / Language:</span>
@@ -333,14 +323,14 @@ export default function Header({ lang, setLang, t }) {
                   onClick={() => setLang('id')}
                   className={`px-3 py-1 text-xs font-semibold rounded-md ${lang === 'id' ? 'bg-white shadow text-slate-900 font-bold' : 'text-slate-600'}`}
                 >
-                  ID (Indonesia)
+                  ID
                 </button>
                 <button
                   type="button"
                   onClick={() => setLang('en')}
                   className={`px-3 py-1 text-xs font-semibold rounded-md ${lang === 'en' ? 'bg-white shadow text-slate-900 font-bold' : 'text-slate-600'}`}
                 >
-                  EN (English)
+                  EN
                 </button>
               </div>
             </div>
