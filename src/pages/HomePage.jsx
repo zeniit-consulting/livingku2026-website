@@ -210,45 +210,6 @@ export default function HomePage({ t, lang, onOpenConsultation }) {
         </div>
       </section>
 
-      {/* Partner Strip Preview */}
-      <section className="py-14 bg-white border-b border-slate-200">
-        <div className="wp-container">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-50 px-3 py-1 rounded-full inline-block mb-1">
-                {t.partners.badge}
-              </span>
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900">
-                {lang === 'id' ? 'Ekosistem Perbankan, Material & Regulator' : 'Ecosystem of Banks, Suppliers & Regulators'}
-              </h3>
-            </div>
-            <Link
-              to="/mitra"
-              className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-gold-700 hover:text-gold-800"
-            >
-              <span>{lang === 'id' ? 'Lihat Seluruh Direktori Mitra' : 'View Full Partner Directory'}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-            {t.partners.list.slice(0, 6).map((p, idx) => (
-              <div
-                key={idx}
-                className="p-4 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-gold-400 hover:shadow-wp transition-all text-center flex flex-col justify-center items-center"
-              >
-                <span className="font-serif font-black text-slate-800 text-sm tracking-wide">
-                  {p.logoText}
-                </span>
-                <span className="text-[10px] text-slate-500 mt-1 line-clamp-1">
-                  {p.name}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Latest Blog Insights (2 Top Posts) */}
       <section className="py-16 bg-slate-50 border-b border-slate-200">
         <div className="wp-container">

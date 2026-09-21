@@ -26,7 +26,7 @@ export default function Header({ lang, setLang, t }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      setIsScrolled(window.scrollY > 30);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -45,8 +45,8 @@ export default function Header({ lang, setLang, t }) {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full transition-all duration-300">
-      {/* WordPress-style Top Bar */}
+    <header className="w-full">
+      {/* WordPress-style Top Bar (Scrolls away naturally, NOT sticky) */}
       <div className="bg-slate-900 text-slate-300 text-xs py-2 border-b border-slate-800">
         <div className="wp-container flex flex-wrap justify-between items-center gap-y-2">
           {/* Left contact info */}
@@ -75,7 +75,7 @@ export default function Header({ lang, setLang, t }) {
             </div>
           </div>
 
-          {/* Right: Language switch & quick link */}
+          {/* Right: Language switch & client desk */}
           <div className="flex items-center gap-4 ml-auto">
             {/* Bilingual Switcher */}
             <div className="flex items-center bg-slate-800/80 rounded-full p-0.5 border border-slate-700">
@@ -118,20 +118,22 @@ export default function Header({ lang, setLang, t }) {
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
+      {/* Main Navigation Bar — STICKY ONLY (stays at top on scroll without top bar) */}
       <nav 
-        className={`bg-white/95 backdrop-blur-md transition-all duration-200 border-b ${
+        className={`sticky top-0 z-50 bg-white/95 backdrop-blur-md transition-all duration-200 border-b ${
           isScrolled 
-            ? 'shadow-md border-slate-200/80 py-3.5' 
+            ? 'shadow-md border-slate-200/90 py-3' 
             : 'shadow-sm border-slate-100 py-4 sm:py-5'
         }`}
       >
         <div className="wp-container flex justify-between items-center">
-          {/* Brand Logo */}
+          {/* Brand Logo with Actual Image */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-slate-900 via-slate-800 to-gold-700 flex items-center justify-center shadow-md text-white group-hover:scale-105 transition-transform duration-200 border border-gold-400/40">
-              <span className="font-serif font-bold text-xl tracking-tight text-gold-300">LK</span>
-            </div>
+            <img 
+              src="/images/logo.png" 
+              alt="LivingKu Logo - Studio Arsitektur, Kontraktor & Legalitas" 
+              className="h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
+            />
             <div>
               <span className="font-serif font-bold text-xl sm:text-2xl text-slate-900 tracking-tight block leading-none">
                 Living<span className="text-gold-600">Ku</span>
@@ -143,7 +145,7 @@ export default function Header({ lang, setLang, t }) {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden xl:flex items-center gap-7 text-sm font-medium text-slate-700">
+          <div className="hidden xl:flex items-center gap-8 text-sm font-medium text-slate-700">
             <Link 
               to="/" 
               className={`hover:text-gold-600 transition-colors py-2 border-b-2 ${
@@ -162,7 +164,7 @@ export default function Header({ lang, setLang, t }) {
               {t.nav.about}
             </Link>
 
-            {/* Services Dropdown (Including Simulasi RAB inside) */}
+            {/* Services Dropdown (with Simulasi RAB included) */}
             <div 
               className="relative"
               onMouseEnter={() => setServicesDropdownOpen(true)}
@@ -275,15 +277,6 @@ export default function Header({ lang, setLang, t }) {
                 </div>
               )}
             </div>
-
-            <Link 
-              to="/mitra" 
-              className={`hover:text-gold-600 transition-colors py-2 border-b-2 ${
-                isActive('/mitra') ? 'text-gold-700 border-gold-600 font-bold' : 'border-transparent'
-              }`}
-            >
-              {t.nav.partners}
-            </Link>
 
             <Link 
               to="/portofolio" 
@@ -406,13 +399,6 @@ export default function Header({ lang, setLang, t }) {
                   ★ {t.nav.calculator} (Kalkulator Anggaran)
                 </Link>
               </div>
-
-              <Link 
-                to="/mitra" 
-                className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/mitra') ? 'bg-gold-50 text-gold-800 font-bold' : 'text-slate-800 hover:bg-slate-50'}`}
-              >
-                {t.nav.partners}
-              </Link>
 
               <Link 
                 to="/portofolio" 

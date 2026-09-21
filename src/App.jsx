@@ -11,7 +11,6 @@ import FloatingWhatsAppCTA from './components/FloatingWhatsAppCTA';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import EstimatorPage from './pages/EstimatorPage';
-import PartnersPage from './pages/PartnersPage';
 import PortfolioPage from './pages/PortfolioPage';
 import BlogPage from './pages/BlogPage';
 import AboutPage from './pages/AboutPage';
@@ -103,18 +102,8 @@ export default function App() {
             />
             <Route path="/estimator" element={<Navigate to="/simulasi-rab" replace />} />
 
-            {/* Dedicated Partners Directory Page */}
-            <Route 
-              path="/mitra" 
-              element={
-                <PartnersPage 
-                  t={t} 
-                  lang={lang} 
-                  onOpenConsultation={handleOpenConsultation} 
-                />
-              } 
-            />
-            <Route path="/partners" element={<Navigate to="/mitra" replace />} />
+            <Route path="/mitra" element={<Navigate to="/layanan" replace />} />
+            <Route path="/partners" element={<Navigate to="/layanan" replace />} />
 
             {/* Dedicated Portfolio & Projects Page */}
             <Route 

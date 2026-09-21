@@ -25,10 +25,12 @@ export default function Footer({ t, lang }) {
           
           {/* Col 1: Brand & Profile (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <Link to="/" className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-slate-800 to-gold-700 flex items-center justify-center text-white border border-gold-400/40">
-                <span className="font-serif font-bold text-lg text-gold-300">LK</span>
-              </div>
+            <Link to="/" className="flex items-center gap-3 group">
+              <img 
+                src="/images/logo-white.png" 
+                alt="LivingKu Logo White" 
+                className="h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
+              />
               <div>
                 <span className="font-serif font-bold text-xl text-white tracking-tight block">
                   Living<span className="text-gold-500">Ku</span>
@@ -107,7 +109,6 @@ export default function Footer({ t, lang }) {
               <li><Link to="/tentang-kami" className="hover:text-gold-400 transition-colors">{t.nav.about}</Link></li>
               <li><Link to="/layanan" className="hover:text-gold-400 transition-colors">{t.nav.services}</Link></li>
               <li><Link to="/simulasi-rab" className="hover:text-gold-400 transition-colors">{t.nav.calculator}</Link></li>
-              <li><Link to="/mitra" className="hover:text-gold-400 transition-colors">{t.nav.partners}</Link></li>
               <li><Link to="/portofolio" className="hover:text-gold-400 transition-colors">{t.nav.portfolio}</Link></li>
               <li><Link to="/blog" className="hover:text-gold-400 transition-colors">{t.nav.blog}</Link></li>
               <li><Link to="/kontak" className="hover:text-gold-400 transition-colors">{t.nav.contact}</Link></li>
