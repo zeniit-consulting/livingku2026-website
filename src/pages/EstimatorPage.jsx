@@ -78,7 +78,7 @@ export default function EstimatorPage({ t, lang, onOpenConsultation }) {
         <div 
           className="absolute inset-0 opacity-5 pointer-events-none"
           style={{
-            backgroundImage: `radial-gradient(#d7b366 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(#0ea8a4 1px, transparent 1px)`,
             backgroundSize: '24px 24px'
           }}
         />
@@ -125,7 +125,7 @@ export default function EstimatorPage({ t, lang, onOpenConsultation }) {
                   <th className="p-3 sm:p-4 font-serif font-bold text-slate-900">{lang === 'id' ? 'Komponen Pekerjaan' : 'Element'}</th>
                   <th className="p-3 sm:p-4 font-serif font-bold text-slate-700">Standar (1.0x)</th>
                   <th className="p-3 sm:p-4 font-serif font-bold text-gold-700">Premium (1.35x)</th>
-                  <th className="p-3 sm:p-4 font-serif font-bold text-amber-700">Luxury (1.8x)</th>
+                  <th className="p-3 sm:p-4 font-serif font-bold text-turkish-700">Luxury (1.8x)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200">
@@ -134,7 +134,7 @@ export default function EstimatorPage({ t, lang, onOpenConsultation }) {
                     <td className="p-3 sm:p-4 font-bold text-slate-900">{row.element}</td>
                     <td className="p-3 sm:p-4 text-slate-600">{row.standard}</td>
                     <td className="p-3 sm:p-4 text-slate-800 font-medium bg-gold-50/40">{row.premium}</td>
-                    <td className="p-3 sm:p-4 text-slate-900 font-medium bg-amber-50/30">{row.luxury}</td>
+                    <td className="p-3 sm:p-4 text-slate-900 font-medium bg-turkish-50/40">{row.luxury}</td>
                   </tr>
                 ))}
               </tbody>

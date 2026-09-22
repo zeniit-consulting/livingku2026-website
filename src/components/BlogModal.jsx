@@ -162,7 +162,7 @@ export default function BlogModal({ post, onClose, lang }) {
           </div>
 
           {/* CTA bottom banner */}
-          <div className="mt-8 p-6 rounded-xl bg-amber-50/80 border border-amber-200/90 text-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+          <div className="mt-8 p-6 rounded-xl bg-turkish-50/80 border border-turkish-200/90 text-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
             <div>
               <div className="font-serif font-bold text-sm text-slate-900">Butuh Bantuan Konsultasi Terkait Topik Ini?</div>
               <div className="text-xs text-slate-600">Hubungi tim ahli LivingKu untuk audit teknis dan konsultasi awal gratis.</div>

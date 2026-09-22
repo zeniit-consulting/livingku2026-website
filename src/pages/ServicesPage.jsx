@@ -105,7 +105,7 @@ export default function ServicesPage({ t, lang, onOpenConsultation }) {
         <div 
           className="absolute inset-0 opacity-5 pointer-events-none"
           style={{
-            backgroundImage: `radial-gradient(#d7b366 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(#0ea8a4 1px, transparent 1px)`,
             backgroundSize: '24px 24px'
           }}
         />
@@ -287,7 +287,7 @@ export default function ServicesPage({ t, lang, onOpenConsultation }) {
         </section>
 
         {/* Bottom CTA */}
-        <div className="mt-16 p-8 rounded-2xl bg-amber-50/80 border border-amber-200/90 text-slate-900 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+        <div className="mt-16 p-8 rounded-2xl bg-turkish-50/80 border border-turkish-200/90 text-slate-900 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1">
             <span className="text-xs font-bold uppercase tracking-widest text-gold-700 bg-gold-100/70 px-2.5 py-0.5 rounded border border-gold-200 inline-block mb-1">
               {lang === 'id' ? 'Paket Kustom Terpadu' : 'Custom Bundle'}

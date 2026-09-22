@@ -90,7 +90,7 @@ export default function TestimonialsSection({ lang }) {
 
               <div className="pt-4 border-t border-slate-100">
                 <div className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-gold-600 to-amber-500 text-slate-950 font-bold flex items-center justify-center text-xs shadow-sm">
+                  <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-turkish-600 to-turkish-400 text-white font-bold flex items-center justify-center text-xs shadow-sm">
                     {t.name.slice(0, 2).toUpperCase()}
                   </div>
                   <div>
@@ -102,7 +102,7 @@ export default function TestimonialsSection({ lang }) {
                   </div>
                 </div>
 
-                <div className="mt-2.5 text-[11px] text-gold-800 font-medium bg-amber-50/80 px-2.5 py-1 rounded border border-amber-200/60 line-clamp-1">
+                <div className="mt-2.5 text-[11px] text-turkish-800 font-medium bg-turkish-50/80 px-2.5 py-1 rounded border border-turkish-200/60 line-clamp-1">
                   Proyek: {t.project}
                 </div>
               </div>

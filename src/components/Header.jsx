@@ -21,6 +21,7 @@ import {
 export default function Header({ lang, setLang, t }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
   const location = useLocation();
 
   // Close mobile menu & dropdown on route change
@@ -29,16 +30,48 @@ export default function Header({ lang, setLang, t }) {
     setServicesDropdownOpen(false);
   }, [location.pathname]);
 
+  // Dynamic header transparency state: 50% transparent at initial state, 100% solid after hero is scrolled past
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      setIsScrolledPastHero(true);
+      return;
+    }
+
+    const handleScroll = () => {
+      const heroEl = document.getElementById('hero');
+      const threshold = heroEl ? (heroEl.offsetTop + heroEl.offsetHeight - 110) : 550;
+      if (window.scrollY > threshold) {
+        setIsScrolledPastHero(true);
+      } else {
+        setIsScrolledPastHero(false);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.pathname]);
+
   const isActive = (path) => {
     if (path === '/' && location.pathname === '/') return true;
     if (path !== '/' && location.pathname.startsWith(path)) return true;
     return false;
   };
 
+  const isSolid = isScrolledPastHero || mobileMenuOpen;
+
   return (
-    <header className="sticky top-0 z-50 w-full shadow-md bg-white/95 backdrop-blur-md transition-all duration-200">
-      {/* Top Bar (Sticky with header) */}
-      <div className="bg-slate-900 text-slate-300 text-xs py-1.5 border-b border-slate-800">
+    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+      isSolid 
+        ? 'bg-white shadow-md' 
+        : 'bg-transparent shadow-xs'
+    }`}>
+      {/* Top Bar (Sticky with header): 50% transparent initial, 100% solid when scrolled past hero */}
+      <div className={`text-xs py-1.5 transition-colors duration-300 ${
+        isSolid
+          ? 'bg-slate-900 text-slate-300 border-b border-slate-800'
+          : 'bg-slate-900/50 backdrop-blur-md text-slate-200 border-b border-slate-800/40'
+      }`}>
         <div className="wp-container flex flex-wrap justify-between items-center gap-y-1">
           {/* Contact info */}
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
@@ -102,29 +135,26 @@ export default function Header({ lang, setLang, t }) {
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
-      <nav aria-label={lang === 'id' ? 'Navigasi Utama' : 'Main Navigation'} className="border-b border-slate-100 py-3 sm:py-3.5">
+      {/* Main Navigation Bar: 50% transparent initial, 100% solid when scrolled past hero */}
+      <nav 
+        aria-label={lang === 'id' ? 'Navigasi Utama' : 'Main Navigation'} 
+        className={`py-3 sm:py-3.5 transition-all duration-300 ${
+          isSolid 
+            ? 'bg-white border-b border-slate-100 shadow-xs' 
+            : 'bg-white/50 backdrop-blur-md border-b border-slate-200/50 shadow-xs'
+        }`}
+      >
         <div className="wp-container flex justify-between items-center">
-          {/* Logo in Header: Swapped to use logo_white.png with sleek badge */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="h-10 px-2 py-1 rounded-lg bg-slate-900 border border-gold-500/40 shadow-sm flex items-center justify-center group-hover:border-gold-400 transition-colors">
-              <img 
-                src="/images/logo-white.png" 
-                alt="LivingKu - Architecture, Build & Legal Advisory" 
-                width="120"
-                height="36"
-                decoding="async"
-                className="h-7 w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
-              />
-            </div>
-            <div>
-              <span className="font-serif font-bold text-xl sm:text-2xl text-slate-900 tracking-tight block leading-none">
-                Living<span className="text-gold-600">Ku</span>
-              </span>
-              <span className="text-[10px] tracking-wider uppercase font-semibold text-slate-500 block mt-1">
-                Architecture • Build • Legal
-              </span>
-            </div>
+          {/* Simplified Logo: Standalone without black background and without text */}
+          <Link to="/" className="inline-flex items-center group py-1" aria-label="LivingKu Home">
+            <img 
+              src="/images/logo.png" 
+              alt="LivingKu" 
+              width="150"
+              height="44"
+              decoding="async"
+              className="h-9 sm:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
+            />
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -164,97 +194,160 @@ export default function Header({ lang, setLang, t }) {
               </Link>
 
               {servicesDropdownOpen && (
-                <div className="absolute top-full left-0 w-88 bg-white rounded-xl shadow-xl border border-slate-100 py-2.5 mt-1 transition-all animate-fadeIn z-50">
-                  <div className="px-4 py-1.5 border-b border-slate-100 flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                      {lang === 'id' ? 'Layanan & RAB' : 'Services & BOQ'}
-                    </span>
-                    <Link to="/layanan" className="text-[11px] font-bold text-gold-700 hover:underline">
-                      {lang === 'id' ? 'Halaman Layanan →' : 'Services Page →'}
+                <div className="absolute top-full -left-20 lg:-left-36 w-[800px] lg:w-[860px] max-w-[92vw] bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-5 mt-2 transition-all animate-fadeIn z-50 text-left">
+                  {/* Top Bar Header */}
+                  <div className="pb-3 mb-4 border-b border-slate-100 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-turkish-800 bg-turkish-50 border border-turkish-200 px-2.5 py-0.5 rounded-full">
+                        {lang === 'id' ? 'Layanan Terpadu & Kalkulator' : 'Integrated Services & Estimator'}
+                      </span>
+                      <span className="text-xs text-slate-500 hidden sm:inline font-light">
+                        {lang === 'id' ? 'Arsitektur, Kontraktor, Legalitas & Pajak' : 'Design, Construction, Legal & Tax'}
+                      </span>
+                    </div>
+                    <Link 
+                      to="/layanan" 
+                      onClick={() => setServicesDropdownOpen(false)}
+                      className="text-xs font-bold text-turkish-700 hover:text-turkish-800 hover:underline flex items-center gap-1"
+                    >
+                      <span>{lang === 'id' ? 'Lihat Semua Layanan' : 'All Services'}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
 
-                  <Link 
-                    to="/layanan#design" 
-                    className="flex items-start gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors group"
-                    onClick={() => setServicesDropdownOpen(false)}
-                  >
-                    <div className="p-2 rounded-lg bg-gold-50 text-gold-600 group-hover:bg-gold-600 group-hover:text-white transition-colors mt-0.5">
-                      <Building2 className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-slate-900 group-hover:text-gold-600 transition-colors">
-                        {t.nav.servicesDropdown.design}
+                  {/* 3 Columns Grid (3x lebar container) */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {/* Column 1: Desain & Konstruksi */}
+                    <div className="space-y-2.5">
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-1">
+                        {lang === 'id' ? 'Arsitektur & Konstruksi' : 'Design & Construction'}
                       </div>
-                      <div className="text-xs text-slate-500 line-clamp-1">3D DED, Interior & Exterior Tropis</div>
-                    </div>
-                  </Link>
 
-                  <Link 
-                    to="/layanan#construction" 
-                    className="flex items-start gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors group"
-                    onClick={() => setServicesDropdownOpen(false)}
-                  >
-                    <div className="p-2 rounded-lg bg-gold-50 text-gold-600 group-hover:bg-gold-600 group-hover:text-white transition-colors mt-0.5">
-                      <ShieldCheck className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-slate-900 group-hover:text-gold-600 transition-colors">
-                        {t.nav.servicesDropdown.construction}
-                      </div>
-                      <div className="text-xs text-slate-500 line-clamp-1">Kontraktor Sipil & Pengawasan Lapangan</div>
-                    </div>
-                  </Link>
-
-                  <Link 
-                    to="/layanan#legal" 
-                    className="flex items-start gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors group"
-                    onClick={() => setServicesDropdownOpen(false)}
-                  >
-                    <div className="p-2 rounded-lg bg-gold-50 text-gold-600 group-hover:bg-gold-600 group-hover:text-white transition-colors mt-0.5">
-                      <FileCheck2 className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-slate-900 group-hover:text-gold-600 transition-colors">
-                        {t.nav.servicesDropdown.legal}
-                      </div>
-                      <div className="text-xs text-slate-500 line-clamp-1">PT Lokal, PMA, NIB OSS-RBA & KITAS</div>
-                    </div>
-                  </Link>
-
-                  <Link 
-                    to="/layanan#tax" 
-                    className="flex items-start gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors group"
-                    onClick={() => setServicesDropdownOpen(false)}
-                  >
-                    <div className="p-2 rounded-lg bg-gold-50 text-gold-600 group-hover:bg-gold-600 group-hover:text-white transition-colors mt-0.5">
-                      <Receipt className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-slate-900 group-hover:text-gold-600 transition-colors">
-                        {t.nav.servicesDropdown.tax}
-                      </div>
-                      <div className="text-xs text-slate-500 line-clamp-1">SPT Tahunan, PPN 12%, PSAK & SP2DK</div>
-                    </div>
-                  </Link>
-
-                  {/* Simulasi RAB item inside Layanan group */}
-                  <div className="pt-1.5 mt-1.5 border-t border-slate-100 bg-amber-50/50">
-                    <Link 
-                      to="/simulasi-rab" 
-                      className="flex items-start gap-3 px-4 py-2.5 hover:bg-amber-100/60 transition-colors group"
-                      onClick={() => setServicesDropdownOpen(false)}
-                    >
-                      <div className="p-2 rounded-lg bg-amber-500 text-slate-950 font-bold group-hover:bg-slate-900 group-hover:text-gold-300 transition-colors mt-0.5">
-                        <Calculator className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="text-sm font-bold text-slate-900 group-hover:text-gold-800 transition-colors flex items-center gap-1.5">
-                          <span>{t.nav.calculator}</span>
-                          <span className="text-[10px] bg-amber-200 text-amber-900 font-bold px-1.5 py-0.2 rounded">Kalkulator</span>
+                      <Link 
+                        to="/layanan#design" 
+                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-all group border border-transparent hover:border-slate-200/80"
+                        onClick={() => setServicesDropdownOpen(false)}
+                      >
+                        <div className="p-2 rounded-lg bg-turkish-50 text-turkish-700 group-hover:bg-turkish-500 group-hover:text-white transition-colors shrink-0 mt-0.5 shadow-sm">
+                          <Building2 className="w-4 h-4" />
                         </div>
-                        <div className="text-xs text-slate-600 line-clamp-1">Kalkulator Interaktif Biaya & Material SNI</div>
+                        <div>
+                          <div className="text-xs font-bold text-slate-900 group-hover:text-turkish-700 transition-colors">
+                            {t.nav.servicesDropdown.design}
+                          </div>
+                          <div className="text-[11px] text-slate-500 leading-snug mt-0.5">
+                            3D DED, Interior & Exterior Tropis
+                          </div>
+                        </div>
+                      </Link>
+
+                      <Link 
+                        to="/layanan#construction" 
+                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-all group border border-transparent hover:border-slate-200/80"
+                        onClick={() => setServicesDropdownOpen(false)}
+                      >
+                        <div className="p-2 rounded-lg bg-turkish-50 text-turkish-700 group-hover:bg-turkish-500 group-hover:text-white transition-colors shrink-0 mt-0.5 shadow-sm">
+                          <ShieldCheck className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold text-slate-900 group-hover:text-turkish-700 transition-colors">
+                            {t.nav.servicesDropdown.construction}
+                          </div>
+                          <div className="text-[11px] text-slate-500 leading-snug mt-0.5">
+                            Kontraktor Sipil & Pengawasan Lapangan SNI
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+
+                    {/* Column 2: Legalitas & Perpajakan */}
+                    <div className="space-y-2.5">
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-1">
+                        {lang === 'id' ? 'Legalitas & Finansial' : 'Corporate Legal & Tax'}
                       </div>
+
+                      <Link 
+                        to="/layanan#legal" 
+                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-all group border border-transparent hover:border-slate-200/80"
+                        onClick={() => setServicesDropdownOpen(false)}
+                      >
+                        <div className="p-2 rounded-lg bg-turkish-50 text-turkish-700 group-hover:bg-turkish-500 group-hover:text-white transition-colors shrink-0 mt-0.5 shadow-sm">
+                          <FileCheck2 className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold text-slate-900 group-hover:text-turkish-700 transition-colors">
+                            {t.nav.servicesDropdown.legal}
+                          </div>
+                          <div className="text-[11px] text-slate-500 leading-snug mt-0.5">
+                            PT PMDN, PT PMA, NIB OSS-RBA & PBG
+                          </div>
+                        </div>
+                      </Link>
+
+                      <Link 
+                        to="/layanan#tax" 
+                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-all group border border-transparent hover:border-slate-200/80"
+                        onClick={() => setServicesDropdownOpen(false)}
+                      >
+                        <div className="p-2 rounded-lg bg-turkish-50 text-turkish-700 group-hover:bg-turkish-500 group-hover:text-white transition-colors shrink-0 mt-0.5 shadow-sm">
+                          <Receipt className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <div className="text-xs font-bold text-slate-900 group-hover:text-turkish-700 transition-colors">
+                            {t.nav.servicesDropdown.tax}
+                          </div>
+                          <div className="text-[11px] text-slate-500 leading-snug mt-0.5">
+                            SPT Tahunan, PPN 12%, PSAK & SP2DK
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+
+                    {/* Column 3: Featured Interactive Calculator (RAB) */}
+                    <div className="p-4 rounded-xl bg-gradient-to-br from-turkish-50/90 to-white border border-turkish-200/90 shadow-sm flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-[10px] font-bold tracking-wider uppercase text-turkish-800 bg-turkish-200/70 px-2 py-0.5 rounded">
+                            {lang === 'id' ? 'Fitur Unggulan' : 'Featured Tool'}
+                          </span>
+                          <div className="w-7 h-7 rounded-lg bg-turkish-500 text-white flex items-center justify-center shadow-sm">
+                            <Calculator className="w-3.5 h-3.5" />
+                          </div>
+                        </div>
+                        <h4 className="font-serif font-bold text-slate-900 text-sm mb-1">
+                          {t.nav.calculator}
+                        </h4>
+                        <p className="text-[11px] text-slate-600 leading-relaxed mb-3 font-light">
+                          {lang === 'id' 
+                            ? 'Simulasi estimasi anggaran konstruksi & perizinan real-time berstandar AHSP SNI 2026.'
+                            : 'Calculate real-time preliminary BOQ estimates benchmarked against 2026 standards.'}
+                        </p>
+                      </div>
+
+                      <Link
+                        to="/simulasi-rab"
+                        onClick={() => setServicesDropdownOpen(false)}
+                        className="w-full py-2 px-3 rounded-lg bg-turkish-500 hover:bg-turkish-600 text-white font-bold text-xs text-center shadow transition-colors block"
+                      >
+                        {lang === 'id' ? 'Buka Kalkulator RAB →' : 'Launch BOQ Tool →'}
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Bottom Footer Bar */}
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 px-1">
+                    <span>
+                      {lang === 'id' 
+                        ? 'Konsultasi awal gratis bersama tim arsitek & konsultan legal berizin' 
+                        : 'Complimentary consultation with licensed architects & legal counsel'}
+                    </span>
+                    <Link 
+                      to="/kontak" 
+                      onClick={() => setServicesDropdownOpen(false)}
+                      className="font-bold text-slate-800 hover:text-turkish-700 transition-colors inline-flex items-center gap-1"
+                    >
+                      <span>{lang === 'id' ? 'Hubungi Kantor Kami' : 'Contact Us'}</span>
+                      <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>
                 </div>
@@ -384,7 +477,7 @@ export default function Header({ lang, setLang, t }) {
                 </Link>
                 <Link 
                   to="/simulasi-rab" 
-                  className="block px-3 py-2 text-sm font-bold text-gold-800 bg-amber-50 rounded-md"
+                  className="block px-3 py-2 text-sm font-bold text-turkish-800 bg-turkish-50 border border-turkish-200 rounded-md"
                 >
                   ★ {t.nav.calculator} (Kalkulator Anggaran)
                 </Link>

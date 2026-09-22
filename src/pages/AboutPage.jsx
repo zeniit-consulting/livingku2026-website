@@ -29,7 +29,7 @@ export default function AboutPage({ t, lang, onOpenConsultation }) {
         <div 
           className="absolute inset-0 opacity-5 pointer-events-none"
           style={{
-            backgroundImage: `radial-gradient(#d7b366 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(#0ea8a4 1px, transparent 1px)`,
             backgroundSize: '24px 24px'
           }}
         />
@@ -65,7 +65,7 @@ export default function AboutPage({ t, lang, onOpenConsultation }) {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="p-6 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-slate-900 space-y-6 shadow-sm">
+              <div className="p-6 rounded-2xl bg-turkish-50/70 border border-turkish-200/80 text-slate-900 space-y-6 shadow-sm">
                 <div>
                   <div className="flex items-center gap-2 text-gold-800 font-serif font-bold text-lg mb-1">
                     <Target className="w-5 h-5 text-gold-600" />
@@ -76,7 +76,7 @@ export default function AboutPage({ t, lang, onOpenConsultation }) {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-amber-200/80">
+                <div className="pt-4 border-t border-turkish-200/80">
                   <div className="flex items-center gap-2 text-gold-800 font-serif font-bold text-lg mb-1">
                     <Compass className="w-5 h-5 text-gold-600" />
                     <span>{lang === 'id' ? 'Misi Kami' : 'Our Mission'}</span>

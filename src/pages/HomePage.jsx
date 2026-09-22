@@ -88,7 +88,7 @@ export default function HomePage({ t, lang, onOpenConsultation }) {
                         to={`/layanan#${service.id}`}
                         className="text-xs font-bold text-slate-900 hover:text-gold-700 flex items-center gap-1"
                       >
-                        <span>{lang === 'id' ? 'Spesifikasi & DED' : 'Specifications'}</span>
+                        <span>{lang === 'id' ? 'Lihat Detail' : 'View Details'}</span>
                         <ArrowRight className="w-3 h-3" />
                       </Link>
                       <button
@@ -279,7 +279,7 @@ export default function HomePage({ t, lang, onOpenConsultation }) {
       </section>
 
       {/* Fast Consultation Callout with Ref Code LK-HOME-26 passed to handler */}
-      <section className="py-14 bg-amber-50/70 border-t border-b border-amber-200/80 text-slate-900">
+      <section className="py-14 bg-turkish-50/70 border-t border-b border-turkish-200/80 text-slate-900">
         <div className="wp-container text-center max-w-3xl mx-auto space-y-4">
           <span className="text-xs font-bold uppercase tracking-widest text-gold-700 bg-gold-100/80 px-3 py-1 rounded-full inline-block border border-gold-300">
             {lang === 'id' ? 'Konsultasi Terpadu' : 'Integrated Advisory'}

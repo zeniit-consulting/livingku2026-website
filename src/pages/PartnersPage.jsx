@@ -42,7 +42,7 @@ export default function PartnersPage({ t, lang, onOpenConsultation }) {
         <div 
           className="absolute inset-0 opacity-5 pointer-events-none"
           style={{
-            backgroundImage: `radial-gradient(#d7b366 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(#0ea8a4 1px, transparent 1px)`,
             backgroundSize: '24px 24px'
           }}
         />
@@ -113,7 +113,7 @@ export default function PartnersPage({ t, lang, onOpenConsultation }) {
           </div>
 
           {/* Supplier Application Box */}
-          <div className="p-6 sm:p-8 rounded-2xl bg-amber-50/70 border border-amber-200/80 text-slate-900 shadow-sm">
+          <div className="p-6 sm:p-8 rounded-2xl bg-turkish-50/70 border border-turkish-200/80 text-slate-900 shadow-sm">
             <h4 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 mb-2">
               {lang === 'id' ? 'Tertarik Menjadi Mitra Vendor / Suplier LivingKu?' : 'Interested in Becoming a LivingKu Partner / Vendor?'}
             </h4>

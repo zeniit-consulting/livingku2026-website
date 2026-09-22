@@ -75,10 +75,11 @@ export default function Hero({ t, lang, onOpenConsultation }) {
 
   return (
     <section 
+      id="hero"
       role="region"
       aria-roledescription="carousel"
       aria-label={isId ? "Proyek Unggulan LivingKu" : "LivingKu Featured Architecture & Construction"}
-      className="relative w-full min-h-[580px] sm:min-h-[640px] lg:min-h-[720px] flex items-center justify-center overflow-hidden bg-slate-950 border-b border-slate-800"
+      className="relative w-full min-h-[580px] sm:min-h-[640px] lg:min-h-[720px] -mt-[96px] sm:-mt-[102px] pt-[96px] sm:pt-[102px] flex items-center justify-center overflow-hidden bg-slate-950 border-b border-slate-800"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -121,14 +122,14 @@ export default function Hero({ t, lang, onOpenConsultation }) {
         {/* Cinematic Dark Overlay for striking contrast against vivid hero imagery */}
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-slate-950/85 via-slate-900/75 to-slate-950/90 backdrop-blur-[0.5px]" />
         
-        {/* Subtle luminous gold ambient glow in center */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-gold-500/10 rounded-full blur-3xl pointer-events-none z-10" />
+        {/* Subtle luminous Turkish blue ambient glow in center */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-turkish-500/15 rounded-full blur-3xl pointer-events-none z-10" />
 
         {/* Subtle grid pattern overlay */}
         <div 
           className="absolute inset-0 z-10 opacity-15 pointer-events-none"
           style={{
-            backgroundImage: `radial-gradient(rgba(215, 179, 102, 0.3) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(rgba(14, 168, 164, 0.4) 1px, transparent 1px)`,
             backgroundSize: '28px 28px'
           }}
         />
@@ -138,19 +139,19 @@ export default function Hero({ t, lang, onOpenConsultation }) {
       <div className="wp-container relative z-20 text-center max-w-4xl mx-auto py-16 sm:py-20 px-4 sm:px-6">
         
         {/* Centered Dynamic Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/85 border border-gold-500/40 shadow-xl backdrop-blur-md text-xs font-semibold text-slate-200 mb-6">
-          <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse shadow-[0_0_8px_rgba(234,179,8,0.8)]" />
-          <span className="text-gold-300">{slides[currentIndex].category}</span>
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/85 border border-turkish-500/40 shadow-xl backdrop-blur-md text-xs font-semibold text-slate-200 mb-6">
+          <span className="w-2 h-2 rounded-full bg-turkish-400 animate-pulse shadow-[0_0_8px_rgba(14,168,164,0.8)]" />
+          <span className="text-turkish-300">{slides[currentIndex].category}</span>
           <span className="text-slate-600">|</span>
           <span className="text-slate-300 font-medium hidden sm:inline">{slides[currentIndex].location}</span>
         </div>
 
-        {/* Simple Hero Title in Center - Maximum Contrast White & Gold */}
+        {/* Simple Hero Title in Center - Maximum Contrast White & Turkish Blue */}
         <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.18] mb-5 drop-shadow-md">
           {isId ? (
             <>
               Membangun Properti Impian &amp;{' '}
-              <span className="text-gold-400 underline decoration-gold-400/50 decoration-wavy decoration-1 underline-offset-8">
+              <span className="text-turkish-400 underline decoration-turkish-400/50 decoration-wavy decoration-1 underline-offset-8">
                 Fondasi Legalitas
               </span>{' '}
               Bisnis
@@ -158,7 +159,7 @@ export default function Hero({ t, lang, onOpenConsultation }) {
           ) : (
             <>
               Building Visionary Properties &amp;{' '}
-              <span className="text-gold-400 underline decoration-gold-400/50 decoration-wavy decoration-1 underline-offset-8">
+              <span className="text-turkish-400 underline decoration-turkish-400/50 decoration-wavy decoration-1 underline-offset-8">
                 Statutory Foundations
               </span>
             </>
@@ -177,17 +178,17 @@ export default function Hero({ t, lang, onOpenConsultation }) {
           <button
             type="button"
             onClick={onOpenConsultation}
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-sm shadow-lg hover:shadow-gold-500/25 transition-all group"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-turkish-500 hover:bg-turkish-600 text-white font-bold text-sm shadow-lg hover:shadow-turkish-500/25 transition-all group"
           >
             <span>{isId ? 'Mulai Konsultasi Proyek' : 'Start Project Consultation'}</span>
-            <ArrowRight className="w-4 h-4 text-slate-950 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
           </button>
 
           <a
             href="/simulasi-rab"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white hover:text-gold-300 font-semibold text-sm border border-white/25 hover:border-gold-400/60 shadow-sm transition-all backdrop-blur-md"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white hover:text-turkish-300 font-semibold text-sm border border-white/25 hover:border-turkish-400/60 shadow-sm transition-all backdrop-blur-md"
           >
-            <Calculator className="w-4 h-4 text-gold-400" />
+            <Calculator className="w-4 h-4 text-turkish-400" />
             <span>{isId ? 'Hitung Estimasi RAB' : 'Cost & BOQ Simulator'}</span>
           </a>
         </div>
@@ -218,7 +219,7 @@ export default function Hero({ t, lang, onOpenConsultation }) {
         type="button"
         onClick={prevSlide}
         aria-controls="hero-carousel-track"
-        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white hover:text-gold-400 border border-slate-700/80 shadow-xl flex items-center justify-center transition-all backdrop-blur-md hover:scale-105 active:scale-95 focus:outline-none"
+        className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white hover:text-turkish-400 border border-slate-700/80 shadow-xl flex items-center justify-center transition-all backdrop-blur-md hover:scale-105 active:scale-95 focus:outline-none"
         aria-label={isId ? "Slide sebelumnya" : "Previous slide"}
       >
         <ChevronLeft className="w-5 h-5" aria-hidden="true" />
@@ -229,7 +230,7 @@ export default function Hero({ t, lang, onOpenConsultation }) {
         type="button"
         onClick={nextSlide}
         aria-controls="hero-carousel-track"
-        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white hover:text-gold-400 border border-slate-700/80 shadow-xl flex items-center justify-center transition-all backdrop-blur-md hover:scale-105 active:scale-95 focus:outline-none"
+        className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white hover:text-turkish-400 border border-slate-700/80 shadow-xl flex items-center justify-center transition-all backdrop-blur-md hover:scale-105 active:scale-95 focus:outline-none"
         aria-label={isId ? "Slide selanjutnya" : "Next slide"}
       >
         <ChevronRight className="w-5 h-5" aria-hidden="true" />
@@ -253,7 +254,7 @@ export default function Hero({ t, lang, onOpenConsultation }) {
               onClick={() => setCurrentIndex(idx)}
               className={`transition-all duration-300 rounded-full focus:outline-none ${
                 isSelected 
-                  ? 'w-7 h-2.5 bg-gold-400 shadow-sm' 
+                  ? 'w-7 h-2.5 bg-turkish-400 shadow-[0_0_8px_rgba(14,168,164,0.7)]' 
                   : 'w-2.5 h-2.5 bg-slate-600 hover:bg-slate-400'
               }`}
               aria-label={`${isId ? "Pindah ke slide" : "Switch to slide"} ${idx + 1}: ${s.category}`}

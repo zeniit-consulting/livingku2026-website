@@ -18,7 +18,7 @@ export default function PortfolioPage({ t, lang, onOpenConsultation }) {
         <div 
           className="absolute inset-0 opacity-5 pointer-events-none"
           style={{
-            backgroundImage: `radial-gradient(#d7b366 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(#0ea8a4 1px, transparent 1px)`,
             backgroundSize: '24px 24px'
           }}
         />

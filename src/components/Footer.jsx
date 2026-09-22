@@ -25,26 +25,17 @@ export default function Footer({ t, lang }) {
           
           {/* Col 1: Brand & Profile (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className="h-10 px-2.5 py-1 rounded-lg bg-white flex items-center justify-center shadow-sm">
-                <img 
-                  src="/images/logo.png" 
-                  alt="LivingKu - Design, Contractor & Legal Advisory Logo" 
-                  width="120"
-                  height="36"
-                  loading="lazy"
-                  decoding="async"
-                  className="h-7 w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
-                />
-              </div>
-              <div>
-                <span className="font-serif font-bold text-xl text-white tracking-tight block">
-                  Living<span className="text-gold-500">Ku</span>
-                </span>
-                <span className="text-[10px] tracking-wider uppercase font-semibold text-slate-400 block">
-                  Design • Contractor • Legal Advisory
-                </span>
-              </div>
+            {/* Simplified Logo: Standalone white logo without background box and without text */}
+            <Link to="/" className="inline-flex items-center group py-1" aria-label="LivingKu Home">
+              <img 
+                src="/images/logo-white.png" 
+                alt="LivingKu" 
+                width="150"
+                height="44"
+                loading="lazy"
+                decoding="async"
+                className="h-9 sm:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
+              />
             </Link>
 
             <p className="text-xs text-slate-400 leading-relaxed font-light">

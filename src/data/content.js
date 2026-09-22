@@ -25,7 +25,7 @@ export const content = {
       calculator: "Simulasi RAB",
       partners: "Mitra Resmi",
       portfolio: "Portofolio",
-      blog: "Wawasan & Berita",
+      blog: "Berita",
       contact: "Hubungi Kami",
       cta: "Konsultasi Gratis",
     },
@@ -86,7 +86,7 @@ export const content = {
       badge: "Layanan Utama",
       title: "Empat Pilar Solusi Terpadu LivingKu",
       subtitle: "Dari denah arsitektur hingga kepatuhan pajak korporasi, seluruh kebutuhan investasi Anda ditangani oleh tim profesional satu atap.",
-      viewDetails: "Lihat Spesifikasi Layanan",
+      viewDetails: "Lihat Detail",
       requestBrochure: "Unduh Profil Layanan (PDF)",
       list: [
         {
@@ -509,7 +509,7 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
       calculator: "Cost Estimator",
       partners: "Partners",
       portfolio: "Portfolio",
-      blog: "Insights & News",
+      blog: "News",
       contact: "Contact Us",
       cta: "Free Consultation",
     },
@@ -570,7 +570,7 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
       badge: "Core Services",
       title: "Four Pillars of LivingKu Integrated Solutions",
       subtitle: "From preliminary architectural schematics to corporate tax filings, all your investment requirements under one accountable roof.",
-      viewDetails: "View Service Specifications",
+      viewDetails: "View Details",
       requestBrochure: "Download Capability Deck (PDF)",
       list: [
         {

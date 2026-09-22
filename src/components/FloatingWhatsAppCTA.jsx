@@ -35,8 +35,8 @@ export const PAGE_REF_CODES = {
   },
   '/blog': {
     code: 'LK-BLOG-26',
-    titleId: 'Halaman Wawasan & Regulasi',
-    titleEn: 'Insights & Blog',
+    titleId: 'Halaman Berita',
+    titleEn: 'News Page',
   },
   '/kontak': {
     code: 'LK-CNT-26',

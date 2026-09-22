@@ -5,7 +5,7 @@ import { BookOpen, Sparkles, TrendingUp, Tag, Mail } from 'lucide-react';
 
 export default function BlogPage({ t, lang, onOpenConsultation }) {
   const breadcrumbs = [
-    { label: lang === 'id' ? 'Wawasan, Regulasi & Berita' : 'Insights & Statutory News' }
+    { label: lang === 'id' ? 'Berita' : 'News' }
   ];
 
   return (
@@ -18,7 +18,7 @@ export default function BlogPage({ t, lang, onOpenConsultation }) {
         <div 
           className="absolute inset-0 opacity-5 pointer-events-none"
           style={{
-            backgroundImage: `radial-gradient(#d7b366 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(#0ea8a4 1px, transparent 1px)`,
             backgroundSize: '24px 24px'
           }}
         />
@@ -41,7 +41,7 @@ export default function BlogPage({ t, lang, onOpenConsultation }) {
       {/* Editorial Topics Overview & Newsletter */}
       <section className="py-14 bg-white border-b border-slate-200">
         <div className="wp-container max-w-4xl mx-auto">
-          <div className="p-8 rounded-2xl bg-amber-50/80 border border-amber-200/90 text-slate-900 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+          <div className="p-8 rounded-2xl bg-turkish-50/80 border border-turkish-200/90 text-slate-900 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-1.5 text-xs text-gold-700 font-bold uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5" />
