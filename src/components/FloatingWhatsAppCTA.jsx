@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { MessageCircle, X, ShieldCheck } from 'lucide-react';
+import { X, ShieldCheck } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export const PAGE_REF_CODES = {
   '/': {
@@ -115,7 +116,7 @@ export default function FloatingWhatsAppCTA({ lang }) {
         {/* Pulsing ring indicator */}
         <span className="absolute -inset-1 rounded-full bg-emerald-500/30 animate-pulse pointer-events-none" />
         
-        <MessageCircle className="w-7 h-7 relative z-10 transition-transform group-hover:rotate-6" />
+        <WhatsAppIcon className="w-7 h-7 text-white relative z-10 transition-transform group-hover:rotate-6" />
 
         {/* Small badge displaying reference code on hover for mobile/desktop */}
         <span className="sr-only">

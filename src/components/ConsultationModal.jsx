@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { X, Send, MessageCircle, CheckCircle2 } from 'lucide-react';
+import { X, Send, CheckCircle2 } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function ConsultationModal({ isOpen, onClose, t, initialService, lang }) {
   const [name, setName] = useState('');
@@ -75,7 +76,7 @@ export default function ConsultationModal({ isOpen, onClose, t, initialService, 
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <WhatsAppIcon className="w-4 h-4 text-white" />
                   <span>{lang === 'id' ? 'Buka WhatsApp Sekarang' : 'Chat on WhatsApp Now'}</span>
                 </a>
               </div>
@@ -155,7 +156,7 @@ export default function ConsultationModal({ isOpen, onClose, t, initialService, 
                   rel="noopener noreferrer"
                   className="w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <WhatsAppIcon className="w-4 h-4 text-white" />
                   <span>{t.contact.form.whatsappDirect}</span>
                 </a>
               </div>

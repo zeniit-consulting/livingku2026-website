@@ -60,51 +60,75 @@ export default function Header({ lang, setLang, t }) {
 
   const isSolid = isScrolledPastHero || mobileMenuOpen;
 
+  // Helper for dynamic navigation link styling: White text at initial transparent state, Navy (text-slate-900) when solid
+  const getNavLinkClass = (path) => {
+    const active = isActive(path);
+    if (!isSolid) {
+      return active
+        ? 'text-white border-turkish-400 font-bold'
+        : 'text-white/90 hover:text-white hover:border-white/40 border-transparent';
+    }
+    return active
+      ? 'text-turkish-700 border-turkish-600 font-bold'
+      : 'text-slate-900 hover:text-turkish-700 hover:border-turkish-500 border-transparent';
+  };
+
+  const isServicesActive = isActive('/layanan') || isActive('/simulasi-rab');
+  const servicesTriggerClass = !isSolid
+    ? (isServicesActive ? 'text-white border-turkish-400 font-bold' : 'text-white/90 hover:text-white hover:border-white/40 border-transparent')
+    : (isServicesActive ? 'text-turkish-700 border-turkish-600 font-bold' : 'text-slate-900 hover:text-turkish-700 hover:border-turkish-500 border-transparent');
+
   return (
     <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${
       isSolid 
         ? 'bg-white shadow-md' 
-        : 'bg-transparent shadow-xs'
+        : 'bg-transparent shadow-none'
     }`}>
       {/* Top Bar (Sticky with header): 50% transparent initial, 100% solid when scrolled past hero */}
       <div className={`text-xs py-1.5 transition-colors duration-300 ${
         isSolid
           ? 'bg-slate-900 text-slate-300 border-b border-slate-800'
-          : 'bg-slate-900/50 backdrop-blur-md text-slate-200 border-b border-slate-800/40'
+          : 'bg-slate-950/60 backdrop-blur-md text-white border-b border-white/10'
       }`}>
         <div className="wp-container flex flex-wrap justify-between items-center gap-y-1">
           {/* Contact info */}
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <a 
               href={`tel:${t.topBar.hotline.replace(/[^0-9+]/g, '')}`} 
-              className="flex items-center gap-1.5 hover:text-gold-400 transition-colors"
+              className={`flex items-center gap-1.5 transition-colors ${
+                !isSolid ? 'text-white hover:text-turkish-300' : 'hover:text-turkish-400'
+              }`}
             >
-              <Phone className="w-3.5 h-3.5 text-gold-500" />
+              <Phone className="w-3.5 h-3.5 text-turkish-400" />
               <span>{t.topBar.hotline}</span>
             </a>
             <a 
               href={`mailto:${t.topBar.email}`} 
-              className="hidden md:flex items-center gap-1.5 hover:text-gold-400 transition-colors"
+              className={`hidden md:flex items-center gap-1.5 transition-colors ${
+                !isSolid ? 'text-white hover:text-turkish-300' : 'hover:text-turkish-400'
+              }`}
             >
-              <Mail className="w-3.5 h-3.5 text-gold-500" />
+              <Mail className="w-3.5 h-3.5 text-turkish-400" />
               <span>{t.topBar.email}</span>
             </a>
-            <div className="hidden sm:flex items-center gap-1.5 text-slate-400">
-              <MapPin className="w-3.5 h-3.5 text-gold-500" />
+            <div className={`hidden sm:flex items-center gap-1.5 ${
+              !isSolid ? 'text-white/85' : 'text-slate-400'
+            }`}>
+              <MapPin className="w-3.5 h-3.5 text-turkish-400" />
               <span>{t.topBar.locations}</span>
             </div>
           </div>
 
           {/* Language switch */}
           <div className="flex items-center gap-3 ml-auto">
-            <div className="flex items-center bg-slate-800 rounded-full p-0.5 border border-slate-700">
-              <Globe className="w-3 h-3 text-gold-400 ml-1.5 mr-1" />
+            <div className="flex items-center bg-slate-800/80 rounded-full p-0.5 border border-slate-700">
+              <Globe className="w-3 h-3 text-turkish-400 ml-1.5 mr-1" />
               <button
                 type="button"
                 onClick={() => setLang('id')}
                 className={`px-2 py-0.5 text-[11px] font-semibold rounded-full transition-all ${
                   lang === 'id' 
-                    ? 'bg-gold-500 text-slate-950 font-bold' 
+                    ? 'bg-turkish-500 text-white font-bold' 
                     : 'text-slate-300 hover:text-white'
                 }`}
               >
@@ -116,7 +140,7 @@ export default function Header({ lang, setLang, t }) {
                 onClick={() => setLang('en')}
                 className={`px-2 py-0.5 text-[11px] font-semibold rounded-full transition-all ${
                   lang === 'en' 
-                    ? 'bg-gold-500 text-slate-950 font-bold' 
+                    ? 'bg-turkish-500 text-white font-bold' 
                     : 'text-slate-300 hover:text-white'
                 }`}
               >
@@ -126,7 +150,9 @@ export default function Header({ lang, setLang, t }) {
 
             <Link 
               to="/kontak" 
-              className="hidden sm:inline-flex items-center gap-1 text-gold-400 hover:text-gold-300 font-medium text-xs transition-colors"
+              className={`hidden sm:inline-flex items-center gap-1 font-medium text-xs transition-colors ${
+                !isSolid ? 'text-white hover:text-turkish-300' : 'text-turkish-400 hover:text-turkish-300'
+              }`}
             >
               <MessageSquare className="w-3 h-3" />
               <span>{lang === 'id' ? 'Layanan Klien' : 'Client Desk'}</span>
@@ -140,15 +166,15 @@ export default function Header({ lang, setLang, t }) {
         aria-label={lang === 'id' ? 'Navigasi Utama' : 'Main Navigation'} 
         className={`py-3 sm:py-3.5 transition-all duration-300 ${
           isSolid 
-            ? 'bg-white border-b border-slate-100 shadow-xs' 
-            : 'bg-white/50 backdrop-blur-md border-b border-slate-200/50 shadow-xs'
+            ? 'bg-white border-b border-slate-200 shadow-sm' 
+            : 'bg-slate-950/40 backdrop-blur-md border-b border-white/10 shadow-xs'
         }`}
       >
         <div className="wp-container flex justify-between items-center">
-          {/* Simplified Logo: Standalone without black background and without text */}
+          {/* Dynamic Logo: White logo at initial state, Standard logo when solid */}
           <Link to="/" className="inline-flex items-center group py-1" aria-label="LivingKu Home">
             <img 
-              src="/images/logo.png" 
+              src={isSolid ? "/images/logo.png" : "/images/logo-white.png"} 
               alt="LivingKu" 
               width="150"
               height="44"
@@ -157,22 +183,18 @@ export default function Header({ lang, setLang, t }) {
             />
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden xl:flex items-center gap-8 text-sm font-medium text-slate-700">
+          {/* Desktop Navigation Links: White at initial state, Navy (text-slate-900) when solid */}
+          <div className="hidden xl:flex items-center gap-8 text-sm font-medium">
             <Link 
               to="/" 
-              className={`hover:text-gold-600 transition-colors py-1.5 border-b-2 ${
-                isActive('/') ? 'text-gold-700 border-gold-600 font-bold' : 'border-transparent'
-              }`}
+              className={`py-1.5 border-b-2 transition-colors ${getNavLinkClass('/')}`}
             >
               {t.nav.home}
             </Link>
 
             <Link 
               to="/tentang-kami" 
-              className={`hover:text-gold-600 transition-colors py-1.5 border-b-2 ${
-                isActive('/tentang-kami') ? 'text-gold-700 border-gold-600 font-bold' : 'border-transparent'
-              }`}
+              className={`py-1.5 border-b-2 transition-colors ${getNavLinkClass('/tentang-kami')}`}
             >
               {t.nav.about}
             </Link>
@@ -185,12 +207,12 @@ export default function Header({ lang, setLang, t }) {
             >
               <Link 
                 to="/layanan"
-                className={`flex items-center gap-1 hover:text-gold-600 transition-colors py-1.5 border-b-2 ${
-                  isActive('/layanan') || isActive('/simulasi-rab') ? 'text-gold-700 border-gold-600 font-bold' : 'border-transparent'
-                }`}
+                className={`flex items-center gap-1 py-1.5 border-b-2 transition-colors ${servicesTriggerClass}`}
               >
                 <span>{t.nav.services}</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 text-slate-400 ${servicesDropdownOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${
+                  !isSolid ? 'text-white/80' : 'text-slate-600'
+                } ${servicesDropdownOpen ? 'rotate-180' : ''}`} />
               </Link>
 
               {servicesDropdownOpen && (
@@ -356,18 +378,14 @@ export default function Header({ lang, setLang, t }) {
 
             <Link 
               to="/portofolio" 
-              className={`hover:text-gold-600 transition-colors py-1.5 border-b-2 ${
-                isActive('/portofolio') ? 'text-gold-700 border-gold-600 font-bold' : 'border-transparent'
-              }`}
+              className={`py-1.5 border-b-2 transition-colors ${getNavLinkClass('/portofolio')}`}
             >
               {t.nav.portfolio}
             </Link>
 
             <Link 
               to="/blog" 
-              className={`hover:text-gold-600 transition-colors py-1.5 border-b-2 ${
-                isActive('/blog') ? 'text-gold-700 border-gold-600 font-bold' : 'border-transparent'
-              }`}
+              className={`py-1.5 border-b-2 transition-colors ${getNavLinkClass('/blog')}`}
             >
               {t.nav.blog}
             </Link>
@@ -377,10 +395,14 @@ export default function Header({ lang, setLang, t }) {
           <div className="hidden sm:flex items-center gap-3">
             <Link
               to="/kontak"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-gold-300 hover:text-gold-200 font-semibold text-sm shadow-md transition-all border border-gold-500/30 group"
+              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm shadow-md transition-all group ${
+                !isSolid
+                  ? 'bg-turkish-500 hover:bg-turkish-600 text-white border border-turkish-400/40 shadow-turkish-500/20'
+                  : 'bg-slate-900 hover:bg-slate-800 text-white border border-slate-700'
+              }`}
             >
               <span>{lang === 'id' ? 'Hubungi Kami' : 'Contact Us'}</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform text-gold-400" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform text-white" />
             </Link>
           </div>
 
@@ -389,7 +411,11 @@ export default function Header({ lang, setLang, t }) {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors"
+              className={`p-2 rounded-lg transition-colors ${
+                !isSolid
+                  ? 'text-white hover:text-white hover:bg-white/10'
+                  : 'text-slate-900 hover:text-slate-950 hover:bg-slate-100'
+              }`}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
               aria-label={mobileMenuOpen ? (lang === 'id' ? 'Tutup navigasi' : 'Close navigation') : (lang === 'id' ? 'Buka navigasi' : 'Open navigation')}

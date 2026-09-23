@@ -5,10 +5,10 @@ import {
   MapPin, 
   Send, 
   CheckCircle2, 
-  MessageCircle, 
   Clock, 
   Building2 
 } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function ContactSection({ t, preselectedService }) {
   const [formData, setFormData] = useState({
@@ -106,7 +106,7 @@ export default function ContactSection({ t, preselectedService }) {
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-md transition-colors"
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <WhatsAppIcon className="w-5 h-5 text-white" />
                   <span>{t.contact.form.whatsappDirect}</span>
                 </a>
               </div>
@@ -142,7 +142,7 @@ export default function ContactSection({ t, preselectedService }) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-600 text-white text-xs font-bold shadow hover:bg-emerald-500"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4 text-white" />
                     <span>Lanjutkan via WhatsApp Sekarang</span>
                   </a>
                   <button
