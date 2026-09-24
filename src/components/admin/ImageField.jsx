@@ -135,7 +135,7 @@ export default function ImageField({ label, value, onChange, helpText }) {
       {showPresets && (
         <div className="p-3 bg-white border border-turkish-200 rounded-xl shadow-md space-y-2 animate-fadeIn">
           <div className="flex items-center justify-between text-xs font-bold text-slate-700 pb-1 border-b border-slate-100">
-            <span>Pustaka Foto Berkualitas Tinggi LivingKu:</span>
+            <span>Pustaka Foto Berkualitas Tinggi Livingku.ID:</span>
             <button
               type="button"
               onClick={() => setShowPresets(false)}

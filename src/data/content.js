@@ -1,7 +1,7 @@
 export const content = {
   id: {
     meta: {
-      siteName: "LivingKu",
+      siteName: "Livingku.ID",
       tagline: "Studio Desain, Kontraktor & Penasihat Legalitas Usaha",
       desc: "Solusi terintegrasi untuk perencanaan arsitektur, konstruksi berstandar SNI, pendirian badan usaha PMDN/PMA, dan manajemen akuntansi & pajak di Indonesia.",
     },
@@ -39,7 +39,7 @@ export const content = {
       titlePre: "Membangun Properti Impian &",
       titleHighlight: "Mengamankan Fondasi Legalitas",
       titlePost: "Bisnis Anda di Indonesia.",
-      description: "LivingKu menyatukan keahlian arsitektur presisi, kontraktor teruji dengan RAB transparan, sertifikasi legalitas usaha (PMDN/PMA), hingga tata kelola akuntansi dan kepatuhan perpajakan.",
+      description: "Livingku.ID menyatukan keahlian arsitektur presisi, kontraktor teruji dengan RAB transparan, sertifikasi legalitas usaha (PMDN/PMA), hingga tata kelola akuntansi dan kepatuhan perpajakan.",
       primaryCta: "Mulai Konsultasi Proyek",
       secondaryCta: "Hitung Estimasi RAB",
       stats: [
@@ -56,7 +56,7 @@ export const content = {
       ],
     },
     features: {
-      badge: "Mengapa Memilih LivingKu",
+      badge: "Mengapa Memilih Livingku.ID",
       title: "Standar Eksekusi Profesional Tanpa Kompromi",
       subtitle: "Kami memadukan disiplin teknik arsitektur dengan akurasi hukum korporat dan finansial.",
       items: [
@@ -84,7 +84,7 @@ export const content = {
     },
     services: {
       badge: "Layanan Utama",
-      title: "Empat Pilar Solusi Terpadu LivingKu",
+      title: "Empat Pilar Solusi Terpadu Livingku.ID",
       subtitle: "Dari denah arsitektur hingga kepatuhan pajak korporasi, seluruh kebutuhan investasi Anda ditangani oleh tim profesional satu atap.",
       viewDetails: "Lihat Detail",
       requestBrochure: "Unduh Profil Layanan (PDF)",
@@ -210,7 +210,7 @@ export const content = {
         { name: "Direktorat Jenderal Pajak (DJP)", category: "institutions", role: "Mitra Kepatuhan & Integrasi DJP Online", logoText: "DJP KEMENKEU" },
         { name: "LPJK & GAPENSI", category: "institutions", role: "Lembaga Akreditasi Jasa Konstruksi Nasional", logoText: "LPJK" },
       ],
-      quote: "LivingKu memastikan setiap suplai material didukung sertifikat pabrikan asli dan setiap perizinan diproses melalui portal resmi pemerintah tanpa calo.",
+      quote: "Livingku.ID memastikan setiap suplai material didukung sertifikat pabrikan asli dan setiap perizinan diproses melalui portal resmi pemerintah tanpa calo.",
     },
     portfolio: {
       badge: "Karya Terpilih",
@@ -259,7 +259,7 @@ export const content = {
     blog: {
       badge: "Wawasan & Edukasi",
       title: "Artikel Terkini: Konstruksi, Legalitas & Pajak",
-      subtitle: "Panduan praktis, analisis regulasi terbaru, dan wawasan industri yang ditulis oleh para praktisi LivingKu.",
+      subtitle: "Panduan praktis, analisis regulasi terbaru, dan wawasan industri yang ditulis oleh para praktisi Livingku.ID.",
       categories: ["Semua Kategori", "Arsitektur & Desain", "Konstruksi & RAB", "Legalitas Bisnis", "Pajak & Keuangan"],
       readArticle: "Baca Artikel Lengkap",
       readTime: "Menit Membaca",
@@ -373,34 +373,34 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
     faq: {
       badge: "Pertanyaan Populer (FAQ)",
       title: "Semua Hal yang Perlu Anda Ketahui",
-      subtitle: "Jawaban langsung dan transparan mengenai proses kerja, jaminan legalitas, dan penghitungan biaya di LivingKu.",
+      subtitle: "Jawaban langsung dan transparan mengenai proses kerja, jaminan legalitas, dan penghitungan biaya di Livingku.ID.",
       items: [
         {
-          q: "Bagaimana LivingKu menjamin tidak terjadi overbudget pada RAB konstruksi?",
+          q: "Bagaimana Livingku.ID menjamin tidak terjadi overbudget pada RAB konstruksi?",
           a: "Kami menggunakan sistem kontrak Fixed-Price berbasis Gambar Kerja Detail (DED) yang disepakati bersama. RAB kami merinci seluruh volume bahan dan upah per satuan kerja. Biaya hanya berubah jika pemilik proyek mengajukan Change Request secara tertulis dengan persetujuan bersama sebelum pekerjaan tambahan dieksekusi.",
         },
         {
           q: "Apakah warga negara asing (WNA) bisa memiliki properti dan mendirikan usaha di Indonesia?",
-          a: "Bisa. WNA dapat mendirikan PT PMA (Perseroan Terbatas Penanaman Modal Asing) yang memiliki hak atas tanah berupa Hak Pakai atau Hak Guna Bangunan (HGB) atas nama PT PMA. Tim legal LivingKu menangani seluruh proses mulai dari pendirian akta notaris, pendaftaran OSS-RBA, hingga pengurusan KITAS Investor resmi.",
+          a: "Bisa. WNA dapat mendirikan PT PMA (Perseroan Terbatas Penanaman Modal Asing) yang memiliki hak atas tanah berupa Hak Pakai atau Hak Guna Bangunan (HGB) atas nama PT PMA. Tim legal Livingku.ID menangani seluruh proses mulai dari pendirian akta notaris, pendaftaran OSS-RBA, hingga pengurusan KITAS Investor resmi.",
         },
         {
           q: "Apa perbedaan PBG (Persetujuan Bangunan Gedung) dengan IMB yang lama?",
-          a: "PBG adalah pengganti resmi IMB sejak berlakunya UU Cipta Kerja. PBG berfokus pada standar teknis keselamatan, struktur, proteksi kebakaran, dan kelayakan fungsi gedung. Setelah bangunan fisik selesai, LivingKu juga membantu pengurusan Sertifikat Laik Fungsi (SLF) yang wajib dimiliki sebelum bangunan dioperasikan.",
+          a: "PBG adalah pengganti resmi IMB sejak berlakunya UU Cipta Kerja. PBG berfokus pada standar teknis keselamatan, struktur, proteksi kebakaran, dan kelayakan fungsi gedung. Setelah bangunan fisik selesai, Livingku.ID juga membantu pengurusan Sertifikat Laik Fungsi (SLF) yang wajib dimiliki sebelum bangunan dioperasikan.",
         },
         {
-          q: "Apakah LivingKu melayani proyek parsial seperti hanya gambar arsitektur atau legalitas pajak saja?",
+          q: "Apakah Livingku.ID melayani proyek parsial seperti hanya gambar arsitektur atau legalitas pajak saja?",
           a: "Tentu saja. Meskipun kami memiliki kapabilitas end-to-end, Anda dapat memilih layanan individual sesuai kebutuhan spesifik Anda: hanya jasa desain 3D & DED, hanya kontraktor konstruksi, jasa pendirian PT, ataupun pendampingan akuntansi & pajak bulanan.",
         },
         {
           q: "Berapa lama masa garansi pemeliharaan konstruksi yang diberikan?",
-          a: "LivingKu memberikan Garansi Retensi Pemeliharaan selama 3 hingga 6 bulan setelah Berita Acara Serah Terima (BAST) 1 ditandatangani. Tim teknis kami akan menangani perbaikan cat, kebocoran pipa, kelistrikan, maupun keretakan rambut plesteran secara gratis selama masa garansi.",
+          a: "Livingku.ID memberikan Garansi Retensi Pemeliharaan selama 3 hingga 6 bulan setelah Berita Acara Serah Terima (BAST) 1 ditandatangani. Tim teknis kami akan menangani perbaikan cat, kebocoran pipa, kelistrikan, maupun keretakan rambut plesteran secara gratis selama masa garansi.",
         },
       ],
     },
     contact: {
       badge: "Hubungi Kami",
       title: "Diskusikan Visi Proyek & Kebutuhan Bisnis Anda",
-      subtitle: "Konsultasikan rencana konstruksi, desain, legalitas, atau perpajakan dengan konsultan ahli LivingKu. Respon cepat dalam 2 jam kerja.",
+      subtitle: "Konsultasikan rencana konstruksi, desain, legalitas, atau perpajakan dengan konsultan ahli Livingku.ID. Respon cepat dalam 2 jam kerja.",
       form: {
         name: "Nama Lengkap",
         namePlaceholder: "Contoh: Bpk. Alexander Pratama",
@@ -422,7 +422,7 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
         message: "Deskripsi Singkat Proyek / Kebutuhan",
         messagePlaceholder: "Ceritakan lokasi proyek, luas lahan/bangunan, dan target waktu pengerjaan...",
         submit: "Kirim Permintaan Konsultasi",
-        submitSuccess: "Terima kasih! Pesan Anda telah diterima. Tim LivingKu akan menghubungi Anda dalam kurun waktu 2 jam kerja.",
+        submitSuccess: "Terima kasih! Pesan Anda telah diterima. Tim Livingku.ID akan menghubungi Anda dalam kurun waktu 2 jam kerja.",
         whatsappDirect: "Chat Langsung via WhatsApp",
       },
       offices: [
@@ -438,8 +438,8 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
       badge: "Profil Perusahaan",
       title: "Sinergi Arsitektur, Konstruksi & Tata Kelola Korporasi",
       subtitle: "Didirikan dengan misi memberikan kepastian hukum dan kualitas bangunan tanpa celah bagi pemilik properti dan pelaku bisnis di Indonesia.",
-      storyTitle: "Perjalanan & Filosofi LivingKu",
-      story: "LivingKu lahir dari tantangan nyata yang kerap dihadapi para investor dan pemilik properti di Indonesia: fragmentasi antara biro arsitek, kontraktor pelaksana, notaris perizinan, dan konsultan pajak. Sering kali sebuah proyek arsitektur tertunda berbulan-bulan karena hambatan PBG/SLF, atau membengkak biayanya karena RAB gelondongan.\n\nLivingKu hadir sebagai solusi One-Stop Multi-Disiplin. Kami menyatukan arsitek berlisensi IAI, kontraktor bersertifikasi LPJK/GAPENSI, praktisi hukum korporat spesialis PMA/PMDN, dan konsultan pajak bersertifikat BKP dalam satu tata kelola kerja yang harmonis.",
+      storyTitle: "Perjalanan & Filosofi Livingku.ID",
+      story: "Livingku.ID lahir dari tantangan nyata yang kerap dihadapi para investor dan pemilik properti di Indonesia: fragmentasi antara biro arsitek, kontraktor pelaksana, notaris perizinan, dan konsultan pajak. Sering kali sebuah proyek arsitektur tertunda berbulan-bulan karena hambatan PBG/SLF, atau membengkak biayanya karena RAB gelondongan.\n\nLivingku.ID hadir sebagai solusi One-Stop Multi-Disiplin. Kami menyatukan arsitek berlisensi IAI, kontraktor bersertifikasi LPJK/GAPENSI, praktisi hukum korporat spesialis PMA/PMDN, dan konsultan pajak bersertifikat BKP dalam satu tata kelola kerja yang harmonis.",
       mission: "Menjadi mitra terpercaya dalam mentransformasikan visi properti dan investasi menjadi aset fisik bernilai tinggi dengan kepatuhan hukum 100%.",
       vision: "Memimpin standar industri rancang-bangun dan perizinan bisnis modern di Indonesia yang berbasis integritas, transparansi biaya, dan kepatuhan regulasi.",
       values: [
@@ -463,7 +463,7 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
       ]
     },
     footer: {
-      about: "LivingKu adalah firma arsitektur, kontraktor berlisensi, dan penasihat hukum korporat terpadu di Indonesia. Mengabungkan ketelitian teknik bangunan dengan kepatuhan hukum dan perpajakan mutakhir.",
+      about: "Livingku.ID adalah firma arsitektur, kontraktor berlisensi, dan penasihat hukum korporat terpadu di Indonesia. Mengabungkan ketelitian teknik bangunan dengan kepatuhan hukum dan perpajakan mutakhir.",
       quickLinks: "Tautan Cepat",
       legalLinks: "Legalitas & Kepatuhan",
       terms: "Syarat & Ketentuan",
@@ -472,14 +472,14 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
       newsletterTitle: "Berlangganan Newsletter Regulasi & Properti",
       newsletterDesc: "Dapatkan update berkala regulasi OSS, tips RAB, dan analisis pasar properti Indonesia.",
       subscribe: "Langganan",
-      copyright: "© 2026 LivingKu Konsultama & Konstruksi Indonesia. Seluruh hak cipta dilindungi undang-undang.",
+      copyright: "© 2026 Livingku.ID Konsultama & Konstruksi Indonesia. Seluruh hak cipta dilindungi undang-undang.",
       wpCred: "Ditenagai oleh Arsitektur Modern Berstandar CMS Enterprise.",
     },
   },
 
   en: {
     meta: {
-      siteName: "LivingKu",
+      siteName: "Livingku.ID",
       tagline: "Design Studio, General Contractor & Corporate Legal Advisory",
       desc: "Integrated solutions for architectural planning, SNI-standard construction, domestic (PMDN) & foreign investment (PMA) incorporation, and corporate accounting & tax compliance in Indonesia.",
     },
@@ -517,7 +517,7 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
       titlePre: "Build Dream Properties &",
       titleHighlight: "Secure Corporate Foundations",
       titlePost: "in Indonesia.",
-      description: "LivingKu bridges precision architecture, verified general contracting with transparent BOQ, corporate legal incorporation (PMDN / Foreign PT PMA), and rigorous accounting and tax compliance.",
+      description: "Livingku.ID bridges precision architecture, verified general contracting with transparent BOQ, corporate legal incorporation (PMDN / Foreign PT PMA), and rigorous accounting and tax compliance.",
       primaryCta: "Start Project Consultation",
       secondaryCta: "Simulate Project Budget",
       stats: [
@@ -534,7 +534,7 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
       ],
     },
     features: {
-      badge: "Why Choose LivingKu",
+      badge: "Why Choose Livingku.ID",
       title: "Uncompromising Professional Execution Standards",
       subtitle: "We unify structural engineering discipline with corporate legal rigor and fiscal precision.",
       items: [
@@ -562,7 +562,7 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
     },
     services: {
       badge: "Core Services",
-      title: "Four Pillars of LivingKu Integrated Solutions",
+      title: "Four Pillars of Livingku.ID Integrated Solutions",
       subtitle: "From preliminary architectural schematics to corporate tax filings, all your investment requirements under one accountable roof.",
       viewDetails: "View Details",
       requestBrochure: "Download Capability Deck (PDF)",
@@ -688,7 +688,7 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
         { name: "Directorate General of Taxes (DJP)", category: "institutions", role: "Tax Compliance & DJP Online Integration", logoText: "DJP KEMENKEU" },
         { name: "LPJK & GAPENSI", category: "institutions", role: "National Construction Services Board", logoText: "LPJK" },
       ],
-      quote: "LivingKu guarantees genuine factory-certified materials and 100% legal government licensing channels without unauthorized middlemen.",
+      quote: "Livingku.ID guarantees genuine factory-certified materials and 100% legal government licensing channels without unauthorized middlemen.",
     },
     portfolio: {
       badge: "Selected Works",
@@ -737,7 +737,7 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
     blog: {
       badge: "Industry Insights",
       title: "Latest Articles: Construction, Legal & Tax",
-      subtitle: "Practical guidebooks, statutory analysis, and market updates authored by LivingKu partners.",
+      subtitle: "Practical guidebooks, statutory analysis, and market updates authored by Livingku.ID partners.",
       categories: ["All Categories", "Architecture & Design", "Construction & BOQ", "Corporate Legal", "Tax & Accounting"],
       readArticle: "Read Full Article",
       readTime: "Mins Read",
@@ -854,31 +854,31 @@ The trend in 2026 decisively advances beyond purely decorative minimalism toward
       subtitle: "Transparent answers about our contracting milestones, foreign investment security, and fee structures.",
       items: [
         {
-          q: "How does LivingKu prevent unexpected budget overruns on construction projects?",
+          q: "How does Livingku.ID prevent unexpected budget overruns on construction projects?",
           a: "We execute guaranteed fixed-price contracts based on comprehensive Detailed Engineering Drawings (DED). Our BOQs specify exact unit costs, material grades, and labor allocations. Costs only change if the client formally requests modifications via written Change Orders with transparent cost impact reviewed in advance.",
         },
         {
           q: "Can foreign nationals legally own properties and operate commercial ventures in Indonesia?",
-          a: "Yes. Foreign individuals can establish a PT PMA (Foreign Investment Company), which is legally entitled to hold Right to Build (HGB) and Right to Use (Hak Pakai) land titles. LivingKu manages the complete lifecycle from notary deeds and BKPM OSS-RBA registration to Investor KITAS visa issuance.",
+          a: "Yes. Foreign individuals can establish a PT PMA (Foreign Investment Company), which is legally entitled to hold Right to Build (HGB) and Right to Use (Hak Pakai) land titles. Livingku.ID manages the complete lifecycle from notary deeds and BKPM OSS-RBA registration to Investor KITAS visa issuance.",
         },
         {
           q: "What is the difference between the new PBG and the previous IMB building permit?",
-          a: "PBG (Building Approval) replaced IMB under the Job Creation Law. PBG emphasizes rigorous technical standards regarding structural safety, seismic resistance, fire protection, and spatial zoning. Once construction finishes, LivingKu also obtains the SLF (Certificate of Functional Worthiness) required before legal occupancy.",
+          a: "PBG (Building Approval) replaced IMB under the Job Creation Law. PBG emphasizes rigorous technical standards regarding structural safety, seismic resistance, fire protection, and spatial zoning. Once construction finishes, Livingku.ID also obtains the SLF (Certificate of Functional Worthiness) required before legal occupancy.",
         },
         {
-          q: "Can we engage LivingKu for standalone services like architectural drawings only or tax compliance?",
+          q: "Can we engage Livingku.ID for standalone services like architectural drawings only or tax compliance?",
           a: "Certainly. While we excel as an end-to-end turnkey provider, you are welcome to commission standalone engagements: 3D design & DED only, general contracting only, PT PMA incorporation only, or ongoing monthly corporate bookkeeping & tax retainers.",
         },
         {
           q: "What warranty and retention policies do you offer upon project completion?",
-          a: "LivingKu provides a 3-to-6 month maintenance retention period following the signing of the initial Handover Certificate (BAST 1). During this window, our engineering team rectifies hairline cracks, plumbing calibrations, electrical tuning, or waterproofing at zero extra charge.",
+          a: "Livingku.ID provides a 3-to-6 month maintenance retention period following the signing of the initial Handover Certificate (BAST 1). During this window, our engineering team rectifies hairline cracks, plumbing calibrations, electrical tuning, or waterproofing at zero extra charge.",
         },
       ],
     },
     contact: {
       badge: "Get in Touch",
       title: "Discuss Your Project Vision & Corporate Needs",
-      subtitle: "Consult with LivingKu's licensed architects, contractors, legal counsel, and certified tax advisors. Rapid response within 2 business hours.",
+      subtitle: "Consult with Livingku.ID's licensed architects, contractors, legal counsel, and certified tax advisors. Rapid response within 2 business hours.",
       form: {
         name: "Full Name",
         namePlaceholder: "e.g. Mr. Alexander Stone",
@@ -917,7 +917,7 @@ The trend in 2026 decisively advances beyond purely decorative minimalism toward
       title: "Synergy of Architecture, Construction & Corporate Governance",
       subtitle: "Founded with the mission to provide unwavering legal security and flawless structural execution for property owners and commercial investors across Indonesia.",
       storyTitle: "Our Journey & Philosophy",
-      story: "LivingKu originated from the real-world friction experienced by property developers and foreign investors in Indonesia: the fragmentation between design firms, building contractors, licensing notaries, and tax accountants. Too often, visionary builds suffer from regulatory delays in PBG/SLF approvals or budget overruns stemming from vague lump-sum estimates.\n\nLivingKu bridges this divide as an integrated One-Stop Multi-Disciplinary practice. We unite IAI-licensed architects, LPJK/GAPENSI certified contractors, corporate legal practitioners specializing in foreign PT PMA setups, and certified tax advisors (BKP) under one harmonious roof.",
+      story: "Livingku.ID originated from the real-world friction experienced by property developers and foreign investors in Indonesia: the fragmentation between design firms, building contractors, licensing notaries, and tax accountants. Too often, visionary builds suffer from regulatory delays in PBG/SLF approvals or budget overruns stemming from vague lump-sum estimates.\n\nLivingku.ID bridges this divide as an integrated One-Stop Multi-Disciplinary practice. We unite IAI-licensed architects, LPJK/GAPENSI certified contractors, corporate legal practitioners specializing in foreign PT PMA setups, and certified tax advisors (BKP) under one harmonious roof.",
       mission: "To serve as the trusted partner transforming architectural visions into high-yield, physically durable, and 100% legally compliant physical assets in Indonesia.",
       vision: "To define the gold standard for integrated design-build and corporate establishment in Indonesia, anchored by unwavering integrity, cost transparency, and regulatory precision.",
       values: [
@@ -941,7 +941,7 @@ The trend in 2026 decisively advances beyond purely decorative minimalism toward
       ]
     },
     footer: {
-      about: "LivingKu is an integrated firm uniting licensed architecture, certified general contracting, corporate legal structuring, and tax compliance across Indonesia.",
+      about: "Livingku.ID is an integrated firm uniting licensed architecture, certified general contracting, corporate legal structuring, and tax compliance across Indonesia.",
       quickLinks: "Quick Links",
       legalLinks: "Legal & Compliance",
       terms: "Terms of Service",
@@ -950,7 +950,7 @@ The trend in 2026 decisively advances beyond purely decorative minimalism toward
       newsletterTitle: "Subscribe to Regulatory & Property Insights",
       newsletterDesc: "Receive monthly updates on OSS licensing, BOQ budgeting benchmarks, and Indonesian property law.",
       subscribe: "Subscribe",
-      copyright: "© 2026 LivingKu Konsultama & Konstruksi Indonesia. All rights reserved.",
+      copyright: "© 2026 Livingku.ID Konsultama & Konstruksi Indonesia. All rights reserved.",
       wpCred: "Powered by Modern Enterprise CMS Architecture.",
     },
   },

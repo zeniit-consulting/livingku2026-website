@@ -9,7 +9,8 @@ import {
   Check, 
   Bookmark, 
   Tag, 
-  ArrowLeft 
+  ArrowLeft,
+  ArrowUpRight
 } from 'lucide-react';
 
 export default function BlogModal({ post, onClose, lang }) {
@@ -24,7 +25,7 @@ export default function BlogModal({ post, onClose, lang }) {
   };
 
   const handleWhatsAppShare = () => {
-    const url = `https://wa.me/?text=${encodeURIComponent(`Baca artikel wawasan LivingKu: "${post.title}" di ${window.location.href}`)}`;
+    const url = `https://wa.me/?text=${encodeURIComponent(`Baca artikel wawasan Livingku.ID: "${post.title}" di ${window.location.href}`)}`;
     window.open(url, '_blank');
   };
 
@@ -78,7 +79,7 @@ export default function BlogModal({ post, onClose, lang }) {
           <img
             itemProp="image"
             src={post.image}
-            alt={`Foto Utama Artikel: ${post.title} oleh ${post.author} - LivingKu Insight`}
+            alt={`Foto Utama Artikel: ${post.title} oleh ${post.author} - Livingku.ID Insight`}
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute bottom-4 left-6 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded text-turkish-300 text-xs font-semibold">
@@ -166,14 +167,15 @@ export default function BlogModal({ post, onClose, lang }) {
           <div className="mt-8 p-6 rounded-xl bg-turkish-50/80 border border-turkish-200/90 text-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
             <div>
               <div className="font-serif font-bold text-sm text-slate-900">Butuh Bantuan Konsultasi Terkait Topik Ini?</div>
-              <div className="text-xs text-slate-600">Hubungi tim ahli LivingKu untuk audit teknis dan konsultasi awal gratis.</div>
+              <div className="text-xs text-slate-600">Hubungi tim ahli Livingku.ID untuk audit teknis dan konsultasi awal gratis.</div>
             </div>
             <a
               href="#contact"
               onClick={onClose}
-              className="shrink-0 px-4 py-2 rounded-lg bg-gold-500 text-slate-950 text-xs font-bold hover:bg-gold-400 transition-colors shadow-sm"
+              className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gold-600 hover:bg-gold-500 text-white text-xs font-bold transition-colors shadow-sm"
             >
-              Hubungi Konsultan Kami
+              <ArrowUpRight className="w-3.5 h-3.5 text-white" />
+              <span>Hubungi Konsultan Kami</span>
             </a>
           </div>
         </article>

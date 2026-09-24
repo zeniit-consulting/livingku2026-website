@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Breadcrumb from '../components/Breadcrumb';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 import { 
   Building2, 
   ShieldCheck, 
@@ -12,9 +13,63 @@ import {
   ArrowRight, 
   CheckCircle2, 
   HelpCircle,
-  Download,
-  CalendarCheck
+  Download
 } from 'lucide-react';
+
+const WHATSAPP_NUMBER = '628970065402';
+
+const SERVICE_CODES = {
+  design: 'LK-SRV-DES',
+  construction: 'LK-SRV-KTR',
+  legal: 'LK-SRV-PMA',
+  tax: 'LK-SRV-TAX',
+};
+
+const getServiceWhatsAppUrl = (service, currentLang) => {
+  const code = SERVICE_CODES[service.key || service.id] || `LK-SRV-${(service.id || 'GEN').toUpperCase()}`;
+  
+  const messages = {
+    design: {
+      id: `Halo Livingku, saya ingin berkonsultasi mengenai Layanan Desain Interior & Eksterior (Kode Layanan: ${code}).\n\nMohon informasi terkait:\n- Diskusi konsep awal & portofolio\n- Estimasi waktu pengerjaan & anggaran\n\nTerima kasih.`,
+      en: `Hello Livingku, I would like to consult regarding Interior & Exterior Design Services (Service Code: ${code}).\n\nCould you please share details regarding:\n- Conceptual discovery & portfolio review\n- Timeline & budgeting\n\nThank you.`,
+    },
+    construction: {
+      id: `Halo Livingku, saya ingin berkonsultasi mengenai Jasa Konstruksi & Estimasi RAB (Kode Layanan: ${code}).\n\nMohon informasi terkait:\n- Survei lokasi & pengecekan preliminary\n- Penyusunan Bill of Quantity (BQ) / RAB transparan\n\nTerima kasih.`,
+      en: `Hello Livingku, I would like to inquire about Construction & RAB Estimator Services (Service Code: ${code}).\n\nCould you please share details regarding:\n- Site survey & preliminary assessment\n- Itemized Bill of Quantities (BOQ) calculation\n\nThank you.`,
+    },
+    legal: {
+      id: `Halo Livingku, saya ingin berkonsultasi mengenai Pengurusan Legalitas Usaha / Pendirian PT PMA/PMDN & PBG (Kode Layanan: ${code}).\n\nMohon informasi terkait:\n- Persyaratan pendirian & izin OSS-RBA\n- Estimasi alur & waktu proses resmi\n\nTerima kasih.`,
+      en: `Hello Livingku, I need assistance with Legal Incorporation for PT PMA / PMDN & Building Permits (Service Code: ${code}).\n\nCould you please share information regarding:\n- Legal requirements & OSS-RBA licensing\n- Official timeline & process\n\nThank you.`,
+    },
+    tax: {
+      id: `Halo Livingku, saya ingin berkonsultasi mengenai Pengurusan Akuntansi & Perpajakan Korporasi (Kode Layanan: ${code}).\n\nMohon informasi terkait:\n- Layanan pembukuan & pelaporan SPT/PPN (e-Faktur)\n- Paket retainer pendampingan pajak\n\nTerima kasih.`,
+      en: `Hello Livingku, I would like to consult regarding Corporate Accounting & Tax Advisory (Service Code: ${code}).\n\nCould you please share details regarding:\n- Bookkeeping & periodic tax filings (VAT/Corporate Income Tax)\n- Retainer advisory packages\n\nThank you.`,
+    },
+  };
+
+  const serviceKey = service.key || service.id;
+  const msgObj = messages[serviceKey];
+  let text = '';
+
+  if (msgObj) {
+    text = currentLang === 'id' ? msgObj.id : msgObj.en;
+  } else {
+    text = currentLang === 'id'
+      ? `Halo Livingku, saya tertarik dengan layanan ${service.title} (Kode Layanan: ${code}). Mohon informasi lebih lanjut untuk penjadwalan konsultasi. Terima kasih.`
+      : `Hello Livingku, I am interested in your ${service.title} service (Service Code: ${code}). Please share more details and consultation availability. Thank you.`;
+  }
+
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+};
+
+const getBundleWhatsAppUrl = (currentLang) => {
+  const code = 'LK-SRV-ALL';
+  const text = currentLang === 'id'
+    ? `Halo Livingku, saya tertarik dengan Paket Kustom Terpadu (Kombinasi Desain + Konstruksi + Legalitas + Pajak) (Kode Layanan: ${code}).\n\nMohon panduan untuk konsultasi proyek terintegrasi satu atap (One-Stop Turnkey Solution).\n\nTerima kasih.`
+    : `Hello Livingku, I am interested in the Integrated Custom Package (Design + Build + Legal + Tax) (Service Code: ${code}).\n\nPlease guide me with the one-stop turnkey project consultation.\n\nThank you.`;
+
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+};
 
 export default function ServicesPage({ t, lang, onOpenConsultation }) {
   const { hash } = useLocation();
@@ -97,13 +152,28 @@ export default function ServicesPage({ t, lang, onOpenConsultation }) {
 
   return (
     <div className="bg-slate-50 min-h-screen">
-      {/* Clean Breadcrumb Navigation */}
-      <Breadcrumb items={breadcrumbs} homeLabel={t.nav.home} />
-
-      {/* Screen reader & crawler primary semantic heading */}
-      <h1 className="sr-only">
-        {lang === 'id' ? 'Layanan Terpadu Desain Arsitektur, Kontraktor RAB, Izin PMA & Pajak LivingKu' : 'LivingKu Architecture, General Contracting, Licensing & Corporate Tax Services'}
-      </h1>
+      {/* Clean Page Header with Integrated Breadcrumb */}
+      <section className="py-12 bg-white border-b border-slate-200 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 opacity-5 pointer-events-none"
+          style={{
+            backgroundImage: `radial-gradient(#0ea8a4 1px, transparent 1px)`,
+            backgroundSize: '24px 24px'
+          }}
+        />
+        <div className="wp-container relative z-10 text-center max-w-3xl mx-auto">
+          {/* Breadcrumb placed right above the title */}
+          <div className="flex justify-center mb-3.5">
+            <Breadcrumb items={breadcrumbs} homeLabel={t.nav.home} variant="pill" />
+          </div>
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-3">
+            {t.services.title}
+          </h1>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-light">
+            {t.services.subtitle}
+          </p>
+        </div>
+      </section>
 
       {/* Main Service Pillars Container */}
       <div className="wp-container py-12">
@@ -159,7 +229,7 @@ export default function ServicesPage({ t, lang, onOpenConsultation }) {
                     <div className={`lg:col-span-5 relative min-h-[300px] sm:min-h-[380px] overflow-hidden ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                       <img
                         src={service.image}
-                        alt={`Layanan ${service.title} - Spesifikasi Mutu SNI & Deliverables LivingKu Indonesia`}
+                        alt={`Layanan ${service.title} - Spesifikasi Mutu SNI & Deliverables Livingku.ID Indonesia`}
                         width="800"
                         height="600"
                         decoding="async"
@@ -214,14 +284,15 @@ export default function ServicesPage({ t, lang, onOpenConsultation }) {
                         </div>
 
                         <div className="flex items-center gap-2.5">
-                          <button
-                            type="button"
-                            onClick={() => onOpenConsultation(`${service.title} (Ref: LK-SRV-26)`)}
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-xs sm:text-sm shadow-md transition-colors"
+                          <a
+                            href={getServiceWhatsAppUrl(service, lang)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all"
                           >
-                            <CalendarCheck className="w-4 h-4 text-slate-950" />
-                            <span>{lang === 'id' ? 'Pesan Layanan' : 'Book Service'}</span>
-                          </button>
+                            <WhatsAppIcon className="w-4 h-4 fill-white" />
+                            <span>{lang === 'id' ? 'Hubungi Kami' : 'Contact Us'}</span>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -238,7 +309,7 @@ export default function ServicesPage({ t, lang, onOpenConsultation }) {
               {lang === 'id' ? 'Alur Kerja Terpadu' : 'Turnkey Delivery Process'}
             </span>
             <h3 className="wp-section-title text-slate-900 mb-3">
-              {lang === 'id' ? 'Bagaimana LivingKu Bekerja dari Awal Hingga Selesai' : 'How LivingKu Executes Projects End-to-End'}
+              {lang === 'id' ? 'Bagaimana Livingku.ID Bekerja dari Awal Hingga Selesai' : 'How Livingku.ID Executes Projects End-to-End'}
             </h3>
             <p className="wp-section-subtitle mx-auto">
               {lang === 'id'
@@ -250,7 +321,7 @@ export default function ServicesPage({ t, lang, onOpenConsultation }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {workflowStages.map((wf, wIdx) => (
               <div
-                key={wIdx}
+                key={wf.step || wIdx}
                 className="p-6 rounded-xl bg-white border border-slate-200 shadow-sm relative flex flex-col justify-between"
               >
                 <div>
@@ -284,13 +355,15 @@ export default function ServicesPage({ t, lang, onOpenConsultation }) {
                 : 'Discuss bundled engagements combining architecture, general contracting, PT PMA, and tax advisory.'}
             </p>
           </div>
-          <button
-            type="button"
-            onClick={() => onOpenConsultation('Paket Lengkap Terpadu (Ref: LK-SRV-26)')}
-            className="shrink-0 px-6 py-3.5 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-xs sm:text-sm shadow-md transition-colors"
+          <a
+            href={getBundleWhatsAppUrl(lang)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all"
           >
-            {lang === 'id' ? 'Konsultasikan Paket Terpadu' : 'Consult Integrated Package'}
-          </button>
+            <WhatsAppIcon className="w-4 h-4 fill-white" />
+            <span>{lang === 'id' ? 'Hubungi Kami' : 'Contact Us'}</span>
+          </a>
         </div>
       </div>
     </div>

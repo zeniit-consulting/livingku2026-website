@@ -9,7 +9,8 @@ import {
   Target, 
   Compass, 
   CheckCircle2, 
-  FileCheck 
+  FileCheck,
+  ArrowUpRight
 } from 'lucide-react';
 
 export default function AboutPage({ t, lang, onOpenConsultation }) {
@@ -21,13 +22,28 @@ export default function AboutPage({ t, lang, onOpenConsultation }) {
 
   return (
     <div className="bg-slate-50 min-h-screen">
-      {/* Clean Breadcrumb Navigation */}
-      <Breadcrumb items={breadcrumbs} homeLabel={t.nav.home} />
-
-      {/* Screen reader & crawler primary semantic heading */}
-      <h1 className="sr-only">
-        {lang === 'id' ? 'Tentang LivingKu — Firma Terpadu Arsitektur, Kontraktor & Legalitas Bisnis' : 'About LivingKu — Integrated Architecture, Contracting & Business Licensing'}
-      </h1>
+      {/* Clean Page Header with Integrated Breadcrumb */}
+      <section className="py-12 bg-white border-b border-slate-200 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 opacity-5 pointer-events-none"
+          style={{
+            backgroundImage: `radial-gradient(#0ea8a4 1px, transparent 1px)`,
+            backgroundSize: '24px 24px'
+          }}
+        />
+        <div className="wp-container relative z-10 text-center max-w-3xl mx-auto">
+          {/* Breadcrumb placed right above the title */}
+          <div className="flex justify-center mb-3.5">
+            <Breadcrumb items={breadcrumbs} homeLabel={t.nav.home} variant="pill" />
+          </div>
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-3">
+            {about.title}
+          </h1>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-light">
+            {about.subtitle}
+          </p>
+        </div>
+      </section>
 
       {/* Story & Philosophy */}
       <section className="py-12 bg-white border-b border-slate-200">
@@ -173,9 +189,10 @@ export default function AboutPage({ t, lang, onOpenConsultation }) {
             <button
               type="button"
               onClick={() => onOpenConsultation('Konsultasi Kredensial Firma (Ref: LK-ABT-26)')}
-              className="px-6 py-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-xs sm:text-sm shadow transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gold-600 hover:bg-gold-500 text-white font-bold text-xs sm:text-sm shadow transition-colors group"
             >
-              {lang === 'id' ? 'Konsultasi dengan Dewan Pakar' : 'Consult with Our Principals'}
+              <ArrowUpRight className="w-4 h-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <span>{lang === 'id' ? 'Konsultasi dengan Dewan Pakar' : 'Consult with Our Principals'}</span>
             </button>
           </div>
         </div>

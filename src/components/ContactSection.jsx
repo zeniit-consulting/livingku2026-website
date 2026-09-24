@@ -4,13 +4,14 @@ import {
   Mail, 
   MapPin, 
   Send, 
+  ArrowUpRight,
   CheckCircle2, 
   Clock, 
   Building2 
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
-export default function ContactSection({ t, preselectedService }) {
+export default function ContactSection({ t, preselectedService, hideHeader = false }) {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -33,7 +34,7 @@ export default function ContactSection({ t, preselectedService }) {
     setSubmitted(true);
   };
 
-  const whatsappMessage = `Halo LivingKu, saya ingin mengajukan konsultasi [Ref: LK-CNT-26]:
+  const whatsappMessage = `Halo Livingku.ID, saya ingin mengajukan konsultasi [Ref: LK-CNT-26]:
 - Nama: ${formData.name || '-'}
 - Kontak: ${formData.phone || '-'}
 - Email: ${formData.email || '-'}
@@ -46,20 +47,22 @@ export default function ContactSection({ t, preselectedService }) {
   const directWhatsappUrl = 'https://wa.me/628970065402?text=Halo+Livingku%2C+saya+tertarik+dengan+properti+di+Livingku+dan+ingin+bertanya+lebih+lanjut.';
 
   return (
-    <section id="contact" className="py-20 bg-white scroll-mt-20">
+    <section id="contact" className={`${hideHeader ? 'py-12' : 'py-20'} bg-white scroll-mt-20`}>
       <div className="wp-container">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-50 px-3 py-1 rounded-full inline-block mb-3">
-            {t.contact.badge}
-          </span>
-          <h2 className="wp-section-title text-slate-900 mb-4">
-            {t.contact.title}
-          </h2>
-          <p className="wp-section-subtitle mx-auto">
-            {t.contact.subtitle}
-          </p>
-        </div>
+        {/* Section Header (Hidden when inside dedicated page with breadcrumb) */}
+        {!hideHeader && (
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-50 px-3 py-1 rounded-full inline-block mb-3">
+              {t.contact.badge}
+            </span>
+            <h2 className="wp-section-title text-slate-900 mb-4">
+              {t.contact.title}
+            </h2>
+            <p className="wp-section-subtitle mx-auto">
+              {t.contact.subtitle}
+            </p>
+          </div>
+        )}
 
         {/* Contact Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
@@ -72,7 +75,7 @@ export default function ContactSection({ t, preselectedService }) {
                   Kantor Representatif
                 </span>
                 <h3 className="font-serif text-2xl font-bold text-slate-900">
-                  LivingKu Advisory Hub
+                  Livingku.ID Advisory Hub
                 </h3>
               </div>
 
@@ -258,9 +261,9 @@ export default function ContactSection({ t, preselectedService }) {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-sm shadow-md hover:shadow-lg transition-all"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg bg-gold-600 hover:bg-gold-500 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all"
                   >
-                    <Send className="w-4 h-4 text-slate-950" />
+                    <ArrowUpRight className="w-4 h-4 text-white" />
                     <span>{t.contact.form.submit}</span>
                   </button>
                 </div>

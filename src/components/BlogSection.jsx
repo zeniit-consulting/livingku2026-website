@@ -95,7 +95,7 @@ export default function BlogSection({ t, lang, hideHeader = false }) {
                 <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-100">
                   <img
                     src={post.image}
-                    alt={`Foto Sampul Artikel Wawasan LivingKu: ${post.title} (${post.category})`}
+                    alt={`Foto Sampul Artikel Wawasan Livingku.ID: ${post.title} (${post.category})`}
                     width="600"
                     height="360"
                     decoding="async"

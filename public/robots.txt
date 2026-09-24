@@ -1,4 +1,4 @@
-# LivingKu Robots.txt
+# Livingku.ID Robots.txt
 # Allow search crawlers full access to public pages and assets
 
 User-agent: *

@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { 
   ArrowRight, 
+  ArrowUpRight,
   Calculator, 
   ChevronLeft, 
   ChevronRight, 
   CheckCircle2, 
-  Sparkles,
-  ShieldCheck,
-  Building,
-  Award
+  Sparkles, 
+  ShieldCheck, 
+  Building, 
+  Award 
 } from 'lucide-react';
 
 export default function Hero({ t, lang, onOpenConsultation }) {
@@ -18,14 +19,14 @@ export default function Hero({ t, lang, onOpenConsultation }) {
     {
       id: 1,
       image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85",
-      alt: "Arsitektur Villa Modern Tropis LivingKu Indonesia",
+      alt: "Arsitektur Villa Modern Tropis Livingku.ID Indonesia",
       category: isId ? "Arsitektur Tropis & Interior" : "Tropical Architecture & Interior",
       location: "Canggu & Uluwatu, Bali",
     },
     {
       id: 2,
       image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2000&q=85",
-      alt: "Konstruksi Sipil dan Estimasi RAB SNI LivingKu",
+      alt: "Konstruksi Sipil dan Estimasi RAB SNI Livingku.ID",
       category: isId ? "Jasa Konstruksi & RAB SNI" : "Civil Construction & SNI BOQ",
       location: "Jabodetabek & Badung",
     },
@@ -39,7 +40,7 @@ export default function Hero({ t, lang, onOpenConsultation }) {
     {
       id: 4,
       image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=85",
-      alt: "Masterpiece Residensial Mewah LivingKu",
+      alt: "Masterpiece Residensial Mewah Livingku.ID",
       category: isId ? "Solusi Terpadu Turnkey" : "Turnkey Integrated Solutions",
       location: "Nusantara & Bali",
     },
@@ -98,7 +99,7 @@ export default function Hero({ t, lang, onOpenConsultation }) {
       id="hero"
       role="region"
       aria-roledescription="carousel"
-      aria-label={isId ? "Proyek Unggulan LivingKu" : "LivingKu Featured Architecture & Construction"}
+      aria-label={isId ? "Proyek Unggulan Livingku.ID" : "Livingku.ID Featured Architecture & Construction"}
       className="relative w-full min-h-[640px] sm:min-h-[700px] lg:min-h-[760px] -mt-[145px] sm:-mt-[165px] pt-[145px] sm:pt-[165px] flex items-center justify-center overflow-hidden bg-slate-950 border-b border-slate-800"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -139,17 +140,17 @@ export default function Hero({ t, lang, onOpenConsultation }) {
           );
         })}
 
-        {/* Cinematic Dark Overlay for striking contrast against vivid hero imagery */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-slate-950/85 via-slate-900/75 to-slate-950/90 backdrop-blur-[0.5px]" />
+        {/* Balanced Dark Overlay: Lighter filter to reveal vivid sliding images clearly while keeping text legible */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-slate-950/60 via-slate-950/40 to-slate-950/75" />
         
         {/* Subtle luminous Turkish blue ambient glow in center */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-turkish-500/15 rounded-full blur-3xl pointer-events-none z-10" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-turkish-500/10 rounded-full blur-3xl pointer-events-none z-10" />
 
         {/* Subtle grid pattern overlay */}
         <div 
-          className="absolute inset-0 z-10 opacity-15 pointer-events-none"
+          className="absolute inset-0 z-10 opacity-10 pointer-events-none"
           style={{
-            backgroundImage: `radial-gradient(rgba(14, 168, 164, 0.4) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(rgba(14, 168, 164, 0.3) 1px, transparent 1px)`,
             backgroundSize: '28px 28px'
           }}
         />
@@ -187,10 +188,10 @@ export default function Hero({ t, lang, onOpenConsultation }) {
           <button
             type="button"
             onClick={onOpenConsultation}
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-turkish-500 hover:bg-turkish-600 text-white font-bold text-sm shadow-lg hover:shadow-turkish-500/25 transition-all group"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-turkish-600 hover:bg-turkish-500 text-white font-bold text-sm shadow-lg hover:shadow-turkish-600/25 transition-all group"
           >
+            <ArrowUpRight className="w-4 h-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             <span>{isId ? 'Mulai Konsultasi Proyek' : 'Start Project Consultation'}</span>
-            <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
           </button>
 
           <a

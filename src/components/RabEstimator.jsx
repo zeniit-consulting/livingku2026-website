@@ -76,7 +76,7 @@ export default function RabEstimator({ t, lang }) {
     }).format(num);
   };
 
-  const shareText = `Halo Tim LivingKu, saya melakukan simulasi RAB di website:
+  const shareText = `Halo Tim Livingku.ID, saya melakukan simulasi RAB di website:
 - Layanan: ${selectedService.name}
 - Luas Area: ${calculation.isFixed ? 'Paket Layanan' : `${area} m²`}
 - Spesifikasi: ${selectedTier.name}

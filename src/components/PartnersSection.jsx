@@ -5,7 +5,8 @@ import {
   Layers, 
   ShieldCheck, 
   CheckCircle, 
-  ExternalLink 
+  ExternalLink,
+  ArrowUpRight
 } from 'lucide-react';
 
 export default function PartnersSection({ t }) {
@@ -140,9 +141,10 @@ export default function PartnersSection({ t }) {
 
           <a 
             href="#contact"
-            className="shrink-0 px-5 py-2.5 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-xs tracking-wide shadow-md transition-colors"
+            className="shrink-0 inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-gold-600 hover:bg-gold-500 text-white font-bold text-xs tracking-wide shadow-md transition-colors group"
           >
-            Verifikasi Kerjasama
+            <ArrowUpRight className="w-3.5 h-3.5 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <span>Verifikasi Kerjasama</span>
           </a>
         </div>
       </div>

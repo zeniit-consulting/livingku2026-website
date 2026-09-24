@@ -107,10 +107,10 @@ export default function PortfolioSection({ t, onOpenConsultation, hideHeader = f
           <button
             type="button"
             onClick={() => onOpenConsultation('Konsultasi Portofolio Serupa (Ref: LK-PORT-26)')}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-sm shadow-md transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gold-600 hover:bg-gold-500 text-white font-bold text-sm shadow-md transition-all group"
           >
+            <ArrowUpRight className="w-4 h-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             <span>Konsultasikan Proyek Serupa</span>
-            <ArrowUpRight className="w-4 h-4" />
           </button>
         </div>
       </div>

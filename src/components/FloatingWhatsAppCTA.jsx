@@ -56,8 +56,8 @@ export default function FloatingWhatsAppCTA({ lang }) {
 
   const currentRef = PAGE_REF_CODES[currentPath] || {
     code: 'LK-GEN-26',
-    titleId: 'Website LivingKu',
-    titleEn: 'LivingKu Website',
+    titleId: 'Website Livingku.ID',
+    titleEn: 'Livingku.ID Website',
   };
 
   const whatsappUrl = 'https://wa.me/628970065402?text=Halo+Livingku%2C+saya+tertarik+dengan+properti+di+Livingku+dan+ingin+bertanya+lebih+lanjut.';
@@ -70,7 +70,7 @@ export default function FloatingWhatsAppCTA({ lang }) {
         target="_blank"
         rel="noopener noreferrer"
         className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-2xl hover:shadow-[0_10px_25px_rgba(16,185,129,0.5)] transition-all duration-300 transform hover:scale-110 active:scale-95 focus:outline-none focus:ring-4 focus:ring-emerald-400/40"
-        aria-label={`${lang === 'id' ? 'Chat WhatsApp Resmi LivingKu' : 'LivingKu Official WhatsApp Chat'} (Ref: ${currentRef.code})`}
+        aria-label={`${lang === 'id' ? 'Chat WhatsApp Resmi Livingku.ID' : 'Livingku.ID Official WhatsApp Chat'} (Ref: ${currentRef.code})`}
       >
         {/* Continuous pulsing radar waves */}
         <span className="absolute -inset-1.5 rounded-full bg-emerald-500/40 animate-ping-slow pointer-events-none" />

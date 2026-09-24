@@ -164,7 +164,7 @@ function WebsiteLayout() {
             />
             <Route path="/contact" element={<Navigate to="/kontak" replace />} />
 
-            {/* LivingKu CMS Portal */}
+            {/* Livingku.ID CMS Portal */}
             <Route path="/cms" element={<CMSPage />} />
             <Route path="/admin" element={<Navigate to="/cms" replace />} />
 

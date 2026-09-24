@@ -9,7 +9,8 @@ import {
   CheckCircle, 
   Handshake, 
   FileCheck,
-  Send 
+  Send,
+  ArrowUpRight
 } from 'lucide-react';
 
 export default function PartnersPage({ t, lang, onOpenConsultation }) {
@@ -70,7 +71,7 @@ export default function PartnersPage({ t, lang, onOpenConsultation }) {
               {lang === 'id' ? 'Standar Kerjasama' : 'Partnership Standards'}
             </span>
             <h3 className="wp-section-title text-slate-900">
-              {lang === 'id' ? 'Kriteria Mitra & Prinsipal Material LivingKu' : 'LivingKu Partner & Supplier Criteria'}
+              {lang === 'id' ? 'Kriteria Mitra & Prinsipal Material Livingku.ID' : 'Livingku.ID Partner & Supplier Criteria'}
             </h3>
           </div>
 
@@ -115,12 +116,12 @@ export default function PartnersPage({ t, lang, onOpenConsultation }) {
           {/* Supplier Application Box */}
           <div className="p-6 sm:p-8 rounded-2xl bg-turkish-50/70 border border-turkish-200/80 text-slate-900 shadow-sm">
             <h4 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 mb-2">
-              {lang === 'id' ? 'Tertarik Menjadi Mitra Vendor / Suplier LivingKu?' : 'Interested in Becoming a LivingKu Partner / Vendor?'}
+              {lang === 'id' ? 'Tertarik Menjadi Mitra Vendor / Suplier Livingku.ID?' : 'Interested in Becoming a Livingku.ID Partner / Vendor?'}
             </h4>
             <p className="text-xs sm:text-sm text-slate-600 mb-6 font-light">
               {lang === 'id'
-                ? 'Kirimkan profil perusahaan dan katalog material Anda kepada divisi pengadaan LivingKu.'
-                : 'Submit your company deck and product catalog to LivingKu procurement.'}
+                ? 'Kirimkan profil perusahaan dan katalog material Anda kepada divisi pengadaan Livingku.ID.'
+                : 'Submit your company deck and product catalog to Livingku.ID procurement.'}
             </p>
 
             {applied ? (
@@ -176,9 +177,9 @@ export default function PartnersPage({ t, lang, onOpenConsultation }) {
 
                 <button
                   type="submit"
-                  className="px-6 py-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-xs sm:text-sm shadow transition-colors inline-flex items-center gap-2"
+                  className="px-6 py-3 rounded-lg bg-gold-600 hover:bg-gold-500 text-white font-bold text-xs sm:text-sm shadow transition-colors inline-flex items-center gap-2"
                 >
-                  <Send className="w-4 h-4 text-slate-950" />
+                  <ArrowUpRight className="w-4 h-4 text-white" />
                   <span>{lang === 'id' ? 'Kirim Pendaftaran Mitra' : 'Submit Partner Inquiry'}</span>
                 </button>
               </form>

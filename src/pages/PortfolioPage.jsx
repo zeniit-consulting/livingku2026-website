@@ -15,7 +15,7 @@ export default function PortfolioPage({ t, lang, onOpenConsultation }) {
 
       {/* Screen reader & crawler primary semantic heading */}
       <h1 className="sr-only">
-        {lang === 'id' ? 'Portofolio Karya & Proyek Konstruksi LivingKu Indonesia' : 'LivingKu Architecture & Construction Projects Portfolio'}
+        {lang === 'id' ? 'Portofolio Karya & Proyek Konstruksi Livingku.ID Indonesia' : 'Livingku.ID Architecture & Construction Projects Portfolio'}
       </h1>
 
       {/* Portfolio Section with filtered grid directly */}

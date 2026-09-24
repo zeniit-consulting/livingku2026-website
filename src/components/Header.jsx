@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
   Phone, 
@@ -11,6 +11,7 @@ import {
   X, 
   Calculator, 
   ArrowRight,
+  ArrowUpRight,
   ShieldCheck,
   Building2,
   FileCheck2,
@@ -24,12 +25,44 @@ export default function Header({ lang, setLang, t }) {
   const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const dropdownTimerRef = useRef(null);
 
-  // Close mobile menu & dropdown on route change
+  const handleServicesMouseEnter = () => {
+    if (dropdownTimerRef.current) {
+      clearTimeout(dropdownTimerRef.current);
+      dropdownTimerRef.current = null;
+    }
+    setServicesDropdownOpen(true);
+  };
+
+  const handleServicesMouseLeave = () => {
+    if (dropdownTimerRef.current) {
+      clearTimeout(dropdownTimerRef.current);
+    }
+    // Grace period (300ms) to ensure smooth mouse transit into mega menu
+    dropdownTimerRef.current = setTimeout(() => {
+      setServicesDropdownOpen(false);
+    }, 300);
+  };
+
+  // Close mobile menu & dropdown on route change and clear timer
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
+    if (dropdownTimerRef.current) {
+      clearTimeout(dropdownTimerRef.current);
+      dropdownTimerRef.current = null;
+    }
   }, [location.pathname]);
+
+  // Clean up timer on unmount
+  useEffect(() => {
+    return () => {
+      if (dropdownTimerRef.current) {
+        clearTimeout(dropdownTimerRef.current);
+      }
+    };
+  }, []);
 
   // Handle scroll for hiding top header bar and solid header state
   useEffect(() => {
@@ -188,10 +221,10 @@ export default function Header({ lang, setLang, t }) {
       >
         <div className="wp-container flex justify-between items-center">
           {/* Dynamic Logo: Enriched 3x size, swapped conditional (state awal: logo.png, state solid/scrolling: logo-white.png) */}
-          <Link to="/" className="inline-flex items-center group py-0.5" aria-label="LivingKu Home">
+          <Link to="/" className="inline-flex items-center group py-0.5" aria-label="Livingku.ID Home">
             <img 
               src={isSolid ? "/images/logo-white.png" : "/images/logo.png"} 
-              alt="LivingKu" 
+              alt="Livingku.ID" 
               width="180"
               height="180"
               decoding="async"
@@ -218,8 +251,8 @@ export default function Header({ lang, setLang, t }) {
             {/* Services Dropdown (with Simulasi RAB included) */}
             <div 
               className="relative"
-              onMouseEnter={() => setServicesDropdownOpen(true)}
-              onMouseLeave={() => setServicesDropdownOpen(false)}
+              onMouseEnter={handleServicesMouseEnter}
+              onMouseLeave={handleServicesMouseLeave}
             >
               <Link 
                 to="/layanan"
@@ -232,9 +265,17 @@ export default function Header({ lang, setLang, t }) {
               </Link>
 
               {servicesDropdownOpen && (
-                <div className="absolute top-full -left-20 lg:-left-36 w-[800px] lg:w-[860px] max-w-[92vw] bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-5 mt-2 transition-all animate-fadeIn z-50 text-left">
-                  {/* Top Bar Header */}
-                  <div className="pb-3 mb-4 border-b border-slate-100 flex items-center justify-between">
+                <div 
+                  className="absolute top-full -left-20 lg:-left-36 w-[800px] lg:w-[860px] max-w-[92vw] pt-2 z-50 animate-fadeIn"
+                  onMouseEnter={handleServicesMouseEnter}
+                  onMouseLeave={handleServicesMouseLeave}
+                >
+                  {/* Invisible hit bridge between nav link and mega menu */}
+                  <div className="absolute -top-2 left-0 w-full h-3" />
+                  
+                  <div className="bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-5 text-left">
+                    {/* Top Bar Header */}
+                    <div className="pb-3 mb-4 border-b border-slate-100 flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <span className="text-[11px] font-bold uppercase tracking-wider text-turkish-800 bg-turkish-50 border border-turkish-200 px-2.5 py-0.5 rounded-full">
                         {lang === 'id' ? 'Layanan Terpadu & Kalkulator' : 'Integrated Services & Estimator'}
@@ -389,8 +430,9 @@ export default function Header({ lang, setLang, t }) {
                     </Link>
                   </div>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
+          </div>
 
             <Link 
               to="/portofolio" 
@@ -446,8 +488,8 @@ export default function Header({ lang, setLang, t }) {
                   : 'bg-slate-900 hover:bg-slate-800 text-white border border-slate-700'
               }`}
             >
+              <ArrowUpRight className="w-4 h-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               <span>{lang === 'id' ? 'Hubungi Kami' : 'Contact Us'}</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform text-white" />
             </Link>
           </div>
 
@@ -573,10 +615,11 @@ export default function Header({ lang, setLang, t }) {
             <div className="pt-2">
               <Link
                 to="/kontak"
-                className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-lg bg-slate-900 text-gold-300 font-semibold text-center text-sm shadow-md"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-center text-sm shadow-md transition-colors"
               >
+                <ArrowUpRight className="w-4 h-4 text-white" />
                 <span>{lang === 'id' ? 'Hubungi Kami' : 'Contact Us'}</span>
-                <ArrowRight className="w-4 h-4 text-gold-400" />
               </Link>
             </div>
           </div>

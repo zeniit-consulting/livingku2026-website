@@ -26,10 +26,10 @@ export default function Footer({ t, lang }) {
           {/* Col 1: Brand & Profile (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             {/* Simplified Logo: Standalone white logo without background box and without text */}
-            <Link to="/" className="inline-flex items-center group py-1" aria-label="LivingKu Home">
+            <Link to="/" className="inline-flex items-center group py-1" aria-label="Livingku.ID Home">
               <img 
                 src="/images/logo-white.png" 
-                alt="LivingKu" 
+                alt="Livingku.ID" 
                 width="225"
                 height="66"
                 loading="lazy"
@@ -133,7 +133,7 @@ export default function Footer({ t, lang }) {
               {t.footer.newsletterDesc}
             </p>
 
-            <form onSubmit={(e) => { e.preventDefault(); alert(lang === 'id' ? 'Terima kasih telah berlangganan buletin LivingKu!' : 'Thank you for subscribing to LivingKu insights!'); }} className="space-y-2">
+            <form onSubmit={(e) => { e.preventDefault(); alert(lang === 'id' ? 'Terima kasih telah berlangganan buletin Livingku.ID!' : 'Thank you for subscribing to Livingku.ID insights!'); }} className="space-y-2">
               <div className="relative">
                 <input
                   type="email"
@@ -143,7 +143,7 @@ export default function Footer({ t, lang }) {
                 />
                 <button
                   type="submit"
-                  className="absolute right-1 top-1 bottom-1 px-3 bg-gold-600 hover:bg-gold-500 text-slate-950 rounded text-xs font-bold transition-colors"
+                  className="absolute right-1 top-1 bottom-1 px-3 bg-gold-600 hover:bg-gold-500 text-white rounded text-xs font-bold transition-colors"
                 >
                   <Send className="w-3.5 h-3.5" />
                 </button>

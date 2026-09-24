@@ -63,7 +63,7 @@ export default function CMSPage() {
 
           <div>
             <h2 className="font-serif text-2xl font-bold text-slate-900">
-              LivingKu CMS Portal
+              Livingku.ID CMS Portal
             </h2>
             <p className="text-xs text-slate-500 mt-1">
               Sistem Pengelolaan Konten, Foto Arsitektur, Copywriting, dan Berita
@@ -107,7 +107,7 @@ export default function CMSPage() {
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Kembali ke Website</span>
             </Link>
-            <span className="text-slate-400 text-[11px]">LivingKu v1.0.0</span>
+            <span className="text-slate-400 text-[11px]">Livingku.ID v1.0.0</span>
           </div>
         </div>
       </div>
@@ -127,7 +127,7 @@ export default function CMSPage() {
             <Link to="/" className="inline-flex items-center gap-2 group">
               <img 
                 src="/images/logo-white.png" 
-                alt="LivingKu" 
+                alt="Livingku.ID" 
                 className="h-8 w-auto object-contain" 
               />
               <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-turkish-500/20 text-turkish-400 border border-turkish-500/30">
@@ -307,7 +307,7 @@ export default function CMSPage() {
                 Kelola Foto &amp; Riwayat Portofolio Proyek
               </h2>
               <p className="text-xs text-slate-500 mb-6">
-                Unggah hasil foto karya proyek residensial, villa, dan komersial LivingKu beserta cakupan dan luas bangunan.
+                Unggah hasil foto karya proyek residensial, villa, dan komersial Livingku.ID beserta cakupan dan luas bangunan.
               </p>
 
               <PortfolioCMS 

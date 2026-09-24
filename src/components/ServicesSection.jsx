@@ -91,7 +91,7 @@ export default function ServicesSection({ t, onSelectService }) {
                   <div className={`lg:col-span-5 relative min-h-[280px] sm:min-h-[340px] overflow-hidden ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
                     <img 
                       src={service.image} 
-                      alt={`Layanan ${service.title} - ${service.category} LivingKu Indonesia`}
+                      alt={`Layanan ${service.title} - ${service.category} Livingku.ID Indonesia`}
                       width="800"
                       height="600"
                       decoding="async"

@@ -26,7 +26,7 @@ export default function PortfolioCMS({ items = [], onUpdatePortfolio }) {
 
   const handleAddNewItem = () => {
     const newItem = {
-      title: 'Proyek Baru LivingKu',
+      title: 'Proyek Baru Livingku.ID',
       category: 'Residential',
       location: 'Canggu, Bali',
       scope: 'Perencanaan Arsitektur & Pelaksanaan Konstruksi',

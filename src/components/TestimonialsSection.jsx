@@ -7,21 +7,21 @@ export default function TestimonialsSection({ lang }) {
       name: "Marcus Vance",
       role: "Managing Director, Horizon Hospitality Group",
       project: "Pembangunan Luxury Villa 5 Unit & Pendirian PT PMA di Canggu, Bali",
-      content: "LivingKu adalah game-changer. Menggabungkan arsitektur villa dengan pengurusan PT PMA dan izin PBG dalam satu tim menghemat waktu kami lebih dari 4 bulan. Eksekusi RAB sangat akurat tanpa biaya tersembunyi.",
+      content: "Livingku.ID adalah game-changer. Menggabungkan arsitektur villa dengan pengurusan PT PMA dan izin PBG dalam satu tim menghemat waktu kami lebih dari 4 bulan. Eksekusi RAB sangat akurat tanpa biaya tersembunyi.",
       rating: 5,
     },
     {
       name: "Dian Anggraini",
       role: "CEO & Co-Founder, Fintech Nusantara",
       project: "Office Fit-Out SCBD Jakarta & Retainer Pajak Bulanan PPN 12%",
-      content: "Kualitas pengerjaan interior kantor kami di SCBD sangat presisi. Nilai tambah terbesarnya adalah tim akuntansi LivingKu yang langsung mendampingi administrasi e-Faktur dan kepatuhan SPT tanpa kami perlu repot rekrut tim terpisah.",
+      content: "Kualitas pengerjaan interior kantor kami di SCBD sangat presisi. Nilai tambah terbesarnya adalah tim akuntansi Livingku.ID yang langsung mendampingi administrasi e-Faktur dan kepatuhan SPT tanpa kami perlu repot rekrut tim terpisah.",
       rating: 5,
     },
     {
       name: "Christopher Lee",
       role: "Property Investor, Singapore",
       project: "Pembangunan Resort & Pengurusan Visa Investor E23 di Labuan Bajo",
-      content: "Sebagai investor asing, regulasi pertanahan dan legalitas di Indonesia bisa sangat membingungkan. LivingKu membimbing kami langkah demi langkah dengan transparansi penuh dari kalkulasi awal hingga izin operasional.",
+      content: "Sebagai investor asing, regulasi pertanahan dan legalitas di Indonesia bisa sangat membingungkan. Livingku.ID membimbing kami langkah demi langkah dengan transparansi penuh dari kalkulasi awal hingga izin operasional.",
       rating: 5,
     },
   ] : [
@@ -29,7 +29,7 @@ export default function TestimonialsSection({ lang }) {
       name: "Marcus Vance",
       role: "Managing Director, Horizon Hospitality Group",
       project: "5-Unit Luxury Villa Construction & PT PMA Setup in Canggu, Bali",
-      content: "LivingKu is a game-changer. Unifying architectural design, physical construction, and corporate PT PMA / PBG permits under one accountable team saved us more than 4 months. The BOQ estimate was remarkably spot-on.",
+      content: "Livingku.ID is a game-changer. Unifying architectural design, physical construction, and corporate PT PMA / PBG permits under one accountable team saved us more than 4 months. The BOQ estimate was remarkably spot-on.",
       rating: 5,
     },
     {
@@ -43,7 +43,7 @@ export default function TestimonialsSection({ lang }) {
       name: "Christopher Lee",
       role: "Property Investor, Singapore",
       project: "Resort Development & E23 Investor KITAS in Labuan Bajo",
-      content: "As an overseas investor, foreign ownership regulations can be daunting. LivingKu provided complete statutory clarity from initial budget simulations to operational permits.",
+      content: "As an overseas investor, foreign ownership regulations can be daunting. Livingku.ID provided complete statutory clarity from initial budget simulations to operational permits.",
       rating: 5,
     },
   ];
@@ -61,7 +61,7 @@ export default function TestimonialsSection({ lang }) {
           </h2>
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-light mx-auto">
             {lang === 'id' 
-              ? 'Pengalaman nyata sinergi konstruksi, arsitektur, dan legalitas LivingKu.'
+              ? 'Pengalaman nyata sinergi konstruksi, arsitektur, dan legalitas Livingku.ID.'
               : 'Authentic testimonials showcasing our integrated engineering and regulatory governance.'}
           </p>
         </div>

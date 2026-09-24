@@ -8,6 +8,7 @@ import {
   FileCheck2, 
   Receipt, 
   ArrowRight, 
+  ArrowUpRight,
   Calculator, 
   CheckCircle, 
   Sparkles,
@@ -64,7 +65,7 @@ export default function HomePage({ t, lang, onOpenConsultation }) {
                   <div className="relative h-44 w-full overflow-hidden">
                     <img
                       src={service.image}
-                      alt={`${service.title} - Layanan Terpadu LivingKu (${service.category})`}
+                      alt={`${service.title} - Layanan Terpadu Livingku.ID (${service.category})`}
                       className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-md px-2.5 py-0.5 rounded text-gold-400 text-[11px] font-semibold flex items-center gap-1">
@@ -131,9 +132,9 @@ export default function HomePage({ t, lang, onOpenConsultation }) {
             <div className="shrink-0 flex flex-col sm:flex-row gap-3">
               <Link
                 to="/simulasi-rab"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-sm shadow-md transition-all"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-gold-600 hover:bg-gold-500 text-white font-bold text-sm shadow-md transition-all group"
               >
-                <Calculator className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 <span>{lang === 'id' ? 'Buka Kalkulator RAB Penuh' : 'Open Full RAB Calculator'}</span>
               </Link>
               <button
@@ -240,7 +241,7 @@ export default function HomePage({ t, lang, onOpenConsultation }) {
                 <div className="relative h-56 w-full overflow-hidden">
                   <img
                     src={post.image}
-                    alt={`Foto Sampul Artikel Wawasan LivingKu: ${post.title} oleh ${post.author}`}
+                    alt={`Foto Sampul Artikel Wawasan Livingku.ID: ${post.title} oleh ${post.author}`}
                     className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded text-gold-400 text-xs font-semibold">
@@ -285,7 +286,7 @@ export default function HomePage({ t, lang, onOpenConsultation }) {
             {lang === 'id' ? 'Konsultasi Terpadu' : 'Integrated Advisory'}
           </span>
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
-            {lang === 'id' ? 'Siap Memulai Proyek Anda dengan LivingKu?' : 'Ready to Start Your Project with LivingKu?'}
+            {lang === 'id' ? 'Siap Memulai Proyek Anda dengan Livingku.ID?' : 'Ready to Start Your Project with Livingku.ID?'}
           </h3>
           <p className="text-sm text-slate-600 font-light leading-relaxed">
             {lang === 'id'
@@ -296,9 +297,10 @@ export default function HomePage({ t, lang, onOpenConsultation }) {
             <button
               type="button"
               onClick={() => onOpenConsultation('Konsultasi Umum (Ref: LK-HOME-26)')}
-              className="px-6 py-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-sm shadow-md transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-gold-600 hover:bg-gold-500 text-white font-bold text-sm shadow-md transition-colors group"
             >
-              {lang === 'id' ? 'Ajukan Konsultasi Sekarang' : 'Request Consultation Now'}
+              <ArrowUpRight className="w-4 h-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <span>{lang === 'id' ? 'Ajukan Konsultasi Sekarang' : 'Request Consultation Now'}</span>
             </button>
             <Link
               to="/kontak"

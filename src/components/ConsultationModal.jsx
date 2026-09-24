@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Send, CheckCircle2 } from 'lucide-react';
+import { X, Send, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 
 export default function ConsultationModal({ isOpen, onClose, t, initialService, lang }) {
@@ -23,7 +23,7 @@ export default function ConsultationModal({ isOpen, onClose, t, initialService, 
     setSubmitted(true);
   };
 
-  const whatsappMessage = `Halo LivingKu, saya ingin konsultasi langsung:
+  const whatsappMessage = `Halo Livingku.ID, saya ingin konsultasi langsung:
 - Nama: ${name || '-'}
 - WhatsApp: ${phone || '-'}
 - Layanan: ${service}
@@ -42,7 +42,7 @@ export default function ConsultationModal({ isOpen, onClose, t, initialService, 
         <div className="bg-white text-slate-900 p-6 border-b border-slate-200 flex justify-between items-center">
           <div>
             <span className="text-[10px] font-bold text-gold-700 uppercase tracking-widest block">
-              LivingKu Advisory
+              Livingku.ID Advisory
             </span>
             <h3 className="font-serif text-xl font-bold text-slate-900">
               {lang === 'id' ? 'Ajukan Konsultasi Proyek' : 'Request Project Consultation'}
@@ -145,9 +145,9 @@ export default function ConsultationModal({ isOpen, onClose, t, initialService, 
               <div className="pt-2 flex flex-col gap-2.5">
                 <button
                   type="submit"
-                  className="w-full py-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold text-xs sm:text-sm shadow transition-colors flex items-center justify-center gap-2"
+                  className="w-full py-3 rounded-lg bg-gold-600 hover:bg-gold-500 text-white font-bold text-xs sm:text-sm shadow transition-colors flex items-center justify-center gap-2"
                 >
-                  <Send className="w-4 h-4 text-slate-950" />
+                  <ArrowUpRight className="w-4 h-4 text-white" />
                   <span>{t.contact.form.submit}</span>
                 </button>
 

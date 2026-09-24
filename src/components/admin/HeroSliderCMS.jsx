@@ -21,14 +21,14 @@ export default function HeroSliderCMS({ onSaveSlides }) {
       {
         id: 1,
         image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85",
-        alt: "Arsitektur Villa Modern Tropis LivingKu Indonesia",
+        alt: "Arsitektur Villa Modern Tropis Livingku.ID Indonesia",
         category: "Arsitektur Tropis & Interior",
         location: "Canggu & Uluwatu, Bali",
       },
       {
         id: 2,
         image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2000&q=85",
-        alt: "Konstruksi Sipil dan Estimasi RAB SNI LivingKu",
+        alt: "Konstruksi Sipil dan Estimasi RAB SNI Livingku.ID",
         category: "Jasa Konstruksi & RAB SNI",
         location: "Jabodetabek & Badung",
       },
@@ -42,7 +42,7 @@ export default function HeroSliderCMS({ onSaveSlides }) {
       {
         id: 4,
         image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=85",
-        alt: "Masterpiece Residensial Mewah LivingKu",
+        alt: "Masterpiece Residensial Mewah Livingku.ID",
         category: "Solusi Terpadu Turnkey",
         location: "Nusantara & Bali",
       },
@@ -64,7 +64,7 @@ export default function HeroSliderCMS({ onSaveSlides }) {
     const newSlide = {
       id: Date.now(),
       image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85",
-      alt: "Dokumentasi Proyek Arsitektur LivingKu",
+      alt: "Dokumentasi Proyek Arsitektur Livingku.ID",
       category: "Arsitektur Tropis & Desain",
       location: "Denpasar, Bali"
     };

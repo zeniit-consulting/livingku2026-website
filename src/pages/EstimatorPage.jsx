@@ -113,8 +113,8 @@ export default function EstimatorPage({ t, lang, onOpenConsultation }) {
             </h3>
             <p className="text-sm text-slate-600 mt-2">
               {lang === 'id'
-                ? 'Panduan standar bahan yang digunakan dalam estimasi biaya LivingKu.'
-                : 'Understanding the material grades factored into LivingKu budget models.'}
+                ? 'Panduan standar bahan yang digunakan dalam estimasi biaya Livingku.ID.'
+                : 'Understanding the material grades factored into Livingku.ID budget models.'}
             </p>
           </div>
 
@@ -146,7 +146,7 @@ export default function EstimatorPage({ t, lang, onOpenConsultation }) {
             <ShieldCheck className="w-5 h-5 text-gold-700 shrink-0 mt-0.5" />
             <div>
               <strong className="text-slate-900 block mb-0.5">
-                {lang === 'id' ? 'Komitmen Transparansi Harga LivingKu:' : 'LivingKu Price Transparency Guarantee:'}
+                {lang === 'id' ? 'Komitmen Transparansi Harga Livingku.ID:' : 'Livingku.ID Price Transparency Guarantee:'}
               </strong>
               {lang === 'id'
                 ? 'Kami tidak menerapkan markup sepihak pada material. Kontrak kerja mencakup Bill of Quantity (BQ) terperinci dengan spesifikasi merk yang jelas, sehingga Anda memegang kendali penuh atas anggaran Anda.'
