@@ -12,6 +12,7 @@ import {
   Info 
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
+import { trackWhatsAppLead, trackRABCalculation } from '../utils/gtm';
 
 export default function RabEstimator({ t, lang }) {
   const [selectedServiceId, setSelectedServiceId] = useState('residential');
@@ -268,6 +269,7 @@ Mohon info survei lokasi dan konsultasi DED terperinci. Terima kasih.`;
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppLead('rab_estimator', selectedService.name)}
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-sm transition-colors"
                 >
                   <WhatsAppIcon className="w-4 h-4 text-white" />

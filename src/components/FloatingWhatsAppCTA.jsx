@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { X, ShieldCheck } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
+import { trackWhatsAppLead } from '../utils/gtm';
 
 export const PAGE_REF_CODES = {
   '/': {
@@ -69,6 +69,7 @@ export default function FloatingWhatsAppCTA({ lang }) {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackWhatsAppLead('floating_button', currentRef.titleId)}
         className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-2xl hover:shadow-[0_10px_25px_rgba(16,185,129,0.5)] transition-all duration-300 transform hover:scale-110 active:scale-95 focus:outline-none focus:ring-4 focus:ring-emerald-400/40"
         aria-label={`${lang === 'id' ? 'Chat WhatsApp Resmi Livingku.ID' : 'Livingku.ID Official WhatsApp Chat'} (Ref: ${currentRef.code})`}
       >

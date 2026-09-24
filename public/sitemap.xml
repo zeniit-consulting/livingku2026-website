@@ -3,10 +3,12 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- Homepage / Beranda -->
+  <!-- ================================================================= -->
+  <!-- 1. HALAMAN UTAMA / BERANDA                                        -->
+  <!-- ================================================================= -->
   <url>
     <loc>https://livingku.com/</loc>
-    <lastmod>2026-09-21T12:00:00+08:00</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="id" href="https://livingku.com/" />
@@ -17,12 +19,18 @@
       <image:title>Livingku.ID Studio Arsitektur, Kontraktor &amp; Penasihat Legalitas Indonesia</image:title>
       <image:caption>Official Logo of Livingku.ID Indonesia</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1600585154340-be6161a56a0c</image:loc>
+      <image:title>Arsitektur Villa Modern Tropis Livingku.ID Indonesia</image:title>
+    </image:image>
   </url>
 
-  <!-- Halaman Layanan Terpadu -->
+  <!-- ================================================================= -->
+  <!-- 2. PILAR LAYANAN TERPADU                                          -->
+  <!-- ================================================================= -->
   <url>
     <loc>https://livingku.com/layanan</loc>
-    <lastmod>2026-09-21T12:00:00+08:00</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="id" href="https://livingku.com/layanan" />
@@ -46,10 +54,12 @@
     </image:image>
   </url>
 
-  <!-- Halaman Simulasi RAB (Estimator Anggaran Proyek) -->
+  <!-- ================================================================= -->
+  <!-- 3. SIMULASI RAB & KALKULATOR BIAYA PROYEK                         -->
+  <!-- ================================================================= -->
   <url>
     <loc>https://livingku.com/simulasi-rab</loc>
-    <lastmod>2026-09-21T12:00:00+08:00</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="id" href="https://livingku.com/simulasi-rab" />
@@ -57,10 +67,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://livingku.com/simulasi-rab" />
   </url>
 
-  <!-- Halaman Portofolio Proyek -->
+  <!-- ================================================================= -->
+  <!-- 4. PORTOFOLIO KARYA & REALISASI PROYEK                           -->
+  <!-- ================================================================= -->
   <url>
     <loc>https://livingku.com/portofolio</loc>
-    <lastmod>2026-09-21T12:00:00+08:00</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="id" href="https://livingku.com/portofolio" />
@@ -74,12 +86,22 @@
       <image:loc>https://images.unsplash.com/photo-1497366216548-37526070297c</image:loc>
       <image:title>SCBD Apex Fintech Headquarters Jakarta</image:title>
     </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1554118811-1e0d58224f24</image:loc>
+      <image:title>Artisan Roastery &amp; Dining Pavilion Ubud Bali</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9</image:loc>
+      <image:title>Pendirian PMA Eco-Resort Labuan Bajo NTT</image:title>
+    </image:image>
   </url>
 
-  <!-- Halaman Wawasan & Berita (Blog) -->
+  <!-- ================================================================= -->
+  <!-- 5. BERITA, EDUKASI & ARTIKEL INDUSTRI                             -->
+  <!-- ================================================================= -->
   <url>
     <loc>https://livingku.com/blog</loc>
-    <lastmod>2026-09-21T12:00:00+08:00</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="id" href="https://livingku.com/blog" />
@@ -87,14 +109,28 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://livingku.com/blog" />
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1503387762-592deb58ef4e</image:loc>
-      <image:title>Panduan Lengkap Menyusun RAB Bangun Rumah 2026</image:title>
+      <image:title>Panduan Lengkap Menyusun RAB Bangun Rumah 2026 Tanpa Overbudget</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1450133064473-71024230f91b</image:loc>
+      <image:title>Aturan Terbaru Pendirian PT PMA di Indonesia 2026</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1554224155-8d04cb21cd6c</image:loc>
+      <image:title>Dampak Tarif PPN 12 Persen terhadap Pengadaan Konstruksi</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1600585154340-be6161a56a0c</image:loc>
+      <image:title>Tren Desain Interior dan Eksterior Tropis Modern 2026</image:title>
     </image:image>
   </url>
 
-  <!-- Halaman Tentang Kami -->
+  <!-- ================================================================= -->
+  <!-- 6. PROFIL TENTANG KAMI                                            -->
+  <!-- ================================================================= -->
   <url>
     <loc>https://livingku.com/tentang-kami</loc>
-    <lastmod>2026-09-21T12:00:00+08:00</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="id" href="https://livingku.com/tentang-kami" />
@@ -102,10 +138,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://livingku.com/tentang-kami" />
   </url>
 
-  <!-- Halaman Kontak Kami -->
+  <!-- ================================================================= -->
+  <!-- 7. HUBUNGI KAMI & KANTOR CABANG                                   -->
+  <!-- ================================================================= -->
   <url>
     <loc>https://livingku.com/kontak</loc>
-    <lastmod>2026-09-21T12:00:00+08:00</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="id" href="https://livingku.com/kontak" />

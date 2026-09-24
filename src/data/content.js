@@ -40,7 +40,7 @@ export const content = {
       titleHighlight: "Mengamankan Fondasi Legalitas",
       titlePost: "Bisnis Anda di Indonesia.",
       description: "Livingku.ID menyatukan keahlian arsitektur presisi, kontraktor teruji dengan RAB transparan, sertifikasi legalitas usaha (PMDN/PMA), hingga tata kelola akuntansi dan kepatuhan perpajakan.",
-      primaryCta: "Mulai Konsultasi Proyek",
+      primaryCta: "Lihat Layanan Kami",
       secondaryCta: "Hitung Estimasi RAB",
       stats: [
         { value: "280+", label: "Proyek Selesai & Terverifikasi" },
@@ -518,7 +518,7 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
       titleHighlight: "Secure Corporate Foundations",
       titlePost: "in Indonesia.",
       description: "Livingku.ID bridges precision architecture, verified general contracting with transparent BOQ, corporate legal incorporation (PMDN / Foreign PT PMA), and rigorous accounting and tax compliance.",
-      primaryCta: "Start Project Consultation",
+      primaryCta: "Explore Our Services",
       secondaryCta: "Simulate Project Budget",
       stats: [
         { value: "280+", label: "Verified Projects Completed" },

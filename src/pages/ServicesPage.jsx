@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import Breadcrumb from '../components/Breadcrumb';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+import { trackWhatsAppLead } from '../utils/gtm';
 import { 
   Building2, 
   ShieldCheck, 
@@ -288,6 +288,7 @@ export default function ServicesPage({ t, lang, onOpenConsultation }) {
                             href={getServiceWhatsAppUrl(service, lang)}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => trackWhatsAppLead('services_card', service.title)}
                             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all"
                           >
                             <WhatsAppIcon className="w-4 h-4 fill-white" />

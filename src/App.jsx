@@ -17,6 +17,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import CMSPage from './pages/admin/CMSPage';
 import SEOHead from './components/SEOHead';
+import { trackPageView } from './utils/gtm';
 
 function WebsiteLayout() {
   const location = useLocation();
@@ -30,6 +31,13 @@ function WebsiteLayout() {
   const [selectedService, setSelectedService] = useState('');
 
   const { content } = useContent();
+
+  // Send virtual pageview to GTM / GA4 on SPA route transitions
+  useEffect(() => {
+    if (!isCMS) {
+      trackPageView(location.pathname);
+    }
+  }, [location.pathname, isCMS]);
 
   useEffect(() => {
     localStorage.setItem('livingku_lang', lang);

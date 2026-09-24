@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
   ArrowUpRight,
@@ -185,22 +186,21 @@ export default function Hero({ t, lang, onOpenConsultation }) {
 
         {/* Centered CTAs */}
         <div className="flex flex-wrap items-center justify-center gap-3.5 mb-10">
-          <button
-            type="button"
-            onClick={onOpenConsultation}
+          <Link
+            to="/layanan"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-turkish-600 hover:bg-turkish-500 text-white font-bold text-sm shadow-lg hover:shadow-turkish-600/25 transition-all group"
           >
             <ArrowUpRight className="w-4 h-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            <span>{isId ? 'Mulai Konsultasi Proyek' : 'Start Project Consultation'}</span>
-          </button>
+            <span>{t?.hero?.primaryCta || (isId ? 'Lihat Layanan Kami' : 'Explore Our Services')}</span>
+          </Link>
 
-          <a
-            href="/simulasi-rab"
+          <Link
+            to="/simulasi-rab"
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white hover:text-turkish-300 font-semibold text-sm border border-white/25 hover:border-turkish-400/60 shadow-sm transition-all backdrop-blur-md"
           >
             <Calculator className="w-4 h-4 text-turkish-400" />
-            <span>{isId ? 'Hitung Estimasi RAB' : 'Cost & BOQ Simulator'}</span>
-          </a>
+            <span>{t?.hero?.secondaryCta || (isId ? 'Hitung Estimasi RAB' : 'Cost & BOQ Simulator')}</span>
+          </Link>
         </div>
 
         {/* Centered Trust Indicators */}
