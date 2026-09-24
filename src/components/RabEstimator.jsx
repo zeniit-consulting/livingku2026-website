@@ -92,7 +92,7 @@ Mohon info survei lokasi dan konsultasi DED terperinci. Terima kasih.`;
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(shareText)}`;
+  const whatsappUrl = `https://wa.me/628970065402?text=${encodeURIComponent(shareText)}`;
 
   return (
     <section id="estimator" className="py-16 bg-slate-50 text-slate-900 relative overflow-hidden border-b border-slate-200 scroll-mt-20">

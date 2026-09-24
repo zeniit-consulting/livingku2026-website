@@ -76,26 +76,27 @@ export default function BlogModal({ post, onClose, lang }) {
         {/* Featured Image */}
         <div className="relative h-64 sm:h-80 w-full overflow-hidden bg-slate-100">
           <img
+            itemProp="image"
             src={post.image}
             alt={`Foto Utama Artikel: ${post.title} oleh ${post.author} - LivingKu Insight`}
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute bottom-4 left-6 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded text-gold-400 text-xs font-semibold">
-            {post.category}
+          <div className="absolute bottom-4 left-6 bg-slate-900/90 backdrop-blur-md px-3 py-1 rounded text-turkish-300 text-xs font-semibold">
+            <span itemProp="articleSection">{post.category}</span>
           </div>
         </div>
 
         {/* Modal Body: Editorial Article */}
-        <div className="p-6 sm:p-10">
+        <article itemScope itemType="https://schema.org/Article" className="p-6 sm:p-10">
           {/* Metadata */}
           <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 mb-4 pb-4 border-b border-slate-100">
-            <div className="flex items-center gap-1.5 font-medium text-slate-700">
-              <User className="w-4 h-4 text-gold-600" />
-              <span>{post.author}</span>
+            <div className="flex items-center gap-1.5 font-medium text-slate-700" itemProp="author" itemScope itemType="https://schema.org/Person">
+              <User className="w-4 h-4 text-turkish-600" />
+              <span itemProp="name">{post.author}</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Calendar className="w-4 h-4 text-slate-400" />
-              <span>{post.date}</span>
+              <time itemProp="datePublished">{post.date}</time>
             </div>
             <div className="flex items-center gap-1.5">
               <Clock className="w-4 h-4 text-slate-400" />
@@ -104,12 +105,12 @@ export default function BlogModal({ post, onClose, lang }) {
           </div>
 
           {/* Article Title */}
-          <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-6">
+          <h1 itemProp="headline" className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-tight mb-6">
             {post.title}
           </h1>
 
           {/* Lead excerpt */}
-          <div className="p-4 rounded-xl bg-slate-50 border-l-4 border-gold-500 text-slate-700 text-sm sm:text-base italic leading-relaxed mb-8">
+          <div itemProp="description" className="p-4 rounded-xl bg-slate-50 border-l-4 border-turkish-500 text-slate-700 text-sm sm:text-base italic leading-relaxed mb-8">
             "{post.excerpt}"
           </div>
 
@@ -175,7 +176,7 @@ export default function BlogModal({ post, onClose, lang }) {
               Hubungi Konsultan Kami
             </a>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   );

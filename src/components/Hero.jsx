@@ -14,7 +14,7 @@ import {
 export default function Hero({ t, lang, onOpenConsultation }) {
   const isId = lang !== 'en';
 
-  const slides = [
+  const defaultSlides = [
     {
       id: 1,
       image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85",
@@ -24,7 +24,7 @@ export default function Hero({ t, lang, onOpenConsultation }) {
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f6?auto=format&fit=crop&w=2000&q=85",
+      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2000&q=85",
       alt: "Konstruksi Sipil dan Estimasi RAB SNI LivingKu",
       category: isId ? "Jasa Konstruksi & RAB SNI" : "Civil Construction & SNI BOQ",
       location: "Jabodetabek & Badung",
@@ -44,6 +44,26 @@ export default function Hero({ t, lang, onOpenConsultation }) {
       location: "Nusantara & Bali",
     },
   ];
+
+  const [slides, setSlides] = useState(() => {
+    try {
+      const saved = localStorage.getItem('livingku_hero_slides');
+      if (saved) return JSON.parse(saved);
+    } catch {}
+    return defaultSlides;
+  });
+
+  // Listen to CMS slide updates
+  useEffect(() => {
+    const handleSlideUpdate = () => {
+      try {
+        const saved = localStorage.getItem('livingku_hero_slides');
+        if (saved) setSlides(JSON.parse(saved));
+      } catch {}
+    };
+    window.addEventListener('livingku_hero_slides_updated', handleSlideUpdate);
+    return () => window.removeEventListener('livingku_hero_slides_updated', handleSlideUpdate);
+  }, []);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -79,7 +99,7 @@ export default function Hero({ t, lang, onOpenConsultation }) {
       role="region"
       aria-roledescription="carousel"
       aria-label={isId ? "Proyek Unggulan LivingKu" : "LivingKu Featured Architecture & Construction"}
-      className="relative w-full min-h-[580px] sm:min-h-[640px] lg:min-h-[720px] -mt-[96px] sm:-mt-[102px] pt-[96px] sm:pt-[102px] flex items-center justify-center overflow-hidden bg-slate-950 border-b border-slate-800"
+      className="relative w-full min-h-[640px] sm:min-h-[700px] lg:min-h-[760px] -mt-[145px] sm:-mt-[165px] pt-[145px] sm:pt-[165px] flex items-center justify-center overflow-hidden bg-slate-950 border-b border-slate-800"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -148,29 +168,18 @@ export default function Hero({ t, lang, onOpenConsultation }) {
 
         {/* Simple Hero Title in Center - Maximum Contrast White & Turkish Blue */}
         <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.18] mb-5 drop-shadow-md">
-          {isId ? (
-            <>
-              Membangun Properti Impian &amp;{' '}
-              <span className="text-turkish-400 underline decoration-turkish-400/50 decoration-wavy decoration-1 underline-offset-8">
-                Fondasi Legalitas
-              </span>{' '}
-              Bisnis
-            </>
-          ) : (
-            <>
-              Building Visionary Properties &amp;{' '}
-              <span className="text-turkish-400 underline decoration-turkish-400/50 decoration-wavy decoration-1 underline-offset-8">
-                Statutory Foundations
-              </span>
-            </>
-          )}
+          {t?.hero?.titlePre || (isId ? "Membangun Properti Impian & " : "Building Visionary Properties & ")}{' '}
+          <span className="text-turkish-400 underline decoration-turkish-400/50 decoration-wavy decoration-1 underline-offset-8">
+            {t?.hero?.titleHighlight || (isId ? "Fondasi Legalitas" : "Statutory Foundations")}
+          </span>{' '}
+          {t?.hero?.titlePost || (isId ? "Bisnis" : "")}
         </h1>
 
         {/* Simple & Concise Subtitle in Center */}
         <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto font-normal leading-relaxed mb-8 drop-shadow-sm">
-          {isId 
+          {t?.hero?.description || (isId 
             ? 'Solusi terintegrasi arsitektur presisi, kontraktor berstandar SNI, pendirian PT PMDN/PMA, dan tata kelola akuntansi & perpajakan di Indonesia.'
-            : 'Integrated architectural planning, SNI general contracting, corporate PMDN/PMA licensing, and statutory tax governance in Indonesia.'}
+            : 'Integrated architectural planning, SNI general contracting, corporate PMDN/PMA licensing, and statutory tax governance in Indonesia.')}
         </p>
 
         {/* Centered CTAs */}

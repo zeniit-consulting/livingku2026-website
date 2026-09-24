@@ -22,6 +22,7 @@ export default function Header({ lang, setLang, t }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
   // Close mobile menu & dropdown on route change
@@ -30,14 +31,21 @@ export default function Header({ lang, setLang, t }) {
     setServicesDropdownOpen(false);
   }, [location.pathname]);
 
-  // Dynamic header transparency state: 50% transparent at initial state, 100% solid after hero is scrolled past
+  // Handle scroll for hiding top header bar and solid header state
   useEffect(() => {
-    if (location.pathname !== '/') {
-      setIsScrolledPastHero(true);
-      return;
-    }
-
     const handleScroll = () => {
+      // Hide topbar when user scrolls past 20px
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+
+      if (location.pathname !== '/') {
+        setIsScrolledPastHero(true);
+        return;
+      }
+
       const heroEl = document.getElementById('hero');
       const threshold = heroEl ? (heroEl.offsetTop + heroEl.offsetHeight - 110) : 550;
       if (window.scrollY > threshold) {
@@ -84,79 +92,87 @@ export default function Header({ lang, setLang, t }) {
         ? 'bg-white shadow-md' 
         : 'bg-transparent shadow-none'
     }`}>
-      {/* Top Bar (Sticky with header): 50% transparent initial, 100% solid when scrolled past hero */}
-      <div className={`text-xs py-1.5 transition-colors duration-300 ${
-        isSolid
-          ? 'bg-slate-900 text-slate-300 border-b border-slate-800'
-          : 'bg-slate-950/60 backdrop-blur-md text-white border-b border-white/10'
+      {/* Top Bar (Hidden on scroll with smooth slide up & collapse) */}
+      <div className={`overflow-hidden transition-all duration-300 ${
+        isScrolled 
+          ? 'max-h-0 opacity-0 pointer-events-none' 
+          : 'max-h-16 opacity-100'
       }`}>
-        <div className="wp-container flex flex-wrap justify-between items-center gap-y-1">
-          {/* Contact info */}
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-            <a 
-              href={`tel:${t.topBar.hotline.replace(/[^0-9+]/g, '')}`} 
-              className={`flex items-center gap-1.5 transition-colors ${
-                !isSolid ? 'text-white hover:text-turkish-300' : 'hover:text-turkish-400'
-              }`}
-            >
-              <Phone className="w-3.5 h-3.5 text-turkish-400" />
-              <span>{t.topBar.hotline}</span>
-            </a>
-            <a 
-              href={`mailto:${t.topBar.email}`} 
-              className={`hidden md:flex items-center gap-1.5 transition-colors ${
-                !isSolid ? 'text-white hover:text-turkish-300' : 'hover:text-turkish-400'
-              }`}
-            >
-              <Mail className="w-3.5 h-3.5 text-turkish-400" />
-              <span>{t.topBar.email}</span>
-            </a>
-            <div className={`hidden sm:flex items-center gap-1.5 ${
-              !isSolid ? 'text-white/85' : 'text-slate-400'
-            }`}>
-              <MapPin className="w-3.5 h-3.5 text-turkish-400" />
-              <span>{t.topBar.locations}</span>
-            </div>
-          </div>
-
-          {/* Language switch */}
-          <div className="flex items-center gap-3 ml-auto">
-            <div className="flex items-center bg-slate-800/80 rounded-full p-0.5 border border-slate-700">
-              <Globe className="w-3 h-3 text-turkish-400 ml-1.5 mr-1" />
-              <button
-                type="button"
-                onClick={() => setLang('id')}
-                className={`px-2 py-0.5 text-[11px] font-semibold rounded-full transition-all ${
-                  lang === 'id' 
-                    ? 'bg-turkish-500 text-white font-bold' 
-                    : 'text-slate-300 hover:text-white'
+        <div className={`text-xs py-1.5 transition-colors duration-300 ${
+          isSolid
+            ? 'bg-slate-900 text-slate-300 border-b border-slate-800'
+            : 'bg-slate-950/60 backdrop-blur-md text-white border-b border-white/10'
+        }`}>
+          <div className="wp-container flex flex-wrap justify-between items-center gap-y-1">
+            {/* Contact info */}
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+              <a 
+                href="https://wa.me/628970065402?text=Halo+Livingku%2C+saya+tertarik+dengan+properti+di+Livingku+dan+ingin+bertanya+lebih+lanjut." 
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center gap-1.5 transition-colors ${
+                  !isSolid ? 'text-white hover:text-turkish-300' : 'hover:text-turkish-400'
                 }`}
               >
-                ID
-              </button>
-              <span className="text-slate-600 text-[10px]">|</span>
-              <button
-                type="button"
-                onClick={() => setLang('en')}
-                className={`px-2 py-0.5 text-[11px] font-semibold rounded-full transition-all ${
-                  lang === 'en' 
-                    ? 'bg-turkish-500 text-white font-bold' 
-                    : 'text-slate-300 hover:text-white'
+                <Phone className="w-3.5 h-3.5 text-turkish-400" />
+                <span>{t.topBar.hotline}</span>
+              </a>
+              <a 
+                href={`mailto:${t.topBar.email}`} 
+                className={`hidden md:flex items-center gap-1.5 transition-colors ${
+                  !isSolid ? 'text-white hover:text-turkish-300' : 'hover:text-turkish-400'
                 }`}
               >
-                EN
-              </button>
+                <Mail className="w-3.5 h-3.5 text-turkish-400" />
+                <span>{t.topBar.email}</span>
+              </a>
+              <div className={`hidden sm:flex items-center gap-1.5 ${
+                !isSolid ? 'text-white/85' : 'text-slate-400'
+              }`}>
+                <MapPin className="w-3.5 h-3.5 text-turkish-400" />
+                <span>{t.topBar.locations}</span>
+              </div>
             </div>
 
-            <Link 
-              to="/kontak" 
-              className={`hidden sm:inline-flex items-center gap-1 font-medium text-xs transition-colors ${
-                !isSolid ? 'text-white hover:text-turkish-300' : 'text-turkish-400 hover:text-turkish-300'
-              }`}
-            >
-              <MessageSquare className="w-3 h-3" />
-              <span>{lang === 'id' ? 'Layanan Klien' : 'Client Desk'}</span>
-            </Link>
+            {/* Language switch */}
+            <div className="flex items-center gap-3 ml-auto">
+              <div className="flex items-center bg-slate-800/80 rounded-full p-0.5 border border-slate-700">
+                <Globe className="w-3 h-3 text-turkish-400 ml-1.5 mr-1" />
+                <button
+                  type="button"
+                  onClick={() => setLang('id')}
+                  className={`px-2 py-0.5 text-[11px] font-semibold rounded-full transition-all ${
+                    lang === 'id' 
+                      ? 'bg-turkish-500 text-white font-bold' 
+                      : 'text-slate-300 hover:text-white'
+                  }`}
+                >
+                  ID
+                </button>
+                <span className="text-slate-600 text-[10px]">|</span>
+                <button
+                  type="button"
+                  onClick={() => setLang('en')}
+                  className={`px-2 py-0.5 text-[11px] font-semibold rounded-full transition-all ${
+                    lang === 'en' 
+                      ? 'bg-turkish-500 text-white font-bold' 
+                      : 'text-slate-300 hover:text-white'
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
+
+              <Link 
+                to="/kontak" 
+                className={`hidden sm:inline-flex items-center gap-1 font-medium text-xs transition-colors ${
+                  !isSolid ? 'text-white hover:text-turkish-300' : 'text-turkish-400 hover:text-turkish-300'
+                }`}
+              >
+                <MessageSquare className="w-3 h-3" />
+                <span>{lang === 'id' ? 'Layanan Klien' : 'Client Desk'}</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -164,22 +180,22 @@ export default function Header({ lang, setLang, t }) {
       {/* Main Navigation Bar: 50% transparent initial, 100% solid when scrolled past hero */}
       <nav 
         aria-label={lang === 'id' ? 'Navigasi Utama' : 'Main Navigation'} 
-        className={`py-3 sm:py-3.5 transition-all duration-300 ${
+        className={`py-1.5 sm:py-2 transition-all duration-300 ${
           isSolid 
             ? 'bg-white border-b border-slate-200 shadow-sm' 
             : 'bg-slate-950/40 backdrop-blur-md border-b border-white/10 shadow-xs'
         }`}
       >
         <div className="wp-container flex justify-between items-center">
-          {/* Dynamic Logo: White logo at initial state, Standard logo when solid */}
-          <Link to="/" className="inline-flex items-center group py-1" aria-label="LivingKu Home">
+          {/* Dynamic Logo: Enriched 3x size, swapped conditional (state awal: logo.png, state solid/scrolling: logo-white.png) */}
+          <Link to="/" className="inline-flex items-center group py-0.5" aria-label="LivingKu Home">
             <img 
-              src={isSolid ? "/images/logo.png" : "/images/logo-white.png"} 
+              src={isSolid ? "/images/logo-white.png" : "/images/logo.png"} 
               alt="LivingKu" 
-              width="150"
-              height="44"
+              width="180"
+              height="180"
               decoding="async"
-              className="h-9 sm:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
+              className="h-[54px] sm:h-[60px] w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
             />
           </Link>
 
@@ -391,8 +407,37 @@ export default function Header({ lang, setLang, t }) {
             </Link>
           </div>
 
-          {/* Desktop Right Action: Direct to /kontak */}
+          {/* Desktop Right Action: Language Switch (when topbar is hidden) + Direct to /kontak */}
           <div className="hidden sm:flex items-center gap-3">
+            {isScrolled && (
+              <div className="hidden lg:flex items-center bg-slate-100/90 rounded-full p-0.5 border border-slate-200 transition-all animate-fadeIn">
+                <Globe className="w-3 h-3 text-turkish-600 ml-1.5 mr-1" />
+                <button
+                  type="button"
+                  onClick={() => setLang('id')}
+                  className={`px-2 py-0.5 text-[11px] font-semibold rounded-full transition-all ${
+                    lang === 'id' 
+                      ? 'bg-turkish-500 text-white font-bold shadow-xs' 
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  ID
+                </button>
+                <span className="text-slate-300 text-[10px]">|</span>
+                <button
+                  type="button"
+                  onClick={() => setLang('en')}
+                  className={`px-2 py-0.5 text-[11px] font-semibold rounded-full transition-all ${
+                    lang === 'en' 
+                      ? 'bg-turkish-500 text-white font-bold' 
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
+            )}
+
             <Link
               to="/kontak"
               className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm shadow-md transition-all group ${

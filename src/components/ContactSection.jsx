@@ -42,7 +42,8 @@ export default function ContactSection({ t, preselectedService }) {
 - Catatan Proyek: ${formData.message || '-'}
 - Kode Referensi: LK-CNT-26`;
 
-  const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = `https://wa.me/628970065402?text=${encodeURIComponent(whatsappMessage)}`;
+  const directWhatsappUrl = 'https://wa.me/628970065402?text=Halo+Livingku%2C+saya+tertarik+dengan+properti+di+Livingku+dan+ingin+bertanya+lebih+lanjut.';
 
   return (
     <section id="contact" className="py-20 bg-white scroll-mt-20">
@@ -101,7 +102,7 @@ export default function ContactSection({ t, preselectedService }) {
               {/* WhatsApp direct banner */}
               <div className="pt-2">
                 <a
-                  href={whatsappUrl}
+                  href={directWhatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-md transition-colors"
@@ -117,7 +118,7 @@ export default function ContactSection({ t, preselectedService }) {
               <Clock className="w-5 h-5 text-gold-600 shrink-0 mt-0.5" />
               <div>
                 <span className="font-bold text-slate-900 block">Jam Operasional Konsultasi:</span>
-                Senin - Sabtu: 08.30 - 17.30 WIB. Permintaan konsultasi di luar jam kerja akan direspon pada hari kerja berikutnya.
+                Senin - Sabtu: 08.30 - 17.30 WITA. Permintaan konsultasi di luar jam kerja akan direspon pada hari kerja berikutnya.
               </div>
             </div>
           </div>

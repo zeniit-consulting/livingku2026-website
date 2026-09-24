@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Calendar, Maximize2, ArrowUpRight } from 'lucide-react';
 
-export default function PortfolioSection({ t, onOpenConsultation }) {
+export default function PortfolioSection({ t, onOpenConsultation, hideHeader = false }) {
   const [activeCategory, setActiveCategory] = useState('Semua Proyek');
 
   const filteredItems = activeCategory === 'Semua Proyek' || activeCategory === 'All Projects'
@@ -9,20 +9,22 @@ export default function PortfolioSection({ t, onOpenConsultation }) {
     : t.portfolio.items.filter(item => item.category.toLowerCase().includes(activeCategory.toLowerCase()));
 
   return (
-    <section id="portfolio" className="py-20 bg-slate-50 border-b border-slate-200 scroll-mt-20">
+    <section id="portfolio" className={`${hideHeader ? 'py-10' : 'py-20'} bg-slate-50 border-b border-slate-200 scroll-mt-20`}>
       <div className="wp-container">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-100/80 px-3 py-1 rounded-full inline-block mb-3">
-            {t.portfolio.badge}
-          </span>
-          <h2 className="wp-section-title text-slate-900 mb-4">
-            {t.portfolio.title}
-          </h2>
-          <p className="wp-section-subtitle mx-auto">
-            {t.portfolio.subtitle}
-          </p>
-        </div>
+        {/* Section Header (Optional) */}
+        {!hideHeader && (
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-100/80 px-3 py-1 rounded-full inline-block mb-3">
+              {t.portfolio.badge}
+            </span>
+            <h2 className="wp-section-title text-slate-900 mb-4">
+              {t.portfolio.title}
+            </h2>
+            <p className="wp-section-subtitle mx-auto">
+              {t.portfolio.subtitle}
+            </p>
+          </div>
+        )}
 
         {/* Categories */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">

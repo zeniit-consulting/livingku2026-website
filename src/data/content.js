@@ -6,10 +6,10 @@ export const content = {
       desc: "Solusi terintegrasi untuk perencanaan arsitektur, konstruksi berstandar SNI, pendirian badan usaha PMDN/PMA, dan manajemen akuntansi & pajak di Indonesia.",
     },
     topBar: {
-      hotline: "+62 812-3456-7890",
-      email: "consult@livingku.com",
-      officeHours: "Sen - Sab: 08.30 - 17.30 WIB",
-      locations: "Jakarta SCBD & Bali Seminyak",
+      hotline: "+62 897-0065-402",
+      email: "hello@livingku.id",
+      officeHours: "Sen - Sab: 08.30 - 17.30 WITA",
+      locations: "Jalan Kusuma Bangsa VII No. 71 Denpasar",
       getQuote: "Minta Penawaran RAB",
     },
     nav: {
@@ -112,7 +112,7 @@ export const content = {
           title: "Jasa Konstruksi & RAB Estimator",
           category: "Kontraktor & Pengendalian Biaya",
           summary: "Eksekusi pembangunan struktur dan renovasi dengan kendali mutu ketat, garansi konstruksi, dan akurasi estimasi biaya.",
-          image: "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f6?auto=format&fit=crop&w=1000&q=80",
+          image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80",
           features: [
             "Pembangunan Baru Rumah Mewah, Villa Komersial, Ruko & Restoran",
             "Renovasi Total & Restorasi Interior Korporat",
@@ -427,16 +427,10 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
       },
       offices: [
         {
-          city: "Jakarta Head Office",
-          address: "Treasury Tower Lt. 18, SCBD District 8, Jl. Jend. Sudirman Kav. 52-53, Jakarta Selatan 12190",
-          phone: "+62 21 5088 9120",
-          email: "jkt@livingku.com",
-        },
-        {
-          city: "Bali Branch Office",
-          address: "Jl. Sunset Road No. 88B, Seminyak, Kuta, Kabupaten Badung, Bali 80361",
-          phone: "+62 361 849 7200",
-          email: "bali@livingku.com",
+          city: "Kantor Utama Denpasar",
+          address: "Jalan Kusuma Bangsa VII No. 71 Denpasar",
+          phone: "+62 897-0065-402",
+          email: "hello@livingku.id",
         },
       ],
     },
@@ -490,10 +484,10 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
       desc: "Integrated solutions for architectural planning, SNI-standard construction, domestic (PMDN) & foreign investment (PMA) incorporation, and corporate accounting & tax compliance in Indonesia.",
     },
     topBar: {
-      hotline: "+62 812-3456-7890",
-      email: "consult@livingku.com",
-      officeHours: "Mon - Sat: 08:30 - 17:30 GMT+7",
-      locations: "Jakarta SCBD & Bali Seminyak",
+      hotline: "+62 897-0065-402",
+      email: "hello@livingku.id",
+      officeHours: "Mon - Sat: 08:30 - 17:30 WITA",
+      locations: "Jalan Kusuma Bangsa VII No. 71 Denpasar",
       getQuote: "Request Cost Estimate (BOQ)",
     },
     nav: {
@@ -596,7 +590,7 @@ Tahun 2026 menandai pergeseran besar dari sekadar "estetika visual minimalis" me
           title: "Construction & RAB Estimator",
           category: "General Contracting & Cost Control",
           summary: "Full-scale building execution and commercial renovation with strict quality control, structural warranties, and transparent BOQ estimation.",
-          image: "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f6?auto=format&fit=crop&w=1000&q=80",
+          image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80",
           features: [
             "New Build for Luxury Villas, Commercial Shophouses, Cafes & Estates",
             "Complete Commercial Fit-Out & Structural Renovations",
@@ -911,16 +905,10 @@ The trend in 2026 decisively advances beyond purely decorative minimalism toward
       },
       offices: [
         {
-          city: "Jakarta Head Office",
-          address: "Treasury Tower 18th Fl, SCBD District 8, Jl. Jend. Sudirman Kav. 52-53, South Jakarta 12190",
-          phone: "+62 21 5088 9120",
-          email: "jkt@livingku.com",
-        },
-        {
-          city: "Bali Branch Office",
-          address: "Jl. Sunset Road No. 88B, Seminyak, Kuta, Badung Regency, Bali 80361",
-          phone: "+62 361 849 7200",
-          email: "bali@livingku.com",
+          city: "Denpasar Head Office",
+          address: "Jalan Kusuma Bangsa VII No. 71 Denpasar",
+          phone: "+62 897-0065-402",
+          email: "hello@livingku.id",
         },
       ],
     },

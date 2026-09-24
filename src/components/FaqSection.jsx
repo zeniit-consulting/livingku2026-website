@@ -24,13 +24,20 @@ export default function FaqSection({ t }) {
           </p>
         </div>
 
-        {/* Accordion */}
-        <div className="max-w-3xl mx-auto space-y-3.5">
+        {/* Accordion with Schema.org FAQPage Structured Data */}
+        <div 
+          itemScope 
+          itemType="https://schema.org/FAQPage" 
+          className="max-w-3xl mx-auto space-y-3.5"
+        >
           {t.faq.items.map((item, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
                 key={idx}
+                itemScope 
+                itemProp="mainEntity" 
+                itemType="https://schema.org/Question"
                 className="bg-white rounded-xl border border-slate-200/80 shadow-sm overflow-hidden transition-all duration-200"
               >
                 <button
@@ -38,17 +45,24 @@ export default function FaqSection({ t }) {
                   onClick={() => toggle(idx)}
                   className="w-full px-6 py-4 text-left flex justify-between items-center gap-4 hover:bg-slate-50/80 transition-colors"
                 >
-                  <span className="font-serif text-base sm:text-lg font-bold text-slate-900">
+                  <span itemProp="name" className="font-serif text-base sm:text-lg font-bold text-slate-900">
                     {item.q}
                   </span>
-                  <div className={`p-1.5 rounded-full bg-slate-100 text-slate-600 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 bg-gold-100 text-gold-700' : ''}`}>
+                  <div className={`p-1.5 rounded-full bg-slate-100 text-slate-600 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 bg-turkish-100 text-turkish-700' : ''}`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-5 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/40 animate-fadeIn">
-                    {item.a}
+                  <div 
+                    itemScope 
+                    itemProp="acceptedAnswer" 
+                    itemType="https://schema.org/Answer" 
+                    className="px-6 pb-5 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50/40 animate-fadeIn"
+                  >
+                    <div itemProp="text">
+                      {item.a}
+                    </div>
                   </div>
                 )}
               </div>

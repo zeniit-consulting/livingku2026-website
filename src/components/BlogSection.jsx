@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import BlogModal from './BlogModal';
 
-export default function BlogSection({ t, lang }) {
+export default function BlogSection({ t, lang, hideHeader = false }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Semua Kategori');
   const [activePost, setActivePost] = useState(null);
@@ -32,20 +32,22 @@ export default function BlogSection({ t, lang }) {
   });
 
   return (
-    <section id="blog" className="py-20 bg-white border-b border-slate-200 scroll-mt-20">
+    <section id="blog" className={`${hideHeader ? 'py-10' : 'py-20'} bg-white border-b border-slate-200 scroll-mt-20`}>
       <div className="wp-container">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-50 px-3 py-1 rounded-full inline-block mb-3">
-            {t.blog.badge}
-          </span>
-          <h2 className="wp-section-title text-slate-900 mb-4">
-            {t.blog.title}
-          </h2>
-          <p className="wp-section-subtitle mx-auto">
-            {t.blog.subtitle}
-          </p>
-        </div>
+        {!hideHeader && (
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-xs font-bold uppercase tracking-widest text-gold-600 bg-gold-50 px-3 py-1 rounded-full inline-block mb-3">
+              {t.blog.badge}
+            </span>
+            <h2 className="wp-section-title text-slate-900 mb-4">
+              {t.blog.title}
+            </h2>
+            <p className="wp-section-subtitle mx-auto">
+              {t.blog.subtitle}
+            </p>
+          </div>
+        )}
 
         {/* WordPress Search & Filter Toolbar */}
         <div className="max-w-4xl mx-auto mb-12 flex flex-col md:flex-row items-center justify-between gap-4">

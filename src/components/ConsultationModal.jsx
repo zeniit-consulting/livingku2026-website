@@ -29,7 +29,8 @@ export default function ConsultationModal({ isOpen, onClose, t, initialService, 
 - Layanan: ${service}
 - Keterangan: ${notes || '-'}`;
 
-  const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = `https://wa.me/628970065402?text=${encodeURIComponent(whatsappMessage)}`;
+  const directWhatsappUrl = 'https://wa.me/628970065402?text=Halo+Livingku%2C+saya+tertarik+dengan+properti+di+Livingku+dan+ingin+bertanya+lebih+lanjut.';
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex justify-center items-center p-4 animate-fadeIn">
@@ -151,7 +152,7 @@ export default function ConsultationModal({ isOpen, onClose, t, initialService, 
                 </button>
 
                 <a
-                  href={whatsappUrl}
+                  href={directWhatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs text-center flex items-center justify-center gap-2 transition-colors"

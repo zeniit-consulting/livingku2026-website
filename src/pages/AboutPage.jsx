@@ -21,33 +21,16 @@ export default function AboutPage({ t, lang, onOpenConsultation }) {
 
   return (
     <div className="bg-slate-50 min-h-screen">
-      {/* Breadcrumb */}
+      {/* Clean Breadcrumb Navigation */}
       <Breadcrumb items={breadcrumbs} homeLabel={t.nav.home} />
 
-      {/* Header */}
-      <section className="py-14 bg-white border-b border-slate-200 relative overflow-hidden">
-        <div 
-          className="absolute inset-0 opacity-5 pointer-events-none"
-          style={{
-            backgroundImage: `radial-gradient(#0ea8a4 1px, transparent 1px)`,
-            backgroundSize: '24px 24px'
-          }}
-        />
-        <div className="wp-container relative z-10 text-center max-w-3xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-widest text-gold-700 bg-gold-100/80 px-3 py-1 rounded-full inline-block mb-3 border border-gold-300">
-            {about.badge}
-          </span>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-            {about.title}
-          </h1>
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-light">
-            {about.subtitle}
-          </p>
-        </div>
-      </section>
+      {/* Screen reader & crawler primary semantic heading */}
+      <h1 className="sr-only">
+        {lang === 'id' ? 'Tentang LivingKu — Firma Terpadu Arsitektur, Kontraktor & Legalitas Bisnis' : 'About LivingKu — Integrated Architecture, Contracting & Business Licensing'}
+      </h1>
 
       {/* Story & Philosophy */}
-      <section className="py-16 bg-white border-b border-slate-200">
+      <section className="py-12 bg-white border-b border-slate-200">
         <div className="wp-container max-w-4xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-4">

@@ -30,11 +30,11 @@ export default function Footer({ t, lang }) {
               <img 
                 src="/images/logo-white.png" 
                 alt="LivingKu" 
-                width="150"
-                height="44"
+                width="225"
+                height="66"
                 loading="lazy"
                 decoding="async"
-                className="h-9 sm:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
+                className="h-[54px] sm:h-[60px] w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
               />
             </Link>
 
@@ -42,18 +42,30 @@ export default function Footer({ t, lang }) {
               {t.footer.about}
             </p>
 
-            <div className="pt-2 text-xs space-y-1.5 text-slate-400">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-gold-500 shrink-0" />
-                <span>Jakarta: SCBD District 8 | Bali: Sunset Road Seminyak</span>
+            <div className="pt-2 text-xs space-y-2 text-slate-400">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-3.5 h-3.5 text-turkish-400 shrink-0 mt-0.5" />
+                <span>Jalan Kusuma Bangsa VII No. 71 Denpasar</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-gold-500 shrink-0" />
-                <span>+62 812-3456-7890 / +62 21 5088 9120</span>
+                <Phone className="w-3.5 h-3.5 text-turkish-400 shrink-0" />
+                <a 
+                  href="https://wa.me/628970065402?text=Halo+Livingku%2C+saya+tertarik+dengan+properti+di+Livingku+dan+ingin+bertanya+lebih+lanjut."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-turkish-300 transition-colors"
+                >
+                  +62 897-0065-402
+                </a>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-gold-500 shrink-0" />
-                <span>consult@livingku.com</span>
+                <Mail className="w-3.5 h-3.5 text-turkish-400 shrink-0" />
+                <a 
+                  href="mailto:hello@livingku.id" 
+                  className="hover:text-turkish-300 transition-colors"
+                >
+                  hello@livingku.id
+                </a>
               </div>
             </div>
           </div>
@@ -159,6 +171,10 @@ export default function Footer({ t, lang }) {
             <Link to="/tentang-kami" className="hover:text-gold-400 transition-colors">{t.footer.privacy}</Link>
             <span>•</span>
             <Link to="/tentang-kami" className="hover:text-gold-400 transition-colors">{t.footer.terms}</Link>
+            <span>•</span>
+            <Link to="/cms" className="hover:text-turkish-400 text-slate-500 font-medium transition-colors" title="Akses CMS Portal">
+              CMS Admin
+            </Link>
             <span>•</span>
             <button
               type="button"
