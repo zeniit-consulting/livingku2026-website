@@ -18,5 +18,5 @@ User-agent: Bingbot
 Allow: /
 
 # Canonical XML Sitemap & RSS Feed
-Sitemap: https://livingku.com/sitemap.xml
-Sitemap: https://livingku.com/feed.xml
+Sitemap: https://livingku.id/sitemap.xml
+Sitemap: https://livingku.id/feed.xml

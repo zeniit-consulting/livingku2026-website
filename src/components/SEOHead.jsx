@@ -126,7 +126,7 @@ export default function SEOHead({ lang = 'id' }) {
     if (ogDesc) ogDesc.setAttribute('content', currentSEO.description);
 
     let ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute('content', `https://livingku.com${path}`);
+    if (ogUrl) ogUrl.setAttribute('content', `https://livingku.id${path}`);
 
     // 5. Dynamic Twitter
     let twTitle = document.querySelector('meta[name="twitter:title"]');
@@ -138,7 +138,7 @@ export default function SEOHead({ lang = 'id' }) {
     // 6. Dynamic Canonical Link
     let canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
-      canonical.setAttribute('href', `https://livingku.com${path === '/' ? '' : path}`);
+      canonical.setAttribute('href', `https://livingku.id${path === '/' ? '' : path}`);
     }
   }, [path, currentSEO, lang]);
 
