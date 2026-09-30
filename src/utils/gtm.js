@@ -33,6 +33,11 @@ export const trackPageView = (path, title) => {
     page_path: path,
     page_title: title || document.title,
   });
+
+  // Track Meta Pixel PageView on SPA route transition
+  if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+    window.fbq('track', 'PageView');
+  }
 };
 
 /**
@@ -46,6 +51,14 @@ export const trackWhatsAppLead = (source, serviceName = '') => {
     lead_source: source,
     service_name: serviceName,
   });
+
+  // Track Meta Pixel Lead event for WhatsApp CTA clicks
+  if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+    window.fbq('track', 'Lead', {
+      content_name: serviceName || 'WhatsApp Consultation',
+      content_category: source,
+    });
+  }
 };
 
 /**
@@ -58,4 +71,13 @@ export const trackRABCalculation = (buildingType, estimatedTotal) => {
     building_type: buildingType,
     estimated_amount: estimatedTotal,
   });
+
+  // Track Meta Pixel custom event for RAB Calculation
+  if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+    window.fbq('trackCustom', 'CalculateRAB', {
+      building_type: buildingType,
+      value: estimatedTotal,
+      currency: 'IDR',
+    });
+  }
 };
